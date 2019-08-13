@@ -95,4 +95,6 @@ public class Place {
     }
     //Ta metoda może się nam przydać w dalszej pracy
     private static final Path PLACES_PATH = Paths.get("./src/main/database/PlacesDatabase.xml");
+
+
 }
