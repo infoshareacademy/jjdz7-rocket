@@ -1,7 +1,11 @@
 package main;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class Place {
 
+    private int id;
     private String name;
     private String street;
     private String city;
@@ -9,7 +13,8 @@ public class Place {
     private int quantityGames;
     private boolean isOpen;
 
-    public Place(String name, String street, String city, int quantityPlaces, int quantityGames, boolean isOpen) {
+    public Place(int id, String name, String street, String city, int quantityPlaces, int quantityGames, boolean isOpen) {
+        this.id = id;
         this.name = name;
         this.street = street;
         this.city = city;
@@ -17,7 +22,14 @@ public class Place {
         this.quantityGames = quantityGames;
         this.isOpen = isOpen;
     }
-//gettery
+
+    //gettery
+
+
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -42,6 +54,11 @@ public class Place {
         return isOpen;
     }
 //settery
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -69,11 +86,13 @@ public class Place {
     public String getAdress(){
         return street + city;
     }
-
-    public String ckeckGames(){
+// Ta metoda może się przydać przy ustalaniu wydarzenia.
+// Jeżeli w danym lokalu nie będzie gier to wyświetli się informacja o potrzebie przyniesienia gier
+    public String checkGames(){
         if (quantityGames == 0){
             return "You need games";
         }
     }
-
+    //Ta metoda może się nam przydać w dalszej pracy
+    private static final Path PLACES_PATH = Paths.get("./src/main/database/PlacesDatabase.xml");
 }
