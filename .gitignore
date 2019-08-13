@@ -10,9 +10,6 @@
 # When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
  auto-import.
- .idea/modules.xml
- .idea/*.iml
- .idea/modules
  *.ipr
 
 # CMake
@@ -32,8 +29,7 @@ out/
 # JIRA plugin
 atlassian-ide-plugin.xml
 
-# Cursive Clojure plugin
-.idea/replstate.xml
+
 
 # Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
@@ -41,11 +37,7 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-# Editor-based Rest Client
-.idea/httpRequests
 
-# Android studio 3.1+ serialized cache file
-.idea/caches/build_file_checksums.ser
 
 ### Java template
 # Compiled class file
