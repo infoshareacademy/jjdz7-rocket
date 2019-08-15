@@ -83,18 +83,15 @@ public class Place {
         isOpen = open;
     }
 
-    public String getAdress(){
+    public String getAdress() {
         return street + city;
     }
-// Ta metoda może się przydać przy ustalaniu wydarzenia.
-// Jeżeli w danym lokalu nie będzie gier to wyświetli się informacja o potrzebie przyniesienia gier
-    public String checkGames(){
-        if (quantityGames == 0){
+
+        // Ta metoda może się przydać przy ustalaniu wydarzenia.
+        // Jeżeli w danym lokalu nie będzie gier to wyświetli się informacja o potrzebie przyniesienia gier
+    public String checkGames() {
+        if (quantityGames == 0) {
             return "You need games";
         }
     }
-    //Ta metoda może się nam przydać w dalszej pracy
-    private static final Path PLACES_PATH = Paths.get("./src/main/database/PlacesDatabase.xml");
-
-
 }

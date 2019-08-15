@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.List;
 import java.util.Scanner;
 
 public class Util {
@@ -21,5 +22,8 @@ public class Util {
         Files.write(path, content, writeOption);
     }
 
+    //Ta metoda przyda sie do odczytywania dnaych z pliku
+    public static List<String> readFileContent(Path path) throws IOException {
+        return Files.readAllLines(path);
 
 }
