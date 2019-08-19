@@ -93,6 +93,4 @@ public class Game {
     // JJDZTR-9 n/d
     // JJDZTR-10
     public void addToFavourites(){} // dodać grę do ulubionych - lista przechowywana w oddzielnym pliku
-
-
 }
