@@ -84,7 +84,7 @@ public class Place {
     }
 
     public String getAdress() {
-        return street + city;
+        return street + " " + city;
     }
 
         // Ta metoda może się przydać przy ustalaniu wydarzenia.
