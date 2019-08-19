@@ -5,6 +5,8 @@ public class Game {
      * Class that represents a Board Game - tabletop game that involves counters or pieces moved or placed on a
      * pre-marked surface or "board", according to a set of rules.
      */
+
+    // Fields - more than needed
     private String gameName;
     private String gameType;
     private String gameCreator;
@@ -17,7 +19,6 @@ public class Game {
     private int minAge;
     boolean isAdvanced;
 
-
      // Class constructors
 
     public Game() {
@@ -28,7 +29,7 @@ public class Game {
         this.gameType = gameType;
     }
 
-    // Getters and Setters
+    // Getters and Setters for all fields
 
     public String getGameName() { return gameName; }
 
@@ -74,6 +75,24 @@ public class Game {
 
     public void setAdvanced(boolean advanced) { isAdvanced = advanced; }
 
-    //TODO: Methods
+    // JJDZTR-2 zakładam, że w klasie typu "UTIL" będą metody do załadowywania plików z danymi na temat gier
+    // JJDZTR-3 j/w
+    // JJDZTR-4 n/d
+    // JJDZTR-5 n/d
+    // JJDZTR-6 n/d
+    // JJDZTR-7 - draft / propozycje metod
+
+    public void gameList(){} // zobaczyć listę gier znajdujących się w systemie
+    public <T> void gameFilter(T filter){} // filtrowanie wg. typu gry oraz ilości graczy
+    public void findGame(String keyword){} // wyszukiwanie gier po nazwie
+
+    // JJDZTR-8 - draft / propozycje metod
+    public void showFavourites(){} // podejrzeć listę ulubionych gier
+    public void removeFromFavourites(){} // usunąć grę z listy ulubionych gier
+
+    // JJDZTR-9 n/d
+    // JJDZTR-10
+    public void addToFavourites(){} // dodać grę do ulubionych - lista przechowywana w oddzielnym pliku
+
 
 }
