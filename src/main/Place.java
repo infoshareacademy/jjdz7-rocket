@@ -13,17 +13,10 @@ public class Place {
     private int quantityGames;
     private boolean isOpen;
 
-    public Place(int id, String name, String street, String city, int quantityPlaces, int quantityGames, boolean isOpen) {
-        this.id = id;
-        this.name = name;
-        this.street = street;
-        this.city = city;
-        this.quantityPlaces = quantityPlaces;
-        this.quantityGames = quantityGames;
-        this.isOpen = isOpen;
-    }
 
-    //gettery
+    public Place() {
+    }
+//gettery
 
 
     public int getId() {
