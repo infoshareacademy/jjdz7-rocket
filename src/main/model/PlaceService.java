@@ -1,4 +1,6 @@
-package main;
+package main.model;
+
+import main.model.Place;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -20,7 +22,7 @@ public class PlaceService {
 
     public void addPlaces(Place place) throws IOException {
         String placeString = place.toString() + "\n";
-        Util.writeToFile(PLACES_PATH, placeString.getBytes());
+        Util.Util.writeToFile(PLACES_PATH, placeString.getBytes());
     }
 
 }

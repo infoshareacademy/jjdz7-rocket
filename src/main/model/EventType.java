@@ -1,4 +1,4 @@
-package main.event;
+package main.model;
 
 public enum EventType {
     CONVENTION,

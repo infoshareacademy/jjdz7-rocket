@@ -1,6 +1,4 @@
-package main;
-
-import Geek.Geek;
+package main.menu;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Geek;
+package main.menu;
 
 public class Geek {
     public Geek(String geek) {
