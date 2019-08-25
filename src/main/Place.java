@@ -14,7 +14,7 @@ public class Place {
     private boolean isOpen;
 
 
-    public Place() {
+    public Place(int id, String name, String street, String city, int quntityPlaces, int quantityGames, boolean isOpen) {
     }
 //gettery
 
@@ -86,5 +86,7 @@ public class Place {
         if (quantityGames == 0) {
             return "You need games";
         }
+
+        return "";
     }
 }
