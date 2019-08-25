@@ -1,4 +1,4 @@
-package main.event;
+package main.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -8,13 +8,13 @@ public class Event {
     private String eventName;
     private EventType eventType;
     private String eventDescription;
-    private main.Game gameName;
+    private Game gameName;
     private int playersNumber;
     private LocalDate eventDate;
     private LocalTime eventTime;
-    private main.Place eventPlace;
+    private Place eventPlace;
 
-    public Event(String eventName, EventType eventType, String eventDescription, main.Game gameName, int playersNumber, LocalDate eventDate, LocalTime eventTime, main.Place eventPlace) {
+    public Event(String eventName, EventType eventType, String eventDescription, Game gameName, int playersNumber, LocalDate eventDate, LocalTime eventTime, Place eventPlace) {
         this.eventName = eventName;
         this.eventType = eventType;
         this.eventDescription = eventDescription;
@@ -25,7 +25,7 @@ public class Event {
         this.eventPlace = eventPlace;
     }
 
-    public Event(String eventName, LocalDate eventDate, LocalTime eventTime, main.Place eventPlace) {
+    public Event(String eventName, LocalDate eventDate, LocalTime eventTime, Place eventPlace) {
         this.eventName = eventName;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
@@ -44,7 +44,7 @@ public class Event {
         return eventDescription;
     }
 
-    public main.Game getGameName() {
+    public Game getGameName() {
         return gameName;
     }
 
@@ -60,7 +60,7 @@ public class Event {
         return eventTime;
     }
 
-    public main.Place getEventPlace() {
+    public Place getEventPlace() {
         return eventPlace;
     }
 
@@ -69,7 +69,7 @@ public class Event {
         this.eventDescription = eventDescription;
     }
 
-    public void setGameName(main.Game gameName) {
+    public void setGameName(Game gameName) {
         this.gameName = gameName;
     }
 

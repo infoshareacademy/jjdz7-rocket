@@ -1,4 +1,4 @@
-package Geek;
+package main.model;
 
 
 import Util.Util;
