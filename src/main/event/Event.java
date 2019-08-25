@@ -1,4 +1,4 @@
-package Event;
+package main.event;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
