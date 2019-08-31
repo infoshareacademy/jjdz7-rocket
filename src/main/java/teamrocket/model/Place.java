@@ -1,7 +1,4 @@
-package main.model;
-
-import java.nio.file.Path;
-import java.nio.file.Paths;
+package teamrocket.model;
 
 public class Place {
 
