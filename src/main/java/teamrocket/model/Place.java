@@ -8,12 +8,12 @@ public class Place {
     private String city;
     private int quantityPlaces;
     private int quantityGames;
-    private boolean isOpen;
 
-
-    public Place(int id, String name, String street, String city, int quntityPlaces, int quantityGames, boolean isOpen) {
+    public Place() {
     }
-//gettery
+
+
+    //gettery
 
 
     public int getId() {
@@ -40,9 +40,6 @@ public class Place {
         return quantityGames;
     }
 
-    public boolean isOpen() {
-        return isOpen;
-    }
 //settery
 
     public void setId(int id) {
@@ -69,16 +66,12 @@ public class Place {
         this.quantityGames = quantityGames;
     }
 
-    public void setOpen(boolean open) {
-        isOpen = open;
-    }
-
     public String getAdress() {
         return street + " " + city;
     }
 
-        // Ta metoda może się przydać przy ustalaniu wydarzenia.
-        // Jeżeli w danym lokalu nie będzie gier to wyświetli się informacja o potrzebie przyniesienia gier
+    // Ta metoda może się przydać przy ustalaniu wydarzenia.
+    // Jeżeli w danym lokalu nie będzie gier to wyświetli się informacja o potrzebie przyniesienia gier
     public String checkGames() {
         if (quantityGames == 0) {
             return "You need games";
