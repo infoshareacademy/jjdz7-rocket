@@ -1,23 +1,36 @@
 package teamrocket.model;
 
+import teamrocket.util.Util;
+
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
 public class Game {
     /**
      * Class that represents a Board Game - tabletop game that involves counters or pieces moved or placed on a
      * pre-marked surface or "board", according to a set of rules.
      */
 
+/*
+    private static final Path GAMEREPO_PATH = Paths.get("./src/main/java/teamrocket/repositories/gameRepoSeba.csv");
+    private static final String DELIMITER = ",";
+
     // Fields - more than needed
     private String gameName;
     private String gameType;
     private String gameCreator;
     private String gameDistributor;
-    private int minPlayers;
-    private int maxPlayers;
-    private int minTime;
-    private int maxTime;
-    private int avgTime;
-    private int minAge;
+    private String minPlayers;
+    private String maxPlayers;
+    private String minAge;
+    private String minTime;
+    private String maxTime;
+    private String avgTime;
     boolean isAdvanced;
+
+
 
      // Class constructors
 
@@ -29,47 +42,33 @@ public class Game {
         this.gameType = gameType;
     }
 
+    public Game(String gameName, String gameType, GameProperties gameProperties){
+        this.gameName = gameName;
+        this.gameType = gameType;
+    }
+
+    public Game(String formattedGame) {
+        if(formattedGame.contains(DELIMITER)){
+            String[] splitGameParameters = formattedGame.split(DELIMITER);
+            this.gameName = splitGameParameters[0];
+            this.gameType = splitGameParameters[1];
+            this.gameCreator = splitGameParameters[2];
+            this.gameDistributor = splitGameParameters[3];
+            this.minPlayers = splitGameParameters [4];
+            this.maxPlayers = splitGameParameters[5];
+            this.minAge = splitGameParameters[6];
+            this.minTime = splitGameParameters[7];
+            this.maxTime = splitGameParameters[8];
+            this.avgTime = splitGameParameters[9];
+        }
+    }
+
     // Getters and Setters for all fields
 
     public String getGameName() { return gameName; }
 
-    public void setGameName(String gameName) { this.gameName = gameName; }
-
     public String getGameType() { return gameType; }
 
-    public void setGameType(String gameType) { this.gameType = gameType; }
-
-    public String getGameCreator() { return gameCreator; }
-
-    public void setGameCreator(String gameCreator) { this.gameCreator = gameCreator; }
-
-    public String getGameDistributor() { return gameDistributor; }
-
-    public void setGameDistributor(String gameDistributor) { this.gameDistributor = gameDistributor; }
-
-    public int getMinPlayers() { return minPlayers; }
-
-    public void setMinPlayers(int minPlayers) { this.minPlayers = minPlayers; }
-
-    public int getMaxPlayers() { return maxPlayers; }
-
-    public void setMaxPlayers(int maxPlayers) { this.maxPlayers = maxPlayers; }
-
-    public int getAvgTime() { return avgTime; }
-
-    public void setAvgTime(int avgTime) { this.avgTime = avgTime; }
-
-    public int getMinAge() { return minAge; }
-
-    public void setMinAge(int minAge) { this.minAge = minAge; }
-
-    public int getMinTime() { return minTime; }
-
-    public void setMinTime(int minTime) { this.minTime = minTime; }
-
-    public int getMaxTime() { return maxTime; }
-
-    public void setMaxTime(int maxTime) { this.maxTime = maxTime; }
 
     public boolean isAdvanced() { return isAdvanced; }
 
@@ -82,7 +81,18 @@ public class Game {
     // JJDZTR-6 n/d
     // JJDZTR-7 - draft / propozycje metod
 
-    public void gameList(){} // zobaczyć listę gier znajdujących się w systemie
+    // zobaczyć listę gier znajdujących się w systemie
+    public Game[] showGames() throws IOException {
+        List<String> gameList = Util.readFileContent(GAMEREPO_PATH);
+        Game[] gamesArray = new Game[gameList.size()];
+        for(int i = 0 ; i < gamesArray.length ; i++){
+            gamesArray[i] = new Game(gameList.get(i));
+            System.out.println(gameList.get(i));
+        }
+        return gamesArray;
+    }
+
+
     public <T> void gameFilter(T filter){} // filtrowanie wg. typu gry oraz ilości graczy
     public void findGame(String keyword){} // wyszukiwanie gier po nazwie
 
@@ -93,4 +103,7 @@ public class Game {
     // JJDZTR-9 n/d
     // JJDZTR-10
     public void addToFavourites(){} // dodać grę do ulubionych - lista przechowywana w oddzielnym pliku
+
+ */
 }
+
