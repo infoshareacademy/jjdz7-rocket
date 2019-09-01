@@ -2,12 +2,12 @@ package teamrocket.model;
 
 public class Place {
 
-    private int id;
-    private String name;
-    private String street;
-    private String city;
-    private int quantityPlaces;
-    private int quantityGames;
+    private int placeID;
+    private String placeName;
+    private String placeStreet;
+    private String placeCity;
+    private int quantityPlacesOfPlace;
+    private int quantityGamesOfPlace;
 
     public Place() {
     }
@@ -16,64 +16,64 @@ public class Place {
     //gettery
 
 
-    public int getId() {
-        return id;
+    public int getPlaceID() {
+        return placeID;
     }
 
-    public String getName() {
-        return name;
+    public String getPlaceName() {
+        return placeName;
     }
 
-    public String getStreet() {
-        return street;
+    public String getPlaceStreet() {
+        return placeStreet;
     }
 
-    public String getCity() {
-        return city;
+    public String getPlaceCity() {
+        return placeCity;
     }
 
-    public int getQuantityPlaces() {
-        return quantityPlaces;
+    public int getQuantityPlacesOfPlace() {
+        return quantityPlacesOfPlace;
     }
 
-    public int getQuantityGames() {
-        return quantityGames;
+    public int getQuantityGamesOfPlace() {
+        return quantityGamesOfPlace;
     }
 
 //settery
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPlaceID(int placeID) {
+        this.placeID = placeID;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPlaceName(String placeName) {
+        this.placeName = placeName;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setPlaceStreet(String placeStreet) {
+        this.placeStreet = placeStreet;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setPlaceCity(String placeCity) {
+        this.placeCity = placeCity;
     }
 
-    public void setQuantityPlaces(int quantityPlaces) {
-        this.quantityPlaces = quantityPlaces;
+    public void setQuantityPlacesOfPlace(int quantityPlacesOfPlace) {
+        this.quantityPlacesOfPlace = quantityPlacesOfPlace;
     }
 
-    public void setQuantityGames(int quantityGames) {
-        this.quantityGames = quantityGames;
+    public void setQuantityGamesOfPlace(int quantityGamesOfPlace) {
+        this.quantityGamesOfPlace = quantityGamesOfPlace;
     }
 
     public String getAdress() {
-        return street + " " + city;
+        return placeStreet + " " + placeCity;
     }
 
     // Ta metoda może się przydać przy ustalaniu wydarzenia.
     // Jeżeli w danym lokalu nie będzie gier to wyświetli się informacja o potrzebie przyniesienia gier
     public String checkGames() {
-        if (quantityGames == 0) {
+        if (quantityGamesOfPlace == 0) {
             return "You need games";
         }
 
