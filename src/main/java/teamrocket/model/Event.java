@@ -1,4 +1,4 @@
-package main.model;
+package teamrocket.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

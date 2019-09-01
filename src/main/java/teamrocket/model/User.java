@@ -1,4 +1,4 @@
-package model;
+package teamrocket.model;
 
 public class User {
     private static final String DELIMITER = " ! ";

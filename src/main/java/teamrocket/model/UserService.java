@@ -1,9 +1,6 @@
-package main.model;
+package teamrocket.model;
 
-
-import Util.Util;
-import model.User;
-
+import teamrocket.util.Util;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;

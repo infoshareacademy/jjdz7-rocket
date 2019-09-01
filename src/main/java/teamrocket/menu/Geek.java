@@ -1,4 +1,4 @@
-package main.menu;
+package teamrocket.menu;
 
 public class Geek {
     public Geek(String geek) {

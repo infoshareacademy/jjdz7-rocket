@@ -1,4 +1,4 @@
-package main.model;
+package teamrocket.model;
 
 public enum EventType {
     CONVENTION,

@@ -1,4 +1,4 @@
-package main.menu;
+package teamrocket.menu;
 
 import java.util.Scanner;
 
