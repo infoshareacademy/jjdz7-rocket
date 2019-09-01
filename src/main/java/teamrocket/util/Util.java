@@ -1,4 +1,4 @@
-package Util;
+package teamrocket.util;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,7 +21,7 @@ public class Util {
     }
 
     public static List<String> readFileContent(Path path) throws IOException {
-        return Files.readAllLines ( path );
+        return Files.readAllLines( path );
     }
 
     public static String readInputWithMessage(String message) {

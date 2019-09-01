@@ -1,10 +1,10 @@
-package main.model;
+package teamrocket.model;
 
-import main.model.Place;
-
+import teamrocket.util.Util;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
 
 public class PlaceService {
 
@@ -22,7 +22,7 @@ public class PlaceService {
 
     public void addPlaces(Place place) throws IOException {
         String placeString = place.toString() + "\n";
-        Util.Util.writeToFile(PLACES_PATH, placeString.getBytes());
+        Util.writeToFile(PLACES_PATH, placeString.getBytes());
     }
 
 }
