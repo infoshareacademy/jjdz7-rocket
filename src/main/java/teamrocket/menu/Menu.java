@@ -12,8 +12,8 @@ public class Menu {
 
             teamrocket.App myGeek = new App ("Geek");
             System.out.println("### Command Options ### ");
-            System.out.println ( "1: ###### GAME #####" );
-            System.out.println ( "2: search for user" );
+            System.out.println ( "1: search for user" );
+            System.out.println ( "2: ##### GAME #####" );
             System.out.println ( "3: ##### EVENT #####" );
             System.out.println ( "4: ...");
             System.out.println ( "5: Register" );
@@ -23,7 +23,7 @@ public class Menu {
             String choice = scan.nextLine();
             do {
                 switch (choice) {
-                    case "2": {
+                    case "1": {
                         Scanner scanner = new Scanner ( "Git" );
                         System.out.println ( "1: Search tools by Name" );
                         System.out.println ( "2: Search for player by name" );
@@ -49,7 +49,7 @@ public class Menu {
                         }
                     }
 
-                    case "1":
+                    case "2":
                         System.out.println ( "Game" );
                         String word1 = scan.nextLine();
                         System.out.println ( "game type" );
