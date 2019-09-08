@@ -17,11 +17,11 @@ public class App {
 
     public void repeat() {
     //TODO
-        
+
     }
 
     public void getName() {
-        
+
     }
 
     public void repeat(String word1, int numberOfTimes) {
