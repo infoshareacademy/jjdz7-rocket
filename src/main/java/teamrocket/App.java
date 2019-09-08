@@ -1,5 +1,10 @@
 package teamrocket;
 
+;
+
+
+import teamrocket.menu.Menu;
+
 import java.io.IOException;
 
 /**
@@ -8,7 +13,29 @@ import java.io.IOException;
  */
 public class App 
 {
-    public static void main( String[] args ) throws IOException {
-        System.out.println("Hello World!");
+    public App(String geek) throws IOException {
+}
+
+
+    public static void main(String[] args ) throws IOException {
+        new Menu ().start ();
+    }
+
+    public void repeat() {
+    //TODO
+        
+    }
+
+    public void getName() {
+        
+    }
+
+    public void repeat(String word1, int numberOfTimes) {
+    }
+
+    public void sum(int num1, int num2) {
+    }
+
+    public void isPalindrome() {
     }
 }
