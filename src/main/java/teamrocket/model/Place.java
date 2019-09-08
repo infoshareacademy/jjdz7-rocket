@@ -9,11 +9,10 @@ public class Place {
     private int quantityPlacesOfPlace;
     private int quantityGamesOfPlace;
 
+
     public Place() {
     }
-
-
-    //gettery
+//gettery
 
 
     public int getPlaceID() {
