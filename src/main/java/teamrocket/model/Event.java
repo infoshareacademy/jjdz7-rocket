@@ -5,31 +5,38 @@ import java.time.LocalTime;
 
 public class    Event {
 
+    private static final String DELIMITER = " ! ";
+
     private String eventName;
     private EventType eventType;
     private String eventDescription;
-    private Game gameName;
+    private String gameName;
     private int playersNumber;
     private LocalDate eventDate;
-    private LocalTime eventTime;
-    private Place eventPlace;
+    private LocalTime eventStartTime;
+    private LocalTime eventEndTime;
+//    private String eventPlaceName;
+    private String eventAddress;
+    private String eventCity;
 
-    public Event(String eventName, EventType eventType, String eventDescription, Game gameName, int playersNumber, LocalDate eventDate, LocalTime eventTime, Place eventPlace) {
-        this.eventName = eventName;
-        this.eventType = eventType;
-        this.eventDescription = eventDescription;
-        this.gameName = gameName;
-        this.playersNumber = playersNumber;
-        this.eventDate = eventDate;
-        this.eventTime = eventTime;
-        this.eventPlace = eventPlace;
+
+    public Event() {
     }
 
-    public Event(String eventName, LocalDate eventDate, LocalTime eventTime, Place eventPlace) {
-        this.eventName = eventName;
-        this.eventDate = eventDate;
-        this.eventTime = eventTime;
-        this.eventPlace = eventPlace;
+    public Event(String formattedEvent) {
+        if (formattedEvent.contains ( DELIMITER )) {
+            String[] splitEventParameters = formattedEvent.split ( DELIMITER );
+            this.eventName = splitEventParameters[0];
+            this.eventType = splitEventParameters[1];
+            this.eventDescription = splitEventParameters[2];
+            this.gameName = splitEventParameters[3];
+            this.playersNumber = Integer.parseInt(splitEventParameters[4]);
+            this.eventDate = LocalDate.parse(splitEventParameters[5]);
+            this.eventStartTime = LocalTime.parse(splitEventParameters[6]);
+            this.eventEndTime = LocalTime.parse(splitEventParameters[7]);
+            this.eventAddress = splitEventParameters[8];
+            this.eventCity = splitEventParameters[9];
+        }
     }
 
     public String getEventName() {
@@ -44,7 +51,7 @@ public class    Event {
         return eventDescription;
     }
 
-    public Game getGameName() {
+    public String getGameName() {
         return gameName;
     }
 
@@ -56,24 +63,20 @@ public class    Event {
         return eventDate;
     }
 
-    public LocalTime getEventTime() {
-        return eventTime;
+    public LocalTime getEventStartTime() {
+        return eventStartTime;
     }
 
-    public Place getEventPlace() {
-        return eventPlace;
+    public LocalTime getEventEndTime() {
+        return eventEndTime;
     }
 
-
-    public void setEventDescription(String eventDescription) {
-        this.eventDescription = eventDescription;
+    public String getEventAddress() {
+        return eventAddress;
     }
 
-    public void setGameName(Game gameName) {
-        this.gameName = gameName;
-    }
-
-    public void setPlayersNumber(int playersNumber) {
-        this.playersNumber = playersNumber;
+    public String getEventCity() {
+        return eventCity;
     }
 }
+

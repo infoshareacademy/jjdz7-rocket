@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,6 +30,18 @@ public class Util {
         System.out.println ( message );
         return readUserInput ();
     }
+
+
+    public static LocalDate readInputDateWithMessage (String message) {
+        System.out.println(message);
+        return LocalDate.parse(readUserInput());
+    }
+
+    public static LocalTime readInputTimeWithMessage (String message) {
+        System.out.println(message);
+        return LocalTime.parse(readUserInput());
+    }
+
 
     public static String readUserInput() {
         return new Scanner ( System.in ).nextLine ();
