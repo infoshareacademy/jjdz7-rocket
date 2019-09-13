@@ -12,13 +12,12 @@ public class Menu {
 
             teamrocket.App myGeek = new App ("Geek");
             System.out.println("### Command Options ### ");
-            System.out.println ( "1: search for user" );
-            System.out.println ( "2: ##### GAME #####" );
-            System.out.println ( "3: ##### EVENT #####" );
-            System.out.println ( "4: ...");
-            System.out.println ( "5: Register" );
-            System.out.println ( "6: Display");
-            System.out.println ( "q: Quit");
+            System.out.println ( "1: # search for user #" );
+            System.out.println ( "2: ##### GAME    #####" );
+            System.out.println ( "3: ##### EVENT   #####" );
+            System.out.println ( "4: ##### Register ####" );
+            System.out.println ( "5: ##### Display #####");
+            System.out.println ( "q: ##### Quit    #####");
             Scanner scan = new Scanner(System.in);
             String choice = scan.nextLine();
             do {
@@ -60,26 +59,18 @@ public class Menu {
                         System.out.println ( "..." );
                         break;
                     case "4":
-                        System.out.println("...");
-                        int num1 = scan.nextInt();
-                        System.out.println("...");
-                        int num2 = scan.nextInt();
-                        myGeek.sum(num1, num2);
-                        break;
-                    case "5":
                         System.out.println ( "ID Gracza" );
                         String word2 = scan.nextLine();
                         myGeek.isPalindrome ();
                         break;
-                    case "6":
+                    case "5":
                         System.out.println("### Command Options ### ");
-                        System.out.println ( "1: ###### GAME #####" );
-                        System.out.println ( "2: search for user" );
-                        System.out.println ( "3: ##### EVENT #####" );
-                        System.out.println ( "4: ...");
-                        System.out.println ( "5: ...");
-                        System.out.println ( "6: Display");
-                        System.out.println ( "q: Quit");
+                        System.out.println ( "1: # search for user #" );
+                        System.out.println ( "2: ##### GAME    #####" );
+                        System.out.println ( "3: ##### EVENT   #####" );
+                        System.out.println ( "4: ##### Register ####");
+                        System.out.println ( "5: ##### Display #####");
+                        System.out.println ( "q: ##### Quit    #####");
                         break;
                     default:
 

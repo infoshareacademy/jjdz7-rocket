@@ -10,7 +10,7 @@ public class Place {
     private int quantityGamesOfPlace;
 
 
-    public Place() {
+    public Place(int id, String name, String street, String city, int quntityPlaces, int quantityGames, boolean isOpen) {
     }
 //gettery
 
