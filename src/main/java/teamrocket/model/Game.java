@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
 public class Game {
@@ -14,25 +15,27 @@ public class Game {
      * pre-marked surface or "board", according to a set of rules.
      */
 
-    private static final Path GAMEREPO_PATH = Paths.get("./src/main/java/teamrocket/repositories/gameRepoSeba.csv");
-    private static final String DELIMITER = ",";
+    private static final Path GAMEREPO_PATH = Paths.get("./src/main/repositories/GamesRepository.csv");
+    private static final String DELIMITER = ";";
 
-    // Fields - more than needed
     private int id;
     private String gameName;
-    private String gameType;
+    private String gameDesigner;
+    private String gamePublisher;
+    private String gameArtist;
+    private int yearPublished;
     private int minPlayers;
     private int maxPlayers;
+    private int minPlayTime;
+    private int maxPlayTime;
     private int minAge;
-    private int minTime;
-    private int maxTime;
-    private int avgTime;
-    boolean isAdvanced;
-    private String gameCreator;
-    private String gameDistributor;
+    private int bggRank;
+    private double averageWeight;
+    private String category;
+    private String mechanic;
+
 
      // Class constructors
-
     public Game() {
     }
 
@@ -41,15 +44,19 @@ public class Game {
             String[] splitGameParameters = formattedGame.split(DELIMITER);
             this.id = parseInt(splitGameParameters[0]);
             this.gameName = splitGameParameters[1];
-            this.gameType = splitGameParameters[2];
-            this.gameCreator = splitGameParameters[3];
-            this.gameDistributor = splitGameParameters[4];
-            this.minPlayers = parseInt(splitGameParameters[5]);
-            this.maxPlayers = parseInt(splitGameParameters[6]);
-            this.minAge = parseInt(splitGameParameters[7]);
-            this.minTime = parseInt(splitGameParameters[8]);
-            this.maxTime = parseInt(splitGameParameters[9]);
-            this.avgTime = parseInt(splitGameParameters[10]);
+            this.gameDesigner = splitGameParameters[2];
+            this.gamePublisher = splitGameParameters[3];
+            this.gameArtist = splitGameParameters[4];
+            this.yearPublished = parseInt(splitGameParameters[5]);
+            this.minPlayers = parseInt(splitGameParameters[6]);
+            this.maxPlayers = parseInt(splitGameParameters[7]);
+            this.minPlayTime = parseInt(splitGameParameters[8]);
+            this.maxPlayTime = parseInt(splitGameParameters[9]);
+            this.minAge = parseInt(splitGameParameters[10]);
+            this.bggRank = parseInt(splitGameParameters[11]);
+            this.averageWeight = parseDouble(splitGameParameters[12]);
+            this.category = splitGameParameters[13];
+            this.mechanic = splitGameParameters[14];
         }
     }
 
@@ -59,8 +66,8 @@ public class Game {
         return gameName;
     }
 
-    public String getGameType() {
-        return gameType;
+    public String getCategory() {
+        return category;
     }
 
     public int getMinPlayers() {
@@ -82,19 +89,19 @@ public class Game {
     }
 
     // zobaczyć listę gier znajdujących się w systemie
-    public Game[] showGames() throws IOException {
+    public static Game[] showGames() throws IOException {
         System.out.println("GAME_ID  |" +
-                " GAME_NAME                   " +
-                "| GAME_TYPE                   " +
-                "| NUMBER_OF_PLAYERS");
+                " GAME_NAME                                                                                         " +
+                "| NUMBER_OF_PLAYERS           " +
+                "| GAME_TYPE ");
         List<String> gameList = Util.readFileContent(GAMEREPO_PATH);
         Game[] gamesArray = new Game[gameList.size()];
         for(int i = 0 ; i < gamesArray.length ; i++){
             gamesArray[i] = new Game(gameList.get(i));
             System.out.print(gamesArray[i].addSpaces(10, String.valueOf(gamesArray[i].getId())));
-            System.out.print(gamesArray[i].addSpaces(30,gamesArray[i].getGameName()));
-            System.out.print(gamesArray[i].addSpaces(30,gamesArray[i].getGameType()));
-            System.out.print(gamesArray[i].addSpaces(15, getMinPlayers() + " - " + gamesArray[i].getMaxPlayers()));
+            System.out.print(gamesArray[i].addSpaces(100,gamesArray[i].getGameName()));
+            System.out.print(gamesArray[i].addSpaces(30, gamesArray[i].getMinPlayers() + " - " + gamesArray[i].getMaxPlayers()));
+            System.out.print(gamesArray[i].addSpaces(30,gamesArray[i].getCategory()));
             System.out.print("\n");
         }
         return gamesArray;

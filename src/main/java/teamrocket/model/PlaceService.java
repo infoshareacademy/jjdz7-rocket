@@ -14,9 +14,9 @@ public class PlaceService {
 
     //Ta meotda będzie służyć do tworzenia nowego obiektu miejsca np. przy tworzeniu nowego wydarzenia
 
-    public Place createPlaceObject(int id, String name, String street, String city, int quntityPlaces, int quantityGames, boolean isOpen) {
-        return new Place(id, name, street, city, quntityPlaces, quantityGames, isOpen);
-    }
+//    public Place createPlaceObject(int id, String name, String street, String city, int quntityPlaces, int quantityGames, boolean isOpen) {
+////        return new Place(id, name, street, city, quntityPlaces, quantityGames, isOpen);
+//    }
 
     //Metoda służąca dodawaniu miejsc do bazy dancyh miejsc
 
