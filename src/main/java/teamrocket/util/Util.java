@@ -33,4 +33,12 @@ public class Util {
         return new Scanner ( System.in ).nextLine ();
     }
 
+    public static String addSpaces(int i, String str){
+        StringBuilder str1 = new StringBuilder();
+        for(int j=0;j<i-str.length();j++)
+        { str1.append(" "); }
+        str = str + str1;
+        return str;
+    }
+
 }

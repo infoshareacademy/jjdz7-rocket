@@ -4,6 +4,7 @@ import teamrocket.util.Util;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Double.parseDouble;
@@ -33,6 +34,7 @@ public class Game {
     private double averageWeight;
     private String category;
     private String mechanic;
+    private static List<Game> gamesArray = new ArrayList<>();
 
 
      // Class constructors
@@ -80,34 +82,42 @@ public class Game {
 
     // JJDZTR-7 - draft / propozycje metod
 
-    String addSpaces(int i, String str){
-        StringBuilder str1 = new StringBuilder();
-        for(int j=0;j<i-str.length();j++)
-        { str1.append(" "); }
-        str = str + str1;
-        return str;
-    }
+
 
     // zobaczyć listę gier znajdujących się w systemie
-    public static Game[] showGames() throws IOException {
-        System.out.println("GAME_ID  |" +
-                " GAME_NAME                                                                                         " +
-                "| NUMBER_OF_PLAYERS           " +
-                "| GAME_TYPE ");
-        List<String> gameList = Util.readFileContent(GAMEREPO_PATH);
-        Game[] gamesArray = new Game[gameList.size()];
-        for(int i = 0 ; i < gamesArray.length ; i++){
-            gamesArray[i] = new Game(gameList.get(i));
-            System.out.print(gamesArray[i].addSpaces(10, String.valueOf(gamesArray[i].getId())));
-            System.out.print(gamesArray[i].addSpaces(100,gamesArray[i].getGameName()));
-            System.out.print(gamesArray[i].addSpaces(30, gamesArray[i].getMinPlayers() + " - " + gamesArray[i].getMaxPlayers()));
-            System.out.print(gamesArray[i].addSpaces(30,gamesArray[i].getCategory()));
-            System.out.print("\n");
+
+    public static List<Game> createArrayFromRepo() {
+        List<String> gameList = null;
+        try {
+            gameList = Util.readFileContent(GAMEREPO_PATH);
+        } catch (IOException e) {
+            System.out.println("Wrong Path to Repo file or repo doesn't exist");;
+        }
+        for(int i = 0 ; i < gameList.size() ; i++){
+            gamesArray.add(new Game(gameList.get(i)));
         }
         return gamesArray;
     }
 
-    public <T> void gameFilter(T filter){} // filtrowanie wg. typu gry oraz ilości graczy
+    public static void showGames() {
+        System.out.println("GAME_ID  |" +
+                " GAME_NAME                                                                               " +
+                "| NUMBER_OF_PLAYERS           " +
+                "| GAME_TYPE ");
+        for(Game game : gamesArray){
+            System.out.print(Util.addSpaces(10, String.valueOf(game.getId())));
+            System.out.print(Util.addSpaces(90, game.getGameName()));
+            System.out.print(Util.addSpaces(30, game.getMinPlayers() + " - " + game.getMaxPlayers()));
+            System.out.print(Util.addSpaces(30, game.getCategory()));
+            System.out.print("\n");
+        }
+    }
+
+        // Chciałbym mieć możliwość filtrowania wg. typu gry (oraz ilości graczy)
+    public <T> void gameFilter(T filter){
+/*        String keyword = Util.readUserInput();
+        Game[] gamesArray = showGames();*/
+    } // filtrowanie wg. typu gry oraz ilości graczy
     public void findGame(String keyword){} // wyszukiwanie gier po nazwie
 
     // JJDZTR-8 - draft / propozycje metod

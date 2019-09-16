@@ -12,6 +12,7 @@ public class App {
     public static void main(String[] args ) throws IOException {
 //        new Menu ().start ();
         Game game = new Game();
+        game.createArrayFromRepo();
         game.showGames();
     }
 
