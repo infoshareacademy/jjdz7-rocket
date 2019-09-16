@@ -1,11 +1,13 @@
 package teamrocket.model;
 
 import teamrocket.util.Util;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
@@ -37,12 +39,12 @@ public class Game {
     private static List<Game> gamesArray = new ArrayList<>();
 
 
-     // Class constructors
+    // Class constructors
     public Game() {
     }
 
     public Game(String formattedGame) {
-        if(formattedGame.contains(DELIMITER)){
+        if (formattedGame.contains(DELIMITER)) {
             String[] splitGameParameters = formattedGame.split(DELIMITER);
             this.id = parseInt(splitGameParameters[0]);
             this.gameName = splitGameParameters[1];
@@ -62,7 +64,9 @@ public class Game {
         }
     }
 
-    public int getId() { return id; }
+    public int getId() {
+        return id;
+    }
 
     public String getGameName() {
         return gameName;
@@ -80,51 +84,102 @@ public class Game {
         return maxPlayers;
     }
 
-    // JJDZTR-7 - draft / propozycje metod
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Game game = (Game) o;
+        return id == game.id &&
+                yearPublished == game.yearPublished &&
+                minPlayers == game.minPlayers &&
+                maxPlayers == game.maxPlayers &&
+                minPlayTime == game.minPlayTime &&
+                maxPlayTime == game.maxPlayTime &&
+                minAge == game.minAge &&
+                bggRank == game.bggRank &&
+                Double.compare(game.averageWeight, averageWeight) == 0 &&
+                gameName.equals(game.gameName) &&
+                gameDesigner.equals(game.gameDesigner) &&
+                gamePublisher.equals(game.gamePublisher) &&
+                gameArtist.equals(game.gameArtist) &&
+                category.equals(game.category) &&
+                mechanic.equals(game.mechanic);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, gameName, gameDesigner, gamePublisher, gameArtist, yearPublished, minPlayers, maxPlayers, minPlayTime, maxPlayTime, minAge, bggRank, averageWeight, category, mechanic);
+    }
 
-
-    // zobaczyć listę gier znajdujących się w systemie
-
-    public static List<Game> createArrayFromRepo() {
+    public List<Game> createArrayFromRepo() {
         List<String> gameList = null;
         try {
             gameList = Util.readFileContent(GAMEREPO_PATH);
         } catch (IOException e) {
-            System.out.println("Wrong Path to Repo file or repo doesn't exist");;
+            System.out.println("Wrong Path to Repo file or repo doesn't exist");
+            ;
         }
-        for(int i = 0 ; i < gameList.size() ; i++){
+        for (int i = 0; i < gameList.size(); i++) {
             gamesArray.add(new Game(gameList.get(i)));
         }
         return gamesArray;
     }
 
-    public static void showGames() {
+    private void printHeading() {
         System.out.println("GAME_ID  |" +
                 " GAME_NAME                                                                               " +
                 "| NUMBER_OF_PLAYERS           " +
                 "| GAME_TYPE ");
-        for(Game game : gamesArray){
-            System.out.print(Util.addSpaces(10, String.valueOf(game.getId())));
-            System.out.print(Util.addSpaces(90, game.getGameName()));
-            System.out.print(Util.addSpaces(30, game.getMinPlayers() + " - " + game.getMaxPlayers()));
-            System.out.print(Util.addSpaces(30, game.getCategory()));
-            System.out.print("\n");
+    }
+
+    private void printGames(Game game) {
+        System.out.print(Util.addSpaces(10, String.valueOf(game.getId())));
+        System.out.print(Util.addSpaces(90, game.getGameName()));
+        System.out.print(Util.addSpaces(30, game.getMinPlayers() + " - " + game.getMaxPlayers()));
+        System.out.print(Util.addSpaces(30, game.getCategory()));
+        System.out.print("\n");
+    }
+
+    public void showAllGames() {
+        printHeading();
+        for (Game game : gamesArray) {
+            printGames(game);
         }
     }
 
-        // Chciałbym mieć możliwość filtrowania wg. typu gry (oraz ilości graczy)
-    public <T> void gameFilter(T filter){
-/*        String keyword = Util.readUserInput();
-        Game[] gamesArray = showGames();*/
-    } // filtrowanie wg. typu gry oraz ilości graczy
-    public void findGame(String keyword){} // wyszukiwanie gier po nazwie
+    public void filterByGameType() {
+        System.out.println("Type game type by which You would like to filter the database: ");
+        String userInput = Util.readUserInput();
+        printHeading();
+        for (Game game : gamesArray)
+            if (game.getCategory().toLowerCase().contains(userInput.toLowerCase())) printGames(game);
+    }
+
+    public void filterByNumberOfPlayers() {
+        System.out.println("Type the number of Players: ");
+        int userInput = Util.readUserInputInteger();
+        printHeading();
+        for (Game game : gamesArray)
+            if (game.getMinPlayers() <= userInput && game.getMaxPlayers() >= userInput) printGames(game);
+    }
+
+    public void searchGameByName() {
+        System.out.println("SEARCH : ");
+        String userInput = Util.readUserInput();
+        printHeading();
+        for (Game game : gamesArray)
+            if (game.getGameName().toLowerCase().contains(userInput.toLowerCase())) printGames(game);
+    }
 
     // JJDZTR-8 - draft / propozycje metod
-    public void showFavourites(){} // podejrzeć listę ulubionych gier
-    public void removeFromFavourites(){} // usunąć grę z listy ulubionych gier
+    public void showFavourites() {
+    } // podejrzeć listę ulubionych gier
+
+    public void removeFromFavourites() {
+    } // usunąć grę z listy ulubionych gier
 
     // JJDZTR-10
-    public void addToFavourites(){} // dodać grę do ulubionych - lista przechowywana w oddzielnym pliku
+    public void addToFavourites() {
+    } // dodać grę do ulubionych - lista przechowywana w oddzielnym pliku
 }
 

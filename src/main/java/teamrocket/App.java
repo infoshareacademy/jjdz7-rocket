@@ -13,7 +13,12 @@ public class App {
 //        new Menu ().start ();
         Game game = new Game();
         game.createArrayFromRepo();
-        game.showGames();
+/*       TODO: Metody do wrzucenia do menu
+        game.showAllGames();
+        game.searchGameByName();
+        game.filterByGameType();
+        game.filterByNumberOfPlayers();*/
+
     }
 
     public void repeat() {
