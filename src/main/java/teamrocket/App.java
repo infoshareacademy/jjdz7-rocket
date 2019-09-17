@@ -21,7 +21,7 @@ public class App
         new Menu ().start ();
     }
 
-    public void repeat() {
+    public void repeat(int word1) {
     //TODO
 
     }

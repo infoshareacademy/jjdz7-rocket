@@ -8,6 +8,20 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Game {
+    public void createArrayFromRepo() {
+    }
+
+    public void showAllGames() {
+    }
+
+    public void searchGameByName() {
+    }
+
+    public void filterByGameType() {
+    }
+
+    public void filterByNumberOfPlayers() {
+    }
     /**
      * Class that represents a Board Game - tabletop game that involves counters or pieces moved or placed on a
      * pre-marked surface or "board", according to a set of rules.
