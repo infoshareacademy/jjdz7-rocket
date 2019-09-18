@@ -36,7 +36,7 @@ public class Game {
     private double averageWeight;
     private String category;
     private String mechanic;
-    private static List<Game> gamesArray = new ArrayList<> ();
+    private static List<Game> gamesArray = new ArrayList<>();
 
 
     // Class constructors

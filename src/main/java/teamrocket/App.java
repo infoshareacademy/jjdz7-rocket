@@ -1,24 +1,24 @@
 package teamrocket;
 
-;
-
-
+import teamrocket.model.Game;
 import teamrocket.menu.Menu;
-
 import java.io.IOException;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
+public class App {
+
     public App(String geek) throws IOException {
 }
 
-
     public static void main(String[] args ) throws IOException {
-        new Menu ().start ();
+//        new Menu ().start ();
+        Game game = new Game();
+        game.createArrayFromRepo();
+/*       TODO: Metody do wrzucenia do menu
+        game.showAllGames();
+        game.searchGameByName();
+        game.filterByGameType();
+        game.filterByNumberOfPlayers();*/
+
     }
 
     public void repeat(int word1) {
@@ -37,5 +37,6 @@ public class App
     }
 
     public void isPalindrome() {
+
     }
 }
