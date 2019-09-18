@@ -25,10 +25,9 @@ public class Menu {
             do {
                 switch (choice) {
                     case "1": {
-                        Scanner scanner = new Scanner ( "Git" );
                         System.out.println ( "1: Search for player by Name" );
                         scan.nextLine ();
-//                        System.out.println ( "2: Search for player by ID" );
+                        System.out.println ( "2: Search for player by ID" );
                         {
                             {
                             if ("1".equals ( scan )) {
