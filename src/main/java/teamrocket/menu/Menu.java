@@ -46,16 +46,8 @@ public class Menu {
                             while (choice != "end") ;
                         }
                     }
-
-
-
-
-
-
                     case "2":
                         System.out.println ( "Game" );
-
-
                         Game game = new Game();
                         game.createArrayFromRepo();
 //                      TODO: i pyk dodane
@@ -98,9 +90,6 @@ public class Menu {
             }
             while (choice != "q");
         }
-
-
-
     public void start() throws IOException {
 
     }
