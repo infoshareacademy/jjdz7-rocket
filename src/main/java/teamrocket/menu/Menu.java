@@ -13,7 +13,7 @@ public class Menu {
             start ();
 
             App myGeek = new App ("Geek");
-            System.out.println("### Command Options ### ");
+            System.out.println (" ### Command Options ### ");
             System.out.println ( "1: # search for user #" );
             System.out.println ( "2: ##### GAME    #####" );
             System.out.println ( "3: ##### EVENT   #####" );
@@ -27,7 +27,8 @@ public class Menu {
                     case "1": {
                         System.out.println ( "1: Search tools by Name" );
                         System.out.println ( "2: Search for player by ID" );
-                        scan.nextLine ();
+                        int numberOfTimes = scan.nextInt();
+                        myGeek.repeat(numberOfTimes);
                         break;
 //                        {
 //                           do  {
@@ -79,7 +80,7 @@ public class Menu {
                         break;
                     case "5":
 
-                        System.out.println("### Command Options ### ");
+                        System.out.println (" ### Command Options ### ");
                         System.out.println ( "1: # search for user #" );
                         System.out.println ( "2: ##### GAME    #####" );
                         System.out.println ( "3: ##### EVENT   #####" );
