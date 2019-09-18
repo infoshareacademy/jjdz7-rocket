@@ -9,18 +9,23 @@ import java.util.List;
 
 public class Game {
     public void createArrayFromRepo() {
+        //TODO
     }
 
     public void showAllGames() {
+        //TODO
     }
 
     public void searchGameByName() {
+        //TODO
     }
 
     public void filterByGameType() {
+        //TODO
     }
 
     public void filterByNumberOfPlayers() {
+        //TODO
     }
     /**
      * Class that represents a Board Game - tabletop game that involves counters or pieces moved or placed on a

@@ -5,13 +5,15 @@ import java.time.LocalTime;
 
 public class    Event {
 
-    
+
 
     public static void filterEventByDate(){
+        //TODO
 
     }
 
     public static void showAllEvents() {
+        //TODO
 
     }
 
@@ -43,6 +45,7 @@ public class    Event {
     }
 
     public static void filterEventsByType() {
+        //TODO
     }
 
     public String getEventName() {
