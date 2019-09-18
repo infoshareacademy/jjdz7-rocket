@@ -25,26 +25,27 @@ public class Menu {
             do {
                 switch (choice) {
                     case "1": {
-                        System.out.println ( "1: Name" );
+                        Scanner scanner = new Scanner ( "Git" );
+                        System.out.println ( "1: Search for player by Name" );
+                        scan.nextLine ();
 //                        System.out.println ( "2: Search for player by ID" );
-                        int numberOfTimes = scan.nextInt ();
-                        myGeek.repeat ( numberOfTimes );
-                        break;
-//                        {
-//                            if ("1".equals ( choice )) {
-//                                System.out.println ( "Name" );
-//                                int word1 = scan.nextInt ();
-//                                myGeek.repeat ( word1 );
-//
-//                                if ("2".equals ( scan )) {
-//                                    System.out.println ( "ID player" );
-//                                    int numberOfTime = scan.nextInt ();
-//                                    myGeek.repeat ( numberOfTime );
-//                                    // nie dziala :/
-//                                }
-//                            }
-//                            while (choice != "end") ;
-//                        }
+                        {
+                            {
+                            if ("1".equals ( scan )) {
+                                System.out.println ( "Name" );
+                                int word1 = scan.nextInt ();
+                                myGeek.repeat ( word1 );
+                            }
+
+                            else if ("2".equals ( scan )) {
+                                    System.out.println ( "ID player" );
+                                    int numberOfTime = scan.nextInt ();
+                                    myGeek.repeat ( numberOfTime );
+
+                                }
+                            }
+                            while (choice != "end") ;
+                        }
                     }
 
 
