@@ -5,6 +5,18 @@ import java.time.LocalTime;
 
 public class    Event {
 
+
+
+    public static void filterEventByDate(){
+        //TODO
+
+    }
+
+    public static void showAllEvents() {
+        //TODO
+
+    }
+
     private String eventName;
     private EventType eventType;
     private String eventDescription;
@@ -30,6 +42,10 @@ public class    Event {
         this.eventDate = eventDate;
         this.eventTime = eventTime;
         this.eventPlace = eventPlace;
+    }
+
+    public static void filterEventsByType() {
+        //TODO
     }
 
     public String getEventName() {

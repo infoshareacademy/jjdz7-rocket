@@ -10,18 +10,10 @@ public class App {
 }
 
     public static void main(String[] args ) throws IOException {
-//        new Menu ().start ();
-        Game game = new Game();
-        game.createArrayFromRepo();
-/*       TODO: Metody do wrzucenia do menu
-        game.showAllGames();
-        game.searchGameByName();
-        game.filterByGameType();
-        game.filterByNumberOfPlayers();*/
-
+       new Menu ().start ();
     }
 
-    public void repeat() {
+    public void repeat(int word1) {
     //TODO
 
     }
