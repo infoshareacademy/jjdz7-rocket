@@ -5,7 +5,7 @@ import java.time.LocalTime;
 
 public class    Event {
 
-    private static final String DELIMITER = " ! ";
+    private static final String DELIMITER = " ; ";
 
     private Integer eventID;
     private String eventName;

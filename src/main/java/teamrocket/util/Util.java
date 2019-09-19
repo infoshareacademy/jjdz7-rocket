@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -37,14 +38,24 @@ public class Util {
         return readUserInputInteger();
     }
 
-    public static LocalDate readInputDateWithMessage (String message) {
-        System.out.println(message);
-        return LocalDate.parse(readUserInput());
+    public static LocalDate readInputDateWithMessage(String message) {
+        try {
+            System.out.println(message);
+            return LocalDate.parse(readUserInput());
+        } catch (DateTimeParseException e) {
+            System.out.println("Zły format daty. Proszę wpisz poprawny RRRR-MM-DD ");
+            return LocalDate.parse(readUserInput());
+        }
     }
 
-    public static LocalTime readInputTimeWithMessage (String message) {
+    public static LocalTime readInputTimeWithMessage(String message) {
+        try {
         System.out.println(message);
         return LocalTime.parse(readUserInput());
+        } catch (DateTimeParseException e) {
+            System.out.println("Zły format czasu. Proszę wpisz poprawny GG:MM ");
+            return LocalTime.parse(readUserInput());
+        }
     }
 
     public static String readUserInput() {
@@ -56,11 +67,14 @@ public class Util {
             return new Scanner(System.in).nextInt();
         } catch (InputMismatchException e) {
             System.out.println("Wrong input! Please type number: ");
-            return new Scanner(System.in).nextInt();
+             return new Scanner(System.in).nextInt();
         }
     }
 
-    public static String addSpaces(int i, String str) {
+
+
+
+    public static String addSpaces ( int i, String str){
         StringBuilder str1 = new StringBuilder();
         for (int j = 0; j < i - str.length(); j++) {
             str1.append(" ");
@@ -68,5 +82,6 @@ public class Util {
         str = str + str1;
         return str;
     }
+
 
 }

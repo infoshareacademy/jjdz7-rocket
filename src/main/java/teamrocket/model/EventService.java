@@ -47,6 +47,10 @@ public class EventService {
     //if null - część pól będzie mogła być pusta, część musi być wpisana (nazwa wydarzenia, data i czas rozpoczęcia, adres, miasto)
     //po wpisaniu - info o dodaniu wydarzenia
     //ID - sprawdza ostatni nr, ustawia jako aktulany, maxID++
+    //stringi wyjątki?
+    //angielski czy polski??
+    //pętla while w wyjątkach
+
 
 
     //wyświetlanie listy

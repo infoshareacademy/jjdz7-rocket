@@ -15,9 +15,12 @@ public class App {
 //        new Menu ().start ();
         Game game = new Game();
         game.createArrayFromRepo();
+
+        //dodawanie wydarzenia
         EventService eventService = new EventService();
-        eventService.getEventFromConsole();
-        Event event = new Event();
+        eventService.addEvent(eventService.getEventFromConsole());
+
+
 
 /*       TODO: Metody do wrzucenia do menu
         game.showAllGames();
