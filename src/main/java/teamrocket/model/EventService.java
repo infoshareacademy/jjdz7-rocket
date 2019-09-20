@@ -7,18 +7,36 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class EventService {
     private static final Path EVENT_PATH = Paths.get ("./src/main/repositories/eventRepository.csv");
 
+    public int getEventID() throws IOException {
+        List<String> linesFromFile = Util.readFileContent(EVENT_PATH);
+        List<Integer> ids = new ArrayList<>();
 
+        int recordsCount = linesFromFile.size();
+        int counter = 0;
 
-    public Event createEventObject(String eventName, String eventDescription, String gameName, int playersNumber, LocalDate eventDate, LocalTime eventStartTime, LocalTime eventEndTime, String eventPlaceName, String eventAddress, String eventCity) {
+        while (counter <= recordsCount) {
+            for (String tempEvent : linesFromFile) {
+                String[] eventLine = tempEvent.split(";");
+                ids.add(Integer.valueOf(eventLine[0]));
+                counter++;
+            }
+        }
+        Integer maxId = Collections.max(ids);
+        Integer nextId = maxId + 1;
 
-        return new Event(eventName, eventDescription, gameName, playersNumber, eventDate, eventStartTime, eventEndTime, eventPlaceName, eventAddress, eventCity);
+        return nextId;
     }
 
+    public Event createEventObject(String eventName, String eventDescription, String gameName, int playersNumber, LocalDate eventDate, LocalTime eventStartTime, LocalTime eventEndTime, String eventPlaceName, String eventAddress, String eventCity) {
+        return new Event(eventName, eventDescription, gameName, playersNumber, eventDate, eventStartTime, eventEndTime, eventPlaceName, eventAddress, eventCity);
+    }
 
     public Event getEventFromConsole() {
         String eventName = Util.readInputWithMessage("Nazwa wydarzenia: ");
@@ -35,21 +53,22 @@ public class EventService {
         return createEventObject (eventName, eventDescription, gameName, playersNumber, eventDate, eventStartTime, eventEndTime, eventPlaceName, eventAddress, eventCity);
     }
 
-    public void addEvent(Event event) throws IOException {
+    public void addEvent(Event event, int eventId) throws IOException {
+        event.setEventID(eventId);
         String eventString = event.toString() + "\n";
         Util.writeToFile(EVENT_PATH, eventString.getBytes());
+        System.out.println("Wydarzenie zostało dodane");
     }
 
-    // TODO: złapać wyjątki przy złym formacie wpisania daty i czasu i inne, data nie może być starsza niż aktualna
-    //nazwę gry ma docelowo pobierać z listy (wyszukiwanie po tytułach) lub można wpisać własną
-    //typ gry dodać i pobrać z enum'a
-    //nazwa miejsca - docelowo ma wyświetlać się lista placówek gdzie można grać w gry (wtedy automatycznie ma się wstawiać adres danego miejsca) lub można wpisać własną
-    //if null - część pól będzie mogła być pusta, część musi być wpisana (nazwa wydarzenia, data i czas rozpoczęcia, adres, miasto)
-    //po wpisaniu - info o dodaniu wydarzenia
-    //ID - sprawdza ostatni nr, ustawia jako aktulany, maxID++
-    //stringi wyjątki?
-    //angielski czy polski??
-    //pętla while w wyjątkach
+    /* TODO:
+        złapać wyjątki przy złym formacie wpisania daty i czasu (np. data nie może być starsza niż aktualna)
+        pętla while w wyjątkach (żeby np. można było pomylić się więcej niż 1 raz)
+        typ gry pobrać z enum'a
+        nazwę gry ma docelowo pobierać z listy (wyszukiwanie po tytułach) lub można wpisać własną
+        nazwa miejsca - docelowo ma wyświetlać się lista placówek gdzie można grać w gry (wtedy automatycznie ma się wstawić adres danego miejsca) lub można wpisać własną
+        if null - część pól będzie mogła być pusta (nie każdy chce wszystko uzupełniać), część jest obowiązkowa i musi być wpisana (nazwa wydarzenia, data i czas rozpoczęcia, adres, miasto)
+        data - wyskakuje kalendarz; godzina podobnie -licznik
+     */
 
 
 

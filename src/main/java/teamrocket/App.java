@@ -18,7 +18,12 @@ public class App {
 
         //dodawanie wydarzenia
         EventService eventService = new EventService();
-        eventService.addEvent(eventService.getEventFromConsole());
+        eventService.addEvent(eventService.getEventFromConsole(), eventService.getEventID());
+
+//        System.out.println("Next available id: " + );
+
+//        System.out.println("Available beers:");
+//        System.out.println(java.util.Arrays.asList(BeerTypes.));
 
 
 

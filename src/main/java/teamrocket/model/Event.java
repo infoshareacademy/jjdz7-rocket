@@ -153,20 +153,21 @@ public class    Event {
 
     @Override
     public String toString() {
-        return "Event{" +
-                "eventID=" + eventID +
-                ", eventName='" + eventName + '\'' +
-                ", eventType=" + eventType +
-                ", eventDescription='" + eventDescription + '\'' +
-                ", gameName='" + gameName + '\'' +
-                ", playersNumber=" + playersNumber +
-                ", eventDate=" + eventDate +
-                ", eventStartTime=" + eventStartTime +
-                ", eventEndTime=" + eventEndTime +
-                ", eventPlaceName='" + eventPlaceName + '\'' +
-                ", eventAddress='" + eventAddress + '\'' +
-                ", eventCity='" + eventCity + '\'' +
-                '}';
+        final String delimiter = ";";
+        StringBuilder event = new StringBuilder();
+        return event.append(eventID).append(delimiter)
+                .append(getEventName()).append(delimiter)
+                .append(getEventType()).append(delimiter)
+                .append(getEventDescription()).append(delimiter)
+                .append(getGameName()).append(delimiter)
+                .append(getPlayersNumber()).append(delimiter)
+                .append(getEventDate()).append(delimiter)
+                .append(getEventStartTime()).append(delimiter)
+                .append(getEventEndTime()).append(delimiter)
+                .append(getEventPlaceName()).append(delimiter)
+                .append(getEventAddress()).append(delimiter)
+                .append(getEventCity())
+                .toString();
     }
 }
 
