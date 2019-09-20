@@ -3,11 +3,14 @@ package teamrocket.model;
 import teamrocket.util.Util;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Scanner;
 
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
@@ -38,11 +41,6 @@ public class Game {
     private String mechanic;
     private static List<Game> gamesArray = new ArrayList<>();
 
-
-    // Class constructors
-    public Game() {
-    }
-
     public Game(String formattedGame) {
         if (formattedGame.contains(DELIMITER)) {
             String[] splitGameParameters = formattedGame.split(DELIMITER);
@@ -63,6 +61,11 @@ public class Game {
             this.mechanic = splitGameParameters[14];
         }
     }
+
+    public Game() {
+        readGameInput ();
+    }
+
 
     public int getId() {
         return id;
@@ -111,7 +114,7 @@ public class Game {
         return Objects.hash(id, gameName, gameDesigner, gamePublisher, gameArtist, yearPublished, minPlayers, maxPlayers, minPlayTime, maxPlayTime, minAge, bggRank, averageWeight, category, mechanic);
     }
 
-    public List<Game> createArrayFromRepo() {
+    public static List<Game> createArrayFromRepo() {
         List<String> gameList = null;
         try {
             gameList = Util.readFileContent(GAMEREPO_PATH);
@@ -181,5 +184,27 @@ public class Game {
     // JJDZTR-10
     public void addToFavourites() {
     } // dodać grę do ulubionych - lista przechowywana w oddzielnym pliku
+
+    public static void File(Path path, byte[] content) throws IOException {
+        StandardOpenOption writeOption =
+                Files.exists(path) ?
+                        StandardOpenOption.APPEND :
+                        StandardOpenOption.CREATE_NEW;
+        Files.write(path, content, writeOption);
+    }
+
+    public static List<String> readFileContent(Path path) throws IOException {
+        return Files.readAllLines(path);
+    }
+
+    public static String readInputWithMessage(String message){
+        System.out.println(message);
+        return readGameInput ();
+    }
+
+    public static String readGameInput(){
+        return new Scanner (System.in).nextLine();
+    }
 }
+
 
