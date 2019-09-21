@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class EventService {
-    private static final Path EVENT_PATH = Paths.get ("./src/main/repositories/eventRepository.csv");
+    private static final Path EVENT_PATH = Paths.get(".","src","main","resources","eventRepository.csv");
 
     public int getEventID() throws IOException {
         List<String> linesFromFile = Util.readFileContent(EVENT_PATH);
