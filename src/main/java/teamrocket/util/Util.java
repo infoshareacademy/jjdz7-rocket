@@ -58,6 +58,7 @@ public class Util {
         }
     }
 
+
     public static String readUserInput() {
         return new Scanner(System.in).nextLine();
     }
@@ -67,11 +68,11 @@ public class Util {
             return new Scanner(System.in).nextInt();
         } catch (InputMismatchException e) {
             System.out.println("Wrong input! Please type number: ");
-             return new Scanner(System.in).nextInt();
+            return new Scanner(System.in).nextInt();
         }
     }
 
-    public static String addSpaces ( int i, String str){
+    public static String addSpaces(int i, String str) {
         StringBuilder str1 = new StringBuilder();
         for (int j = 0; j < i - str.length(); j++) {
             str1.append(" ");

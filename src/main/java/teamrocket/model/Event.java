@@ -5,7 +5,19 @@ import java.time.LocalTime;
 
 public class    Event {
 
-    private static final String DELIMITER = " ; ";
+
+
+    public static void filterEventByDate(){
+        //TODO
+
+    }
+
+    public static void showAllEvents() {
+        //TODO
+
+    }
+
+    private static final String DELIMITER = ";";
 
     private Integer eventID;
     private String eventName;
@@ -53,6 +65,10 @@ public class    Event {
             this.eventAddress = splitEventParameters[10];
             this.eventCity = splitEventParameters[11];
         }
+    }
+
+    public static void filterEventsByType() {
+        //TODO
     }
 
     public Integer getEventID() {

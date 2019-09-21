@@ -4,12 +4,14 @@ import teamrocket.model.Event;
 import teamrocket.model.EventService;
 import teamrocket.model.Game;
 import teamrocket.menu.Menu;
+
 import java.io.IOException;
 
 public class App {
 
     public App(String geek) throws IOException {
 }
+
 
     public static void main(String[] args ) throws IOException {
 //        new Menu ().start ();
@@ -35,7 +37,7 @@ public class App {
 
     }
 
-    public void repeat() {
+    public void repeat(int word1) {
     //TODO
 
     }
@@ -51,6 +53,5 @@ public class App {
     }
 
     public void isPalindrome() {
-
     }
 }
