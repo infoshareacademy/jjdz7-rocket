@@ -10,7 +10,7 @@ public class PlaceService {
 
     //Ta metoda może się nam przydać w dalszej pracy
 
-    private static final Path PLACES_PATH = Paths.get("./src/main/database/PlacesDatabase.xml");
+    private static final Path PLACES_PATH = Paths.get(".","src","main","resources","placeRepo.csv");
 
     //Ta meotda będzie służyć do tworzenia nowego obiektu miejsca np. przy tworzeniu nowego wydarzenia
 

@@ -18,10 +18,10 @@ public class Game {
      * pre-marked surface or "board", according to a set of rules.
      */
 
-    private static final Path GAMEREPO_PATH = Paths.get("./src/main/repositories/GamesRepository.csv");
+    private static final Path GAMEREPO_PATH = Paths.get(".","src","main","resources","gamesRepository.csv");
     private static final String DELIMITER = ";";
 
-    private int id;
+    private int gameId;
     private String gameName;
     private String gameDesigner;
     private String gamePublisher;
@@ -46,7 +46,7 @@ public class Game {
     public Game(String formattedGame) {
         if (formattedGame.contains(DELIMITER)) {
             String[] splitGameParameters = formattedGame.split(DELIMITER);
-            this.id = parseInt(splitGameParameters[0]);
+            this.gameId = parseInt(splitGameParameters[0]);
             this.gameName = splitGameParameters[1];
             this.gameDesigner = splitGameParameters[2];
             this.gamePublisher = splitGameParameters[3];
@@ -64,8 +64,8 @@ public class Game {
         }
     }
 
-    public int getId() {
-        return id;
+    public int getGameId() {
+        return gameId;
     }
 
     public String getGameName() {
@@ -89,7 +89,7 @@ public class Game {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Game game = (Game) o;
-        return id == game.id &&
+        return gameId == game.gameId &&
                 yearPublished == game.yearPublished &&
                 minPlayers == game.minPlayers &&
                 maxPlayers == game.maxPlayers &&
@@ -108,7 +108,7 @@ public class Game {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, gameName, gameDesigner, gamePublisher, gameArtist, yearPublished, minPlayers, maxPlayers, minPlayTime, maxPlayTime, minAge, bggRank, averageWeight, category, mechanic);
+        return Objects.hash(gameId, gameName, gameDesigner, gamePublisher, gameArtist, yearPublished, minPlayers, maxPlayers, minPlayTime, maxPlayTime, minAge, bggRank, averageWeight, category, mechanic);
     }
 
     public List<Game> createArrayFromRepo() {
@@ -133,7 +133,7 @@ public class Game {
     }
 
     private void printGames(Game game) {
-        System.out.print(Util.addSpaces(10, String.valueOf(game.getId())));
+        System.out.print(Util.addSpaces(10, String.valueOf(game.getGameId())));
         System.out.print(Util.addSpaces(90, game.getGameName()));
         System.out.print(Util.addSpaces(30, game.getMinPlayers() + " - " + game.getMaxPlayers()));
         System.out.print(Util.addSpaces(30, game.getCategory()));
@@ -170,16 +170,5 @@ public class Game {
         for (Game game : gamesArray)
             if (game.getGameName().toLowerCase().contains(userInput.toLowerCase())) printGames(game);
     }
-
-    // JJDZTR-8 - draft / propozycje metod
-    public void showFavourites() {
-    } // podejrzeć listę ulubionych gier
-
-    public void removeFromFavourites() {
-    } // usunąć grę z listy ulubionych gier
-
-    // JJDZTR-10
-    public void addToFavourites() {
-    } // dodać grę do ulubionych - lista przechowywana w oddzielnym pliku
 }
 
