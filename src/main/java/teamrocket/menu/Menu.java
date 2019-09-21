@@ -3,6 +3,7 @@ package teamrocket.menu;
 import teamrocket.App;
 import teamrocket.model.Event;
 
+import teamrocket.model.EventService;
 import teamrocket.model.Game;
 
 import javax.imageio.stream.ImageInputStream;
@@ -51,15 +52,14 @@ public class Menu {
                         }
                     }
                     case "2": {
-                        System.out.println ( "1: Search for a game by name" );
-                        System.out.println ( "2: Show all games" );
+                        System.out.println ( "1: Show all games" );
+                        Game.showAllGames();
+                        System.out.println ( "2: Search for a game by name" );
                         Game game = new Game();
                         Game.createArrayFromRepo();
-                        game.showAllGames();
                         game.searchGameByName();
                         game.filterByGameType();
                         game.filterByNumberOfPlayers();
-                        scan.nextLine ();
                         int Times = scan.nextInt();
                         myGeek.repeat(Times);
 
@@ -72,11 +72,12 @@ public class Menu {
                     case "3":
                         break;
                     case "4":
-                        System.out.println ( "Event" );
-                        scan.nextLine ();
                         Event.showAllEvents();
                         Event.filterEventByDate() ;
                         Event.filterEventsByType();
+                        //dodawanie wydarzenia
+                        EventService eventService = new EventService();
+                        eventService.addEvent(eventService.getEventFromConsole(), eventService.getEventID());
                         break;
                     case "5":
                         System.out.println ( "Place" );
@@ -95,13 +96,15 @@ public class Menu {
                         System.out.println ( "q: ##### Quit     #####"  );
                         scan.nextLine ();
                         break;
-                    default:
+
 
 
                 }
 
-            }
-            while (choice != "q");
+            }while (choice != "q");
+
+                System.out.println ( "Koniec" );
+
         }
     public void start() throws IOException {
 

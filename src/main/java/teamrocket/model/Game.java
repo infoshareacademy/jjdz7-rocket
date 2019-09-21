@@ -125,14 +125,14 @@ public class Game {
         return gamesArray;
     }
 
-    private void printHeading() {
+    private static void printHeading() {
         System.out.println("GAME_ID  |" +
                 " GAME_NAME                                                                               " +
                 "| NUMBER_OF_PLAYERS           " +
                 "| GAME_TYPE ");
     }
 
-    private void printGames(Game game) {
+    private static void printGames(Game game) {
         System.out.print(Util.addSpaces(10, String.valueOf(game.getGameId())));
         System.out.print(Util.addSpaces(90, game.getGameName()));
         System.out.print(Util.addSpaces(30, game.getMinPlayers() + " - " + game.getMaxPlayers()));
@@ -140,7 +140,7 @@ public class Game {
         System.out.print("\n");
     }
 
-    public void showAllGames() {
+    public static void showAllGames() {
         printHeading();
         for (Game game : gamesArray) {
             printGames(game);
