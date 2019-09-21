@@ -22,6 +22,9 @@ public class User {
         }
     }
 
+    public User(String username, String role) {
+    }
+
     public String getUsername() {
         return username;
     }
