@@ -54,7 +54,7 @@ public class EventService {
     }
 
     public void addEvent(Event event, int eventId) throws IOException {
-        event.setEventID(eventId);
+        event.setEventId(eventId);
         String eventString = event.toString() + "\n";
         Util.writeToFile(EVENT_PATH, eventString.getBytes());
         System.out.println("Wydarzenie zostało dodane");

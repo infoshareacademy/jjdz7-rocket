@@ -5,8 +5,6 @@ import java.time.LocalTime;
 
 public class    Event {
 
-
-
     public static void filterEventByDate(){
         //TODO
 
@@ -19,7 +17,7 @@ public class    Event {
 
     private static final String DELIMITER = ";";
 
-    private Integer eventID;
+    private Integer eventId;
     private String eventName;
     private EventType eventType;
     private String eventDescription;
@@ -52,7 +50,7 @@ public class    Event {
     public Event(String formattedEvent) {
         if (formattedEvent.contains ( DELIMITER )) {
             String[] splitEventParameters = formattedEvent.split ( DELIMITER );
-            this.eventID = Integer.parseInt(splitEventParameters[0]);
+            this.eventId = Integer.parseInt(splitEventParameters[0]);
             this.eventName = splitEventParameters[1];
 //            this.eventType = splitEventParameters[2];
             this.eventDescription = splitEventParameters[3];
@@ -71,12 +69,12 @@ public class    Event {
         //TODO
     }
 
-    public Integer getEventID() {
-        return eventID;
+    public Integer getEventId() {
+        return eventId;
     }
 
-    public void setEventID(Integer eventID) {
-        this.eventID = eventID;
+    public void setEventId(Integer eventId) {
+        this.eventId = eventId;
     }
 
     public String getEventName() {
@@ -171,7 +169,7 @@ public class    Event {
     public String toString() {
         final String delimiter = ";";
         StringBuilder event = new StringBuilder();
-        return event.append(eventID).append(delimiter)
+        return event.append(eventId).append(delimiter)
                 .append(getEventName()).append(delimiter)
                 .append(getEventType()).append(delimiter)
                 .append(getEventDescription()).append(delimiter)

@@ -1,5 +1,6 @@
 package teamrocket;
 
+import teamrocket.model.Game;
 import teamrocket.model.Event;
 import teamrocket.model.EventService;
 import teamrocket.model.Game;
@@ -10,31 +11,15 @@ import java.io.IOException;
 public class App {
 
     public App(String geek) throws IOException {
-}
-
-
-    public static void main(String[] args ) throws IOException {
-//        new Menu ().start ();
-        Game game = new Game();
-        game.createArrayFromRepo();
 
         //dodawanie wydarzenia
         EventService eventService = new EventService();
         eventService.addEvent(eventService.getEventFromConsole(), eventService.getEventID());
 
-//        System.out.println("Next available id: " + );
+    }
 
-//        System.out.println("Available beers:");
-//        System.out.println(java.util.Arrays.asList(BeerTypes.));
-
-
-
-/*       TODO: Metody do wrzucenia do menu
-        game.showAllGames();
-        game.searchGameByName();
-        game.filterByGameType();
-        game.filterByNumberOfPlayers();*/
-
+    public static void main(String[] args ) throws IOException {
+       new Menu ().start ();
     }
 
     public void repeat(int word1) {
@@ -53,5 +38,6 @@ public class App {
     }
 
     public void isPalindrome() {
+
     }
 }
