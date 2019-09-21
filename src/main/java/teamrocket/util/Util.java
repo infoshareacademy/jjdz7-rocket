@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -30,6 +33,31 @@ public class Util {
         return readUserInput();
     }
 
+    public static Integer readInputIntegerWithMessage(String message) {
+        System.out.println(message);
+        return readUserInputInteger();
+    }
+
+    public static LocalDate readInputDateWithMessage(String message) {
+        try {
+            System.out.println(message);
+            return LocalDate.parse(readUserInput());
+        } catch (DateTimeParseException e) {
+            System.out.println("Zły format daty. Proszę wpisz poprawny RRRR-MM-DD ");
+            return LocalDate.parse(readUserInput());
+        }
+    }
+
+    public static LocalTime readInputTimeWithMessage(String message) {
+        try {
+        System.out.println(message);
+        return LocalTime.parse(readUserInput());
+        } catch (DateTimeParseException e) {
+            System.out.println("Zły format czasu. Proszę wpisz poprawny GG:MM ");
+            return LocalTime.parse(readUserInput());
+        }
+    }
+
     public static String readUserInput() {
         return new Scanner(System.in).nextLine();
     }
@@ -51,5 +79,4 @@ public class Util {
         str = str + str1;
         return str;
     }
-
 }

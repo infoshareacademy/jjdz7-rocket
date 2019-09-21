@@ -8,7 +8,7 @@ import java.util.List;
 
 class UserService {
 
-    private static final Path USERS_PATH = Paths.get ( "./src/main/java/teamrocket/repositories/FavouritesGame" );
+    private static final Path USERS_PATH = Paths.get(".","src","main","resources","users.csv");
 
     public User createUserObject(String username, String password, String role) {
         return new User ( username, password, role );
