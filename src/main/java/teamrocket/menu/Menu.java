@@ -2,7 +2,7 @@ package teamrocket.menu;
 
 import teamrocket.App;
 import teamrocket.model.Event;
-import teamrocket.model.FavouriteGames;
+
 import teamrocket.model.Game;
 
 import javax.imageio.stream.ImageInputStream;
@@ -70,10 +70,6 @@ public class Menu {
 
                     }
                     case "3":
-                        FavouriteGames.addGame (
-                                FavouriteGames.getUserFromConsole ()
-                        );
-
                         break;
                     case "4":
                         System.out.println ( "Event" );
