@@ -110,19 +110,5 @@ public class Menu {
     public void start() throws IOException {
 
     }
-    private int getUserInput() {
-        System.out.print("Your choice: ");
-        return Integer.parseInt(Game.readGameInput ());
-    }
-
-    private void printBadChoice(){
-        System.out.println("Zly wybor!!");
-    }
-
-    private void list(Game[] users){
-        for (Game user : users) {
-            System.out.println ( user );
-        }
-        }
 }
 

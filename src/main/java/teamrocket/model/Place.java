@@ -2,12 +2,12 @@ package teamrocket.model;
 
 public class Place {
 
-    private int placeID;
-    private String placeName;
-    private String placeStreet;
-    private String placeCity;
-    private int quantityPlacesOfPlace;
-    private int quantityGamesOfPlace;
+    private static int placeID;
+    private static String placeName;
+    private static String placeStreet;
+    private static String placeCity;
+    private static int quantityPlacesOfPlace;
+    private static int quantityGamesOfPlace;
 
 
     public Place(int id, String name, String street, String city, int quntityPlaces, int quantityGames, boolean isOpen) {
@@ -15,53 +15,50 @@ public class Place {
 //gettery
 
 
-    public int getPlaceID() {
+    public static int getPlaceID() {
         return placeID;
     }
 
-    public String getPlaceName() {
+    public static String getPlaceName() {
         return placeName;
     }
 
-    public String getPlaceStreet() {
-        return placeStreet;
-    }
+    public static String getPlaceStreet() { return placeStreet; }
 
-    public String getPlaceCity() {
+    public static String getPlaceCity() {
         return placeCity;
     }
 
-    public int getQuantityPlacesOfPlace() {
+    public static int getQuantityPlacesOfPlace() {
         return quantityPlacesOfPlace;
     }
 
-    public int getQuantityGamesOfPlace() {
+    public static int getQuantityGamesOfPlace() {
         return quantityGamesOfPlace;
     }
 
 //settery
 
-    public void setPlaceID(int placeID) {
+    public void setPlaceID() {
         this.placeID = placeID;
     }
 
-    public void setPlaceName(String placeName) {
+    public void setPlaceName() {
         this.placeName = placeName;
     }
 
-    public void setPlaceStreet(String placeStreet) {
+    public void setPlaceStreet() {
         this.placeStreet = placeStreet;
     }
 
-    public void setPlaceCity(String placeCity) {
+    public void setPlaceCity() {
         this.placeCity = placeCity;
     }
 
-    public void setQuantityPlacesOfPlace(int quantityPlacesOfPlace) {
-        this.quantityPlacesOfPlace = quantityPlacesOfPlace;
+    public void setQuantityPlacesOfPlace() { this.quantityPlacesOfPlace = quantityPlacesOfPlace;
     }
 
-    public void setQuantityGamesOfPlace(int quantityGamesOfPlace) {
+    public void setQuantityGamesOfPlace() {
         this.quantityGamesOfPlace = quantityGamesOfPlace;
     }
 
