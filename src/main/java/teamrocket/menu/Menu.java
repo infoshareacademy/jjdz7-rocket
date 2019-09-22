@@ -5,109 +5,107 @@ import teamrocket.model.Event;
 
 import teamrocket.model.EventService;
 import teamrocket.model.Game;
+import teamrocket.model.UserService;
+import teamrocket.util.Util;
 
 import javax.imageio.stream.ImageInputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
+import static teamrocket.model.UserService.list;
+
 public class Menu {
-        public Menu() throws IOException {
-            start ();
 
-            App myGeek = new App ("Geek");
-            System.out.println (" ### Command Options ### ");
-            System.out.println ( "1: # search for user #"  );
-            System.out.println ( "2: ##### GAME     #####" );
-            System.out.println ( "3: ##### ADD Game #####" );
-            System.out.println ( "4: ##### EVENT    #####" );
-            System.out.println ( "5: ##### Place    #####" );
-            System.out.println ( "6: ##### Display  #####" );
-            System.out.println ( "q: ##### Quit     #####" );
-            Scanner scan = new Scanner(System.in);
-            String choice = scan.nextLine();
-            do {
-                switch (choice) {
-                    case "1": {
-                        System.out.println ( "1: Search for player by Name" );
-                        scan.nextLine ();
-                        System.out.println ( "2: Search for player by ID" );
-                        int numberOfTimes = scan.nextInt();
-                        myGeek.repeat(numberOfTimes);
-                        {
-                            {
-                            if ("1".equals ( scan )) {
-                                System.out.println ( "Name" );
-                                int word1 = scan.nextInt ();
-                                myGeek.repeat ( word1 );
-                            }
+    public static void menuStart() throws IOException {
+        System.out.println(" ### Command Options ### ");
+        System.out.println("1: ##### GAME       #####");
+        System.out.println("2: ##### EVENT      #####");
+        System.out.println("3: ##### FAVOURITES #####");
+        System.out.println("0: ##### Quit       #####");
+        int choice = Util.readUserInputInteger();
+        switch (choice) {
+            case 1: {
+                Game.createArrayFromRepo();
+                System.out.println("1: Show all games ");
+                System.out.println("2: Search for a game by name ");
+                System.out.println("3: Filter Game by Type ");
+                System.out.println("4: Filter Game by Number of Players ");
+                System.out.println("9: Go back to Main Menu");
+                System.out.println("0: Exit");
 
-                            else if ("2".equals ( scan )) {
-                                    System.out.println ( "ID player" );
-                                    int numberOfTime = scan.nextInt ();
-                                    myGeek.repeat ( numberOfTime );
-
-                                }
-                            }
-                            while (choice != "end") ;
-                        }
-                    }
-                    case "2": {
-                        System.out.println ( "1: Show all games" );
+                switch (Util.readUserInputInteger()) {
+                    case 1:
                         Game.showAllGames();
-                        System.out.println ( "2: Search for a game by name" );
-                        Game game = new Game();
-                        Game.createArrayFromRepo();
-                        game.searchGameByName();
-                        game.filterByGameType();
-                        game.filterByNumberOfPlayers();
-                        int Times = scan.nextInt();
-                        myGeek.repeat(Times);
-
-                        System.out.println ( "q: Exit" );
-                        while (choice != "q");
-
                         break;
-
-                    }
-                    case "3":
+                    case 2:
+                        Game.searchGameByName();
                         break;
-                    case "4":
+                    case 3:
+                        Game.filterByGameType();
+                        break;
+                    case 4:
+                        Game.filterByNumberOfPlayers();
+                        break;
+                    case 9:
+                        menuStart();
+                    case 0:
+                        break;
+                }
+                break;
+            }
+            case 2:
+                Event.createArrayFromRepo();
+                System.out.println("1: Show all Events ");
+                System.out.println("2: Filter Event by Type ");
+                System.out.println("3: Filter Event by Date ");
+                System.out.println("4: Add new Event ");
+                System.out.println("9: Go back to Main Menu");
+                System.out.println("0: Exit");
+
+                switch (Util.readUserInputInteger()) {
+                    case 1:
                         Event.showAllEvents();
-                        Event.filterEventByDate() ;
+                        return;
+                    case 2:
                         Event.filterEventsByType();
-                        //dodawanie wydarzenia
+                        break;
+                    case 3:
+                        Event.filterEventByDate();
+                        break;
+                    case 4:
                         EventService eventService = new EventService();
                         eventService.addEvent(eventService.getEventFromConsole(), eventService.getEventID());
                         break;
-                    case "5":
-                        System.out.println ( "Place" );
-                        scan.nextLine ();
-                        myGeek.isPalindrome ();
-
+                    case 9:
+                        menuStart();
+                    case 0:
                         break;
-                    case "6":
-                        System.out.println ("### Command Options ### "  );
-                        System.out.println ( "1: # search for user #"   );
-                        System.out.println ( "2: ##### GAME     #####"  );
-                        System.out.println ( "3: ##### ADD Game #####"  );
-                        System.out.println ( "4: ##### EVENT    #####"  );
-                        System.out.println ( "5: ##### Place    #####"  );
-                        System.out.println ( "6: ##### Display  #####"  );
-                        System.out.println ( "q: ##### Quit     #####"  );
-                        scan.nextLine ();
-                        break;
-
-
-
                 }
+                break;
 
-            }while (choice != "q");
+            case 3:
+                System.out.println("1: Add Game to favourites ");
+                System.out.println("2: Show favourite games");
+                System.out.println("9: Go back to Main Menu");
+                System.out.println("0: Exit");
 
-                System.out.println ( "Koniec" );
-
+                switch (Util.readUserInputInteger()) {
+                    case 1:
+                        UserService.addUser(UserService.getUserFromConsole());
+                        break;
+                    case 2:
+                        list(UserService.getUsers());
+                        break;
+                    case 9:
+                        menuStart();
+                    case 0:
+                        break;
+                }
+                break;
+            case 0:
+                break;
         }
-    public void start() throws IOException {
-
     }
+
 }
 
