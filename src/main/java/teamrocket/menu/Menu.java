@@ -1,18 +1,15 @@
 package teamrocket.menu;
 
 import teamrocket.App;
-import teamrocket.model.Event;
+import teamrocket.model.*;
 
-import teamrocket.model.EventService;
-import teamrocket.model.Game;
-
-import javax.imageio.stream.ImageInputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
         public Menu() throws IOException {
             start ();
+
 
             App myGeek = new App ("Geek");
             System.out.println (" ### Command Options ### ");
@@ -70,11 +67,20 @@ public class Menu {
 
                     }
                     case "3":
+                        UserService.addUser (
+                                UserService.getUserFromConsole ()
+                        );
                         break;
+
+                    case "7":
+                        list(UserService.getUsers());
+                        break;
+
                     case "4":
                         Event.showAllEvents();
                         Event.filterEventByDate() ;
                         Event.filterEventsByType();
+                        Event.createArrayFromRepo();
                         //dodawanie wydarzenia
                         EventService eventService = new EventService();
                         eventService.addEvent(eventService.getEventFromConsole(), eventService.getEventID());
@@ -86,6 +92,7 @@ public class Menu {
 
                         break;
                     case "6":
+
                         System.out.println ("### Command Options ### "  );
                         System.out.println ( "1: # search for user #"   );
                         System.out.println ( "2: ##### GAME     #####"  );
@@ -95,7 +102,9 @@ public class Menu {
                         System.out.println ( "6: ##### Display  #####"  );
                         System.out.println ( "q: ##### Quit     #####"  );
                         scan.nextLine ();
-                        break;
+                        return;
+
+
 
 
 
@@ -103,11 +112,17 @@ public class Menu {
 
             }while (choice != "q");
 
-                System.out.println ( "Koniec" );
+
 
         }
     public void start() throws IOException {
 
+    }
+
+    private void list(User[] users){
+        for (User user : users){
+            System.out.println(user);
+        }
     }
 }
 
