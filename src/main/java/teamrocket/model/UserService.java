@@ -1,46 +1,36 @@
 package teamrocket.model;
 
-import teamrocket.util.Util;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-class UserService {
+public class UserService {
 
-    private static final Path USERS_PATH = Paths.get(".","src","main","resources","users.csv");
+    private static final Path USERS_PATH = Paths.get("./src/main/resources/user");
 
-    public User createUserObject(String username, String password, String role) {
-        return new User ( username, password, role );
+    public static User createUserObject(String FavoriteGame, String TypeOfGame) {
+        return new User (FavoriteGame, TypeOfGame);
     }
 
-    public User getUserFromConsole() {
-        String username = Util.readInputWithMessage ( "Username: " );
-        String password = Util.readInputWithMessage ( "Password: " );
-        String role = getRole ();
-        return createUserObject ( username, password, role );
+    public static User getUserFromConsole() {
+        String FavoriteGame = FavoriteG.readInputWithMessage("FavoriteGame: ");
+        String TypeOfGame = FavoriteG.readInputWithMessage("TypeOfGame: ");
+        return createUserObject( FavoriteGame, TypeOfGame);
     }
 
-    private String getRole() {
-        String role;
-        do {
-            role = Util.readInputWithMessage ( "Role: " );
-        } while (!role.equals ( "USER" ) && !role.equals ( "ADMIN" ));
-        return role;
+    public static void addUser(User game) throws IOException {
+        String userString = game.toString() + "\n";
+        FavoriteG.writeToFile(USERS_PATH, userString.getBytes());
     }
 
-    public void addUser(User user) throws IOException {
-        String userString = user.toString () + "\n";
-        Util.writeToFile ( USERS_PATH, userString.getBytes () );
-    }
+    public static User[] getUsers() throws IOException {
+        List<String> linesFromFile = FavoriteG.readFileContent(USERS_PATH);
 
-    public User[] getUsers() throws IOException {
-        List<String> linesFromFile = Util.readFileContent ( USERS_PATH );
+        User[] usersArray = new User[linesFromFile.size()];
 
-        User[] usersArray = new User[linesFromFile.size ()];
-
-        for (int i = 0; i < usersArray.length; i++) {
-            usersArray[i] = new User ( linesFromFile.get ( i ) );
+        for(int i = 0 ; i < usersArray.length ; i++){
+            usersArray[i] = new User (linesFromFile.get(i));
         }
 
         return usersArray;
