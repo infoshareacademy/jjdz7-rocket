@@ -1,41 +1,37 @@
 package teamrocket.model;
 
+import teamrocket.util.Util;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
-public class    Event {
+public class Event {
 
-    public static void filterEventByDate(){
-        //TODO
-
-    }
-
-    public static void showAllEvents() {
-        //TODO
-
-    }
-
+    private static final Path EVENTREPO_PATH = Paths.get(".","src","main","resources", "eventRepository.csv");
     private static final String DELIMITER = ";";
-
-    private Integer eventId;
+    private int eventId;
     private String eventName;
-    private EventType eventType;
+    private String eventType;
     private String eventDescription;
     private String gameName;
     private int playersNumber;
     private LocalDate eventDate;
+    private LocalTime eventTime;
+    private Place eventPlace;
     private LocalTime eventStartTime;
     private LocalTime eventEndTime;
     private String eventPlaceName;
     private String eventAddress;
     private String eventCity;
-
-
-    public Event() {
-    }
+    private static List<Event> eventsArray = new ArrayList<>();
 
     public Event(String eventName, String eventDescription, String gameName, int playersNumber, LocalDate eventDate, LocalTime eventStartTime, LocalTime eventEndTime, String eventPlaceName, String eventAddress, String eventCity) {
         this.eventName = eventName;
+        this.eventType = eventType;
         this.eventDescription = eventDescription;
         this.gameName = gameName;
         this.playersNumber = playersNumber;
@@ -52,7 +48,7 @@ public class    Event {
             String[] splitEventParameters = formattedEvent.split ( DELIMITER );
             this.eventId = Integer.parseInt(splitEventParameters[0]);
             this.eventName = splitEventParameters[1];
-//            this.eventType = splitEventParameters[2];
+            this.eventType =  splitEventParameters[2];
             this.eventDescription = splitEventParameters[3];
             this.gameName = splitEventParameters[4];
             this.playersNumber = Integer.parseInt(splitEventParameters[5]);
@@ -65,15 +61,11 @@ public class    Event {
         }
     }
 
-    public static void filterEventsByType() {
-        //TODO
-    }
-
-    public Integer getEventId() {
+    public int getEventId() {
         return eventId;
     }
 
-    public void setEventId(Integer eventId) {
+    public void setEventId(int eventId) {
         this.eventId = eventId;
     }
 
@@ -85,11 +77,11 @@ public class    Event {
         this.eventName = eventName;
     }
 
-    public EventType getEventType() {
+    public String getEventType() {
         return eventType;
     }
 
-    public void setEventType(EventType eventType) {
+    public void setEventType(String eventType) {
         this.eventType = eventType;
     }
 
@@ -123,6 +115,22 @@ public class    Event {
 
     public void setEventDate(LocalDate eventDate) {
         this.eventDate = eventDate;
+    }
+
+    public LocalTime getEventTime() {
+        return eventTime;
+    }
+
+    public void setEventTime(LocalTime eventTime) {
+        this.eventTime = eventTime;
+    }
+
+    public Place getEventPlace() {
+        return eventPlace;
+    }
+
+    public void setEventPlace(Place eventPlace) {
+        this.eventPlace = eventPlace;
     }
 
     public LocalTime getEventStartTime() {
@@ -164,6 +172,59 @@ public class    Event {
     public void setEventCity(String eventCity) {
         this.eventCity = eventCity;
     }
+
+    public static List<Event> createArrayFromRepo() {
+        List<String> eventList = null;
+        try {
+            eventList = Util.readFileContent(EVENTREPO_PATH);
+        } catch (IOException e) {
+            System.out.println("Wrong Path to Repo file or repo doesn't exist");
+            ;
+        }
+        for (int i = 0; i < eventList.size(); i++) {
+            eventsArray.add(new Event(eventList.get(i)));
+        }
+        return eventsArray;
+    }
+
+    private static void printHeading() {
+        System.out.println("EVENT_ID  |" +
+                " EVENT_NAME                                                                             " +
+                "| EVENT_TYPE                  " +
+                "| EVENT_DATE ");
+    }
+
+    private static void printEvents(Event event) {
+        System.out.print(Util.addSpaces(10, String.valueOf(event.getEventId())));
+        System.out.print(Util.addSpaces(90, event.getEventName()));
+        System.out.print(Util.addSpaces(30, String.valueOf(event.getEventType())));
+        System.out.print(Util.addSpaces(30, String.valueOf(event.getEventDate())));
+        System.out.print("\n");
+    }
+
+    public static void showAllEvents() {
+        printHeading();
+        for (Event event : eventsArray) {
+            printEvents(event);
+        }
+    }
+
+    public static void filterEventByDate(){
+            System.out.println("Type date by which You would like to filter the Events' database: ");
+            String userInput = Util.readUserInput();
+            printHeading();
+            for (Event event : eventsArray)
+                if (event.getEventDate().toString().toLowerCase().contains(userInput.toLowerCase())) printEvents(event);
+        }
+
+    public static void filterEventsByType() {
+            System.out.println("Type Event type by which You would like to filter the Events' database: ");
+            String userInput = Util.readUserInput();
+            printHeading();
+            for (Event event : eventsArray)
+                if (event.getEventType().toLowerCase().contains(userInput.toLowerCase())) printEvents(event);
+        }
+
 
     @Override
     public String toString() {
