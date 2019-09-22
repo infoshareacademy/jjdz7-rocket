@@ -1,14 +1,10 @@
 package teamrocket.model;
 
 import teamrocket.util.Util;
-
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
+import java.util.*;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
@@ -18,7 +14,7 @@ public class Game {
      * pre-marked surface or "board", according to a set of rules.
      */
 
-    private static final Path GAMEREPO_PATH = Paths.get(".","src","main","resources","gamesRepository.csv");
+    private static final Path GAMEREPO_PATH = Paths.get(".", "src", "main", "resources", "gamesRepository.csv");
     private static final String DELIMITER = ";";
 
     private int gameId;
@@ -38,8 +34,6 @@ public class Game {
     private String mechanic;
     private static List<Game> gamesArray = new ArrayList<>();
 
-
-    // Class constructors
     public Game() {
     }
 
@@ -116,7 +110,7 @@ public class Game {
         try {
             gameList = Util.readFileContent(GAMEREPO_PATH);
         } catch (IOException e) {
-            System.out.println("Wrong Path to Repo file or repo doesn't exist");
+            System.out.println("Zła ścieżka do pliku lub plik nie istnieje.");
             ;
         }
         for (int i = 0; i < gameList.size(); i++) {
@@ -126,16 +120,16 @@ public class Game {
     }
 
     private static void printHeading() {
-        System.out.println("GAME_ID  |" +
-                " GAME_NAME                                                                               " +
-                "| NUMBER_OF_PLAYERS           " +
-                "| GAME_TYPE ");
+        System.out.println("ID Gry |" +
+                " Nazwa gry                                                                " +
+                "| Liczba graczy " +
+                "| Typ gry ");
     }
 
     private static void printGames(Game game) {
-        System.out.print(Util.addSpaces(10, String.valueOf(game.getGameId())));
-        System.out.print(Util.addSpaces(90, game.getGameName()));
-        System.out.print(Util.addSpaces(30, game.getMinPlayers() + " - " + game.getMaxPlayers()));
+        System.out.print(Util.addSpaces(8, String.valueOf(game.getGameId())));
+        System.out.print(Util.addSpaces(75, game.getGameName()));
+        System.out.print(Util.addSpaces(16, game.getMinPlayers() + " - " + game.getMaxPlayers()));
         System.out.print(Util.addSpaces(30, game.getCategory()));
         System.out.print("\n");
     }
@@ -147,8 +141,27 @@ public class Game {
         }
     }
 
+    public static void showAllTypes() {
+        Set<String> gameTypes = new HashSet<>();
+        for (Game game : gamesArray) {
+            if (game.getCategory().contains(",")) {
+                String[] splitted = game.getCategory().split(", ");
+                for (String str : splitted) {
+                    gameTypes.add(str);
+                }
+            } else {
+                gameTypes.add(game.getCategory());
+            }
+        }
+        for (String type : gameTypes) {
+            System.out.println(type);
+        }
+    }
+
     public static void filterByGameType() {
-        System.out.println("Type game type by which You would like to filter the database: ");
+        System.out.println("Poniżej masz wszystkie typy gier:");
+        showAllTypes();
+        System.out.println("Wpisz typ gry, po którym chciałbyś filtrować bazę gier: ");
         String userInput = Util.readUserInput();
         printHeading();
         for (Game game : gamesArray)
@@ -156,19 +169,43 @@ public class Game {
     }
 
     public static void filterByNumberOfPlayers() {
-        System.out.println("Type the number of Players: ");
-        int userInput = Util.readUserInputInteger();
+        System.out.println("Wpisz minimalną liczbę graczy, po której chciałbyś filtrować bazę gier: ");
+        int userInput1 = Util.readUserInputInteger();
+        while (userInput1 < 1) {
+            System.out.println("Minimalna liczba graczy nie może być mniejsza od 1 ! Podaj minimalną liczbę graczy: ");
+            userInput1 = Util.readUserInputInteger();
+        }
+        System.out.println("Wpisz maksymalną liczbę graczy, po której chciałbyś filtrować bazę gier: ");
+        int userInput2 = Util.readUserInputInteger();
+        while (userInput2 < userInput1) {
+            System.out.println("Błąd. Maksymalna liczba graczy musi być większa lub równa minimalnej liczbie graczy");
+            userInput2 = Util.readUserInputInteger();
+        }
+        System.out.println("Wynikiem są wszystkie gry, których liczba graczy zawiera się w podanym przez Ciebie przedziale.");
         printHeading();
         for (Game game : gamesArray)
-            if (game.getMinPlayers() <= userInput && game.getMaxPlayers() >= userInput) printGames(game);
+            if (game.getMinPlayers() >= userInput1 && game.getMaxPlayers() <= userInput2) printGames(game);
     }
 
     public static void searchGameByName() {
-        System.out.println("SEARCH : ");
+        System.out.println("Szukaj po nazwie gry : ");
         String userInput = Util.readUserInput();
         printHeading();
-        for (Game game : gamesArray)
-            if (game.getGameName().toLowerCase().contains(userInput.toLowerCase())) printGames(game);
+        List<Game> result = new ArrayList<>();
+        for (Game game : gamesArray) {
+            if (game.getGameName().toLowerCase().contains(userInput.toLowerCase())) {
+                result.add(game);
+            }
+        }
+
+        if (result.isEmpty()) {
+            System.out.println("Nie znaleziono gier o wyszukiwanej nazwie !");
+        } else {
+            for (Game element : result) {
+                printGames(element);
+            }
+        }
+
     }
 }
 
