@@ -5,11 +5,14 @@ import teamrocket.model.Event;
 
 import teamrocket.model.EventService;
 import teamrocket.model.Game;
+import teamrocket.model.UserService;
 import teamrocket.util.Util;
 
 import javax.imageio.stream.ImageInputStream;
 import java.io.IOException;
 import java.util.Scanner;
+
+import static teamrocket.model.UserService.list;
 
 public class Menu {
 
@@ -88,10 +91,10 @@ public class Menu {
 
                 switch (Util.readUserInputInteger()) {
                     case 1:
-                        // method to add games to favourites
+                        UserService.addUser(UserService.getUserFromConsole());
                         break;
                     case 2:
-                        // method to show favourite games
+                        list(UserService.getUsers());
                         break;
                     case 9:
                         menuStart();
