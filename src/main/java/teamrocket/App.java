@@ -12,10 +12,6 @@ public class App {
 
     public App(String geek) throws IOException {
 
-        //dodawanie wydarzenia
-        EventService eventService = new EventService();
-        eventService.addEvent(eventService.getEventFromConsole(), eventService.getEventID());
-
     }
 
     public static void main(String[] args ) throws IOException {
