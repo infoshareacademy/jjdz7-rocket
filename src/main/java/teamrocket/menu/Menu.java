@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-        public static void menuStart(){
+        public static void menuStart() throws IOException{
             System.out.println(" ### Command Options ### ");
             System.out.println("1: ##### GAME     #####");
             System.out.println("2: ##### EVENT    #####");
