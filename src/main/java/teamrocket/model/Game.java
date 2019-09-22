@@ -147,7 +147,7 @@ public class Game {
         }
     }
 
-    public void filterByGameType() {
+    public static void filterByGameType() {
         System.out.println("Type game type by which You would like to filter the database: ");
         String userInput = Util.readUserInput();
         printHeading();
@@ -155,7 +155,7 @@ public class Game {
             if (game.getCategory().toLowerCase().contains(userInput.toLowerCase())) printGames(game);
     }
 
-    public void filterByNumberOfPlayers() {
+    public static void filterByNumberOfPlayers() {
         System.out.println("Type the number of Players: ");
         int userInput = Util.readUserInputInteger();
         printHeading();
@@ -163,7 +163,7 @@ public class Game {
             if (game.getMinPlayers() <= userInput && game.getMaxPlayers() >= userInput) printGames(game);
     }
 
-    public void searchGameByName() {
+    public static void searchGameByName() {
         System.out.println("SEARCH : ");
         String userInput = Util.readUserInput();
         printHeading();
