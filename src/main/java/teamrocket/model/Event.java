@@ -178,7 +178,7 @@ public class Event {
         try {
             eventList = Util.readFileContent(EVENTREPO_PATH);
         } catch (IOException e) {
-            System.out.println("Wrong Path to Repo file or repo doesn't exist");
+            System.out.println("Zła ścieżka do pliku lub plik nie istnieje.");
             ;
         }
         for (int i = 0; i < eventList.size(); i++) {
@@ -188,16 +188,16 @@ public class Event {
     }
 
     private static void printHeading() {
-        System.out.println("EVENT_ID  |" +
-                " EVENT_NAME                                                                             " +
-                "| EVENT_TYPE                  " +
-                "| EVENT_DATE ");
+        System.out.println("ID  |" +
+                " Nazwa Wydarzenia                                          " +
+                "| Typ Wydarzenia    " +
+                "| Data Wydarzenia ");
     }
 
     private static void printEvents(Event event) {
-        System.out.print(Util.addSpaces(10, String.valueOf(event.getEventId())));
-        System.out.print(Util.addSpaces(90, event.getEventName()));
-        System.out.print(Util.addSpaces(30, String.valueOf(event.getEventType())));
+        System.out.print(Util.addSpaces(5, String.valueOf(event.getEventId())));
+        System.out.print(Util.addSpaces(60, event.getEventName()));
+        System.out.print(Util.addSpaces(20, String.valueOf(event.getEventType())));
         System.out.print(Util.addSpaces(30, String.valueOf(event.getEventDate())));
         System.out.print("\n");
     }
@@ -210,7 +210,7 @@ public class Event {
     }
 
     public static void filterEventByDate(){
-            System.out.println("Type date by which You would like to filter the Events' database: ");
+            System.out.println("Wpisz datę, po której chciałbyś filtrować wydarzenia:  ");
             String userInput = Util.readUserInput();
             printHeading();
             for (Event event : eventsArray)
@@ -218,7 +218,7 @@ public class Event {
         }
 
     public static void filterEventsByType() {
-            System.out.println("Type Event type by which You would like to filter the Events' database: ");
+            System.out.println("Wpisz typ wydarzenia, po którym chciałbyś filtrować wydarzenia: ");
             String userInput = Util.readUserInput();
             printHeading();
             for (Event event : eventsArray)

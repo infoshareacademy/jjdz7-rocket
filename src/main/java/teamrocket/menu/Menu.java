@@ -1,111 +1,194 @@
 package teamrocket.menu;
 
-import teamrocket.App;
 import teamrocket.model.Event;
-
 import teamrocket.model.EventService;
 import teamrocket.model.Game;
 import teamrocket.model.UserService;
 import teamrocket.util.Util;
 
-import javax.imageio.stream.ImageInputStream;
 import java.io.IOException;
-import java.util.Scanner;
 
 import static teamrocket.model.UserService.list;
 
 public class Menu {
 
-    public static void menuStart() throws IOException {
-        System.out.println(" ### Command Options ### ");
-        System.out.println("1: ##### GAME       #####");
-        System.out.println("2: ##### EVENT      #####");
-        System.out.println("3: ##### FAVOURITES #####");
-        System.out.println("0: ##### Quit       #####");
-        int choice = Util.readUserInputInteger();
+    private boolean exit;
+
+    public void menuStart() throws IOException {
+        printMainMenuInfo();
+        do {
+            int choice = Util.readUserInputInteger();
+            decide(choice);
+        } while (!exit);
+    }
+
+    private void decide(int choice) throws IOException {
         switch (choice) {
             case 1: {
-                Game.createArrayFromRepo();
-                System.out.println("1: Show all games ");
-                System.out.println("2: Search for a game by name ");
-                System.out.println("3: Filter Game by Type ");
-                System.out.println("4: Filter Game by Number of Players ");
-                System.out.println("9: Go back to Main Menu");
-                System.out.println("0: Exit");
-
-                switch (Util.readUserInputInteger()) {
-                    case 1:
-                        Game.showAllGames();
-                        break;
-                    case 2:
-                        Game.searchGameByName();
-                        break;
-                    case 3:
-                        Game.filterByGameType();
-                        break;
-                    case 4:
-                        Game.filterByNumberOfPlayers();
-                        break;
-                    case 9:
-                        menuStart();
-                    case 0:
-                        break;
-                }
+                do {
+                    printGameMenuInfo();
+                    int gameChoice = Util.readUserInputInteger();
+                    decideGame(gameChoice);
+                } while (!exit);
                 break;
             }
-            case 2:
-                Event.createArrayFromRepo();
-                System.out.println("1: Show all Events ");
-                System.out.println("2: Filter Event by Type ");
-                System.out.println("3: Filter Event by Date ");
-                System.out.println("4: Add new Event ");
-                System.out.println("9: Go back to Main Menu");
-                System.out.println("0: Exit");
 
-                switch (Util.readUserInputInteger()) {
-                    case 1:
-                        Event.showAllEvents();
-                        return;
-                    case 2:
-                        Event.filterEventsByType();
-                        break;
-                    case 3:
-                        Event.filterEventByDate();
-                        break;
-                    case 4:
-                        EventService eventService = new EventService();
-                        eventService.addEvent(eventService.getEventFromConsole(), eventService.getEventID());
-                        break;
-                    case 9:
-                        menuStart();
-                    case 0:
-                        break;
-                }
+            case 2: {
+                do {
+                    printEventMenuInfo();
+                    int eventChoice = Util.readUserInputInteger();
+                    decideEvent(eventChoice);
+                } while (!exit);
                 break;
+            }
 
-            case 3:
-                System.out.println("1: Add Game to favourites ");
-                System.out.println("2: Show favourite games");
-                System.out.println("9: Go back to Main Menu");
-                System.out.println("0: Exit");
-
-                switch (Util.readUserInputInteger()) {
-                    case 1:
-                        UserService.addUser(UserService.getUserFromConsole());
-                        break;
-                    case 2:
-                        list(UserService.getUsers());
-                        break;
-                    case 9:
-                        menuStart();
-                    case 0:
-                        break;
-                }
+            case 3: {
+                do {
+                    printFavouritesMenuInfo();
+                    int favouritesChoice = Util.readUserInputInteger();
+                    decideFavourites(favouritesChoice);
+                } while (!exit);
                 break;
-            case 0:
+            }
+            case 0: {
+                exit = true;
                 break;
+            }
+            default: {
+                printBadChoice();
+            }
         }
     }
 
+    private void decideGame(int gameChoice) throws IOException {
+        Game.createArrayFromRepo();
+        switch (gameChoice) {
+            case 1: {
+                Game.showAllGames();
+                break;
+            }
+            case 2: {
+                Game.searchGameByName();
+                break;
+            }
+            case 3: {
+                Game.filterByGameType();
+                break;
+            }
+            case 4: {
+                Game.filterByNumberOfPlayers();
+                break;
+            }
+            case 9: {
+                menuStart();
+                break;
+            }
+            case 0: {
+                exit = true;
+                break;
+            }
+            default: {
+                printBadChoice();
+            }
+        }
+    }
+
+    private void decideEvent(int eventChoice) throws IOException {
+        Event.createArrayFromRepo();
+        switch (eventChoice) {
+            case 1: {
+                Event.showAllEvents();
+                break;
+            }
+            case 2: {
+                Event.filterEventsByType();
+                break;
+            }
+            case 3: {
+                Event.filterEventByDate();
+                break;
+            }
+            case 4: {
+                EventService eventService = new EventService();
+                eventService.addEvent(eventService.getEventFromConsole(), eventService.getEventID());
+                break;
+            }
+            case 9: {
+                menuStart();
+                break;
+            }
+            case 0: {
+                exit = true;
+                break;
+            }
+            default: {
+                printBadChoice();
+            }
+        }
+
+    }
+
+    private void decideFavourites(int favouritesChoice) throws IOException {
+        switch (favouritesChoice) {
+            case 1: {
+                UserService.addUser(UserService.getUserFromConsole());
+                break;
+            }
+            case 2: {
+                list(UserService.getUsers());
+                break;
+            }
+            case 9: {
+                menuStart();
+                break;
+            }
+            case 0: {
+                exit = true;
+                break;
+            }
+            default: {
+                printBadChoice();
+            }
+        }
+    }
+
+    private void printMainMenuInfo() {
+        System.out.println(" ##### Menu Aplikacji #####  ");
+        System.out.println("1: ##### Gry Planszowe  #####");
+        System.out.println("2: ##### Wydarzenia     #####");
+        System.out.println("3: ##### Ulubione       #####");
+        System.out.println("0: ##### Wyjście        #####");
+    }
+
+    private void printGameMenuInfo() {
+        System.out.println("### Menu Gier Planszowych ###");
+        System.out.println("1: Pokaż wszystkie gry");
+        System.out.println("2: Szukaj gry po jej nazwie ");
+        System.out.println("3: Filtruj gry po typie ");
+        System.out.println("4: Filtruj gry po liczbie graczy");
+        System.out.println("9: Wróć do głównego menu");
+        System.out.println("0: Wyjście");
+    }
+
+    private void printEventMenuInfo() {
+        System.out.println("1: Pokaż wszystkie wydarzenia ");
+        System.out.println("2: Filtruj wydarzenia po typie");
+        System.out.println("3: Filtruj wydarzenia po dacie");
+        System.out.println("4: Dodaj nowe wydarzenie ");
+        System.out.println("9: Wróć do głównego menu");
+        System.out.println("0: Wyjście");
+    }
+
+    private void printFavouritesMenuInfo() {
+        System.out.println("1: Dodaj grę do ulubionych ");
+        System.out.println("2: Pokaż ulubione gry");
+        System.out.println("9: Wróć do głównego menu");
+        System.out.println("0: Wyjście");
+    }
+
+    private void printBadChoice() {
+        System.out.println("Niepoprawna opcja. Podaj parametr ponownie.");
+    }
 }
+
 
