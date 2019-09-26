@@ -1,10 +1,12 @@
 package teamrocket.model;
 
 import teamrocket.util.Util;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
@@ -163,9 +165,20 @@ public class Game {
         showAllTypes();
         System.out.println("Wpisz typ gry, po którym chciałbyś filtrować bazę gier: ");
         String userInput = Util.readUserInput();
-        printHeading();
-        for (Game game : gamesArray)
-            if (game.getCategory().toLowerCase().contains(userInput.toLowerCase())) printGames(game);
+        List<Game> result = new ArrayList<>();
+        for (Game game : gamesArray) {
+            if (game.getCategory().toLowerCase().contains(userInput.toLowerCase())) {
+                result.add(game);
+            }
+        }
+        if (result.isEmpty()) {
+            System.out.println("Nie znaleziono gier o wyszukiwanym typie !");
+        } else {
+            printHeading();
+            for (Game element : result) {
+                printGames(element);
+            }
+        }
     }
 
     public static void filterByNumberOfPlayers() {
@@ -182,15 +195,26 @@ public class Game {
             userInput2 = Util.readUserInputInteger();
         }
         System.out.println("Wynikiem są wszystkie gry, których liczba graczy zawiera się w podanym przez Ciebie przedziale.");
-        printHeading();
-        for (Game game : gamesArray)
-            if (game.getMinPlayers() >= userInput1 && game.getMaxPlayers() <= userInput2) printGames(game);
+        List<Game> result = new ArrayList<>();
+        for (Game game : gamesArray) {
+            if (game.getMinPlayers() >= userInput1 && game.getMaxPlayers() <= userInput2) {
+                result.add(game);
+            }
+
+            if (result.isEmpty()) {
+                System.out.println("Nie znaleziono gier o podanym przedziale graczy !");
+            } else {
+                printHeading();
+                for (Game element : result) {
+                    printGames(element);
+                }
+            }
+        }
     }
 
     public static void searchGameByName() {
         System.out.println("Szukaj po nazwie gry : ");
         String userInput = Util.readUserInput();
-        printHeading();
         List<Game> result = new ArrayList<>();
         for (Game game : gamesArray) {
             if (game.getGameName().toLowerCase().contains(userInput.toLowerCase())) {
@@ -201,6 +225,7 @@ public class Game {
         if (result.isEmpty()) {
             System.out.println("Nie znaleziono gier o wyszukiwanej nazwie !");
         } else {
+            printHeading();
             for (Game element : result) {
                 printGames(element);
             }

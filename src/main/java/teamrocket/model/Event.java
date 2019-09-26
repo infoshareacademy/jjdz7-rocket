@@ -1,17 +1,21 @@
 package teamrocket.model;
 
 import teamrocket.util.Util;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Event {
 
-    private static final Path EVENTREPO_PATH = Paths.get(".","src","main","resources", "eventRepository.csv");
+    private static final Path EVENTREPO_PATH = Paths.get(".", "src", "main", "resources", "eventRepository.csv");
     private static final String DELIMITER = ";";
     private int eventId;
     private String eventName;
@@ -44,11 +48,11 @@ public class Event {
     }
 
     public Event(String formattedEvent) {
-        if (formattedEvent.contains ( DELIMITER )) {
-            String[] splitEventParameters = formattedEvent.split ( DELIMITER );
+        if (formattedEvent.contains(DELIMITER)) {
+            String[] splitEventParameters = formattedEvent.split(DELIMITER);
             this.eventId = Integer.parseInt(splitEventParameters[0]);
             this.eventName = splitEventParameters[1];
-            this.eventType =  splitEventParameters[2];
+            this.eventType = splitEventParameters[2];
             this.eventDescription = splitEventParameters[3];
             this.gameName = splitEventParameters[4];
             this.playersNumber = Integer.parseInt(splitEventParameters[5]);
@@ -209,21 +213,88 @@ public class Event {
         }
     }
 
-    public static void filterEventByDate(){
-            System.out.println("Wpisz datę, po której chciałbyś filtrować wydarzenia:  ");
-            String userInput = Util.readUserInput();
-            printHeading();
-            for (Event event : eventsArray)
-                if (event.getEventDate().toString().toLowerCase().contains(userInput.toLowerCase())) printEvents(event);
+    public static void filterEventByDate() {
+        System.out.println("Wpisz najwcześniejszą datę, w formacie RRRR-MM-DD, po której chciałbyś filtrować wydarzenia: ");
+        boolean validator1 = true;
+        LocalDate date1 = null;
+        while(validator1) {
+            try {
+               date1 = LocalDate.parse(Util.readUserInput());
+               validator1 = false;
+            } catch (DateTimeParseException e) {
+                System.out.println("Podałeś datę w złym formacie lub nieprawidłową datę. Podaj raz jeszcze prawidłową datę w formacie RRRR-MM-DD");
+            }
         }
+        System.out.println("Wpisz najpóźniejszą datę, w formacie RRRR-MM-DD, po której chciałbyś filtrować wydarzenia: ");
+        boolean validator2 = true;
+        LocalDate date2 = null;
+        while(validator2) {
+            try {
+                date2 = LocalDate.parse(Util.readUserInput());
+                while (date2.compareTo(date1) < 0) {
+                    System.out.println("Błąd. Najpóźniejsza data jest wcześniejsza od najwcześniejszej. Podaj raz jeszcze najpóźniejszą datę, w formacie RRRR-MM-DD");
+                        date2 = LocalDate.parse(Util.readUserInput());
+                }
+                validator2 = false;
+            } catch (DateTimeParseException e) {
+                System.out.println("Podałeś datę w złym formacie lub nieprawidłową datę. Podaj raz jeszcze prawidłową datę w formacie RRRR-MM-DD");
+            }
+        }
+        System.out.println("Wynikiem są wszystkie wydarzenia, których data zawiera się w podanym przez Ciebie przedziale.");
+        List<Event> result = new ArrayList<>();
+        for (Event event : eventsArray) {
+            if (event.getEventDate().compareTo(date1) >= 0 && event.getEventDate().compareTo(date2) <= 0) {
+                result.add(event);
+            }
+        }
+        if (result.isEmpty()) {
+            System.out.println("Nie znaleziono wydarzeń w podanym przedziale !");
+        } else {
+            printHeading();
+            for (Event element : result) {
+                printEvents(element);
+            }
+        }
+    }
+
+    public static void showAllTypes() {
+        Set<String> eventTypes = new HashSet<>();
+        for (Event event : eventsArray) {
+            if (event.getEventType().contains(",")) {
+                String[] splitted = event.getEventType().split(", ");
+                for (String str : splitted) {
+                    eventTypes.add(str);
+                }
+            } else {
+                eventTypes.add(event.getEventType());
+            }
+        }
+        for (String type : eventTypes) {
+            System.out.println(type);
+        }
+    }
 
     public static void filterEventsByType() {
-            System.out.println("Wpisz typ wydarzenia, po którym chciałbyś filtrować wydarzenia: ");
-            String userInput = Util.readUserInput();
-            printHeading();
-            for (Event event : eventsArray)
-                if (event.getEventType().toLowerCase().contains(userInput.toLowerCase())) printEvents(event);
+        System.out.println("Poniżej masz wszystkie typy wydarzeń: ");
+        showAllTypes();
+        System.out.println("Wpisz typ wydarzenia, po którym chciałbyś filtrować wydarzenia: ");
+        String userInput = Util.readUserInput();
+        List<Event> result = new ArrayList<>();
+        for (Event event : eventsArray) {
+            if (event.getEventType().toLowerCase().contains(userInput.toLowerCase())) {
+                result.add(event);
+            }
         }
+        if (result.isEmpty()) {
+            System.out.println("Nie znaleziono wydarzeń o podanym typie !");
+        } else {
+            printHeading();
+            for (Event element : result) {
+                printEvents(element);
+            }
+        }
+
+    }
 
 
     @Override
