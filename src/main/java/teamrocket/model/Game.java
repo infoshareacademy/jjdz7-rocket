@@ -18,7 +18,7 @@ public class Game {
      * pre-marked surface or "board", according to a set of rules.
      */
 
-    private static final Path GAMEREPO_PATH = Paths.get(".","src","main","resources","gamesRepository.csv");
+    private static final Path GAMEREPO_PATH = Paths.get ( ".", "src", "main", "resources", "gamesRepository.csv" );
     private static final String DELIMITER = ";";
 
     private int gameId;
@@ -36,7 +36,7 @@ public class Game {
     private double averageWeight;
     private String category;
     private String mechanic;
-    private static List<Game> gamesArray = new ArrayList<>();
+    public static List<Game> gamesArray = new ArrayList<> ();
 
 
     // Class constructors
@@ -44,25 +44,26 @@ public class Game {
     }
 
     public Game(String formattedGame) {
-        if (formattedGame.contains(DELIMITER)) {
-            String[] splitGameParameters = formattedGame.split(DELIMITER);
-            this.gameId = parseInt(splitGameParameters[0]);
+        if (formattedGame.contains ( DELIMITER )) {
+            String[] splitGameParameters = formattedGame.split ( DELIMITER );
+            this.gameId = parseInt ( splitGameParameters[0] );
             this.gameName = splitGameParameters[1];
             this.gameDesigner = splitGameParameters[2];
             this.gamePublisher = splitGameParameters[3];
             this.gameArtist = splitGameParameters[4];
-            this.yearPublished = parseInt(splitGameParameters[5]);
-            this.minPlayers = parseInt(splitGameParameters[6]);
-            this.maxPlayers = parseInt(splitGameParameters[7]);
-            this.minPlayTime = parseInt(splitGameParameters[8]);
-            this.maxPlayTime = parseInt(splitGameParameters[9]);
-            this.minAge = parseInt(splitGameParameters[10]);
-            this.bggRank = parseInt(splitGameParameters[11]);
-            this.averageWeight = parseDouble(splitGameParameters[12]);
+            this.yearPublished = parseInt ( splitGameParameters[5] );
+            this.minPlayers = parseInt ( splitGameParameters[6] );
+            this.maxPlayers = parseInt ( splitGameParameters[7] );
+            this.minPlayTime = parseInt ( splitGameParameters[8] );
+            this.maxPlayTime = parseInt ( splitGameParameters[9] );
+            this.minAge = parseInt ( splitGameParameters[10] );
+            this.bggRank = parseInt ( splitGameParameters[11] );
+            this.averageWeight = parseDouble ( splitGameParameters[12] );
             this.category = splitGameParameters[13];
             this.mechanic = splitGameParameters[14];
         }
     }
+
 
     public int getGameId() {
         return gameId;
@@ -87,8 +88,8 @@ public class Game {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Game game = (Game) o;
+        if (o == null || getClass () != o.getClass ()) return false;
+        Game game = ( Game ) o;
         return gameId == game.gameId &&
                 yearPublished == game.yearPublished &&
                 minPlayers == game.minPlayers &&
@@ -97,78 +98,87 @@ public class Game {
                 maxPlayTime == game.maxPlayTime &&
                 minAge == game.minAge &&
                 bggRank == game.bggRank &&
-                Double.compare(game.averageWeight, averageWeight) == 0 &&
-                gameName.equals(game.gameName) &&
-                gameDesigner.equals(game.gameDesigner) &&
-                gamePublisher.equals(game.gamePublisher) &&
-                gameArtist.equals(game.gameArtist) &&
-                category.equals(game.category) &&
-                mechanic.equals(game.mechanic);
+                Double.compare ( game.averageWeight, averageWeight ) == 0 &&
+                gameName.equals ( game.gameName ) &&
+                gameDesigner.equals ( game.gameDesigner ) &&
+                gamePublisher.equals ( game.gamePublisher ) &&
+                gameArtist.equals ( game.gameArtist ) &&
+                category.equals ( game.category ) &&
+                mechanic.equals ( game.mechanic );
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(gameId, gameName, gameDesigner, gamePublisher, gameArtist, yearPublished, minPlayers, maxPlayers, minPlayTime, maxPlayTime, minAge, bggRank, averageWeight, category, mechanic);
+        return Objects.hash ( gameId, gameName, gameDesigner, gamePublisher, gameArtist, yearPublished, minPlayers, maxPlayers, minPlayTime, maxPlayTime, minAge, bggRank, averageWeight, category, mechanic );
     }
 
     public static List<Game> createArrayFromRepo() {
         List<String> gameList = null;
         try {
-            gameList = Util.readFileContent(GAMEREPO_PATH);
+            gameList = Util.readFileContent ( GAMEREPO_PATH );
         } catch (IOException e) {
-            System.out.println("Wrong Path to Repo file or repo doesn't exist");
+            System.out.println ( "Wrong Path to Repo file or repo doesn't exist" );
             ;
         }
-        for (int i = 0; i < gameList.size(); i++) {
-            gamesArray.add(new Game(gameList.get(i)));
+        for (int i = 0; i < gameList.size (); i++) {
+            gamesArray.add ( new Game ( gameList.get ( i ) ) );
         }
         return gamesArray;
     }
 
     private static void printHeading() {
-        System.out.println("GAME_ID  |" +
+        System.out.println ( "GAME_ID|" +
                 " GAME_NAME                                                                               " +
-                "| NUMBER_OF_PLAYERS           " +
-                "| GAME_TYPE ");
+                "|NUMBER_OF_PLAYERS" +
+                "|GAME_TYPE " );
     }
 
     private static void printGames(Game game) {
-        System.out.print(Util.addSpaces(10, String.valueOf(game.getGameId())));
-        System.out.print(Util.addSpaces(90, game.getGameName()));
-        System.out.print(Util.addSpaces(30, game.getMinPlayers() + " - " + game.getMaxPlayers()));
-        System.out.print(Util.addSpaces(30, game.getCategory()));
-        System.out.print("\n");
+        System.out.print ( Util.addSpaces ( 10, String.valueOf ( game.getGameId () ) ) );
+        System.out.print ( Util.addSpaces ( 90, game.getGameName () ) );
+        System.out.print ( Util.addSpaces ( 30, game.getMinPlayers () + " - " + game.getMaxPlayers () ) );
+        System.out.print ( Util.addSpaces ( 30, game.getCategory () ) );
+        System.out.print ( "\n" );
     }
 
     public static void showAllGames() {
-        printHeading();
+        printHeading ();
         for (Game game : gamesArray) {
-            printGames(game);
+            printGames ( game );
         }
     }
 
     public static void filterByGameType() {
-        System.out.println("Type game type by which You would like to filter the database: ");
-        String userInput = Util.readUserInput();
-        printHeading();
+        System.out.println ( "Type game type by which You would like to filter the database: " );
+        String userInput = Util.readUserInput ();
+        printHeading ();
         for (Game game : gamesArray)
-            if (game.getCategory().toLowerCase().contains(userInput.toLowerCase())) printGames(game);
+            if (game.getCategory ().toLowerCase ().contains ( userInput.toLowerCase () )) printGames ( game );
     }
 
     public static void filterByNumberOfPlayers() {
-        System.out.println("Type the number of Players: ");
-        int userInput = Util.readUserInputInteger();
-        printHeading();
+        System.out.println ( "Type the number of Players: " );
+        int userInput = Util.readUserInputInteger ();
+        printHeading ();
         for (Game game : gamesArray)
-            if (game.getMinPlayers() <= userInput && game.getMaxPlayers() >= userInput) printGames(game);
+            if (game.getMinPlayers () <= userInput && game.getMaxPlayers () >= userInput) printGames ( game );
     }
 
     public static void searchGameByName() {
-        System.out.println("SEARCH : ");
-        String userInput = Util.readUserInput();
-        printHeading();
+        System.out.println ( "SEARCH : " );
+        String userInput = Util.readUserInput ();
+        printHeading ();
         for (Game game : gamesArray)
-            if (game.getGameName().toLowerCase().contains(userInput.toLowerCase())) printGames(game);
+            if (game.getGameName ().toLowerCase ().contains ( userInput.toLowerCase () )) printGames ( game );
+    }
+
+    public static void addToFavourites(User[] Game) {
+        System.out.println ( "Podaj ID gdy ktora chcesz dodac do ulubionych : " );
+        int userInput = Util.readUserInputInteger ();
+        for (Game game : gamesArray)
+            if (game.getGameId () == userInput) {
+                // tu logika, ktora wezmie wszystkie parametry tej gry (getterami) i dopisze do repo
+                // w jednej linijcie z uzyciem delimitera (srednika). Podobnie jak na zajeciach z Lukaszem.
+            }
     }
 }
-
