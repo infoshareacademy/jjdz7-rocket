@@ -66,7 +66,7 @@ public class Util {
         try {
             return new Scanner(System.in).nextInt();
         } catch (InputMismatchException e) {
-            System.out.println("Wrong input! Please type number: ");
+            System.out.println("Nieprawidłowa wartość. Podaj liczbę całkowitą: ");
             return new Scanner(System.in).nextInt();
         }
     }

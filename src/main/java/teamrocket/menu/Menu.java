@@ -1,12 +1,14 @@
 package teamrocket.menu;
 
-import teamrocket.model.*;
+import teamrocket.model.Event;
+import teamrocket.model.EventService;
+import teamrocket.model.Game;
+import teamrocket.model.UserService;
 import teamrocket.util.Util;
 
 import java.io.IOException;
 
-import static teamrocket.model.Game.filterByGameType;
-
+import static teamrocket.model.UserService.list;
 
 public class Menu {
 
@@ -70,7 +72,7 @@ public class Menu {
                 break;
             }
             case 3: {
-                filterByGameType();
+                Game.filterByGameType();
                 break;
             }
             case 4: {
@@ -126,22 +128,15 @@ public class Menu {
 
     }
 
-    private void printBadChoice() {
-        System.out.println("Złe dane, dokonaj ponownego wyboru");
-
-    }
-
     private void decideFavourites(int favouritesChoice) throws IOException {
         switch (favouritesChoice) {
             case 1: {
-                Game.addToFavourites (UserService.getUsers());
+                UserService.addUser(UserService.getUserFromConsole());
                 break;
             }
-            case 2:{
-                Game.showAllGames ();
-            }
-            case 3:{
-
+            case 2: {
+                list(UserService.getUsers());
+                break;
             }
             case 9: {
                 menuStart();
@@ -185,13 +180,15 @@ public class Menu {
     }
 
     private void printFavouritesMenuInfo() {
-        System.out.println("1: Dodaj grę do ulubionych");
-        System.out.println("2: Usuń grę z ulubonych");
-        System.out.println("3: Pokaż ulubione gry");
+        System.out.println("1: Dodaj grę do ulubionych ");
+        System.out.println("2: Pokaż ulubione gry");
         System.out.println("9: Wróć do głównego menu");
         System.out.println("0: Wyjście");
     }
 
+    private void printBadChoice() {
+        System.out.println("Niepoprawna opcja. Podaj parametr ponownie.");
+    }
 }
 
 
