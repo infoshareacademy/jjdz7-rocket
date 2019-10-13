@@ -7,11 +7,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static teamrocket.model.Game.filterByGameType;
 import static teamrocket.model.Game.gamesArray;
 
 public class UserService {
 
     private static final Path USERS_PATH = Paths.get ( ".", "src", "main", "resources", "user" );
+    private static Iterable<? extends Game> getUsers;
 
     public static User createUserObject(String FavoriteGame, String TypeOfGame) {
         return new User ( FavoriteGame, TypeOfGame );
@@ -40,10 +42,10 @@ public class UserService {
         return usersArray;
     }
 
-    public static void addToFavourites() {
+    public static void list(User[] users) {
         System.out.println ( "Podaj ID gdy ktora chcesz dodac do ulubionych : " );
         int userInput = Util.readUserInputInteger ();
-        for (Game game : gamesArray)
+        for (Game game :UserService.getUsers)
             if (game.getGameId () == userInput) {
                 // tu logika, ktora wezmie wszystkie parametry tej gry (getterami) i dopisze do repo
                 // w jednej linijcie z uzyciem delimitera (srednika). Podobnie jak na zajeciach z Lukaszem.
