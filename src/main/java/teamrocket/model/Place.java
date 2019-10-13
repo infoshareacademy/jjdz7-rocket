@@ -12,8 +12,6 @@ public class Place {
 
     public Place(int id, String name, String street, String city, int quntityPlaces, int quantityGames, boolean isOpen) {
     }
-//gettery
-
 
     public static int getPlaceID() {
         return placeID;
@@ -23,7 +21,9 @@ public class Place {
         return placeName;
     }
 
-    public static String getPlaceStreet() { return placeStreet; }
+    public static String getPlaceStreet() {
+        return placeStreet;
+    }
 
     public static String getPlaceCity() {
         return placeCity;
@@ -36,8 +36,6 @@ public class Place {
     public static int getQuantityGamesOfPlace() {
         return quantityGamesOfPlace;
     }
-
-//settery
 
     public void setPlaceID() {
         this.placeID = placeID;
@@ -55,7 +53,8 @@ public class Place {
         this.placeCity = placeCity;
     }
 
-    public void setQuantityPlacesOfPlace() { this.quantityPlacesOfPlace = quantityPlacesOfPlace;
+    public void setQuantityPlacesOfPlace() {
+        this.quantityPlacesOfPlace = quantityPlacesOfPlace;
     }
 
     public void setQuantityGamesOfPlace() {
@@ -66,13 +65,4 @@ public class Place {
         return placeStreet + " " + placeCity;
     }
 
-    // Ta metoda może się przydać przy ustalaniu wydarzenia.
-    // Jeżeli w danym lokalu nie będzie gier to wyświetli się informacja o potrzebie przyniesienia gier
-    public String checkGames() {
-        if (quantityGamesOfPlace == 0) {
-            return "You need games";
-        }
-
-        return "";
-    }
 }
