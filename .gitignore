@@ -1,6 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 target/
 .idea
+idea/
+.idea/
 *.iml
 
 ### Java template
