@@ -1,12 +1,10 @@
 package teamrocket.model;
 
 import teamrocket.util.Util;
-
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
-
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
@@ -15,10 +13,9 @@ public class Game {
      * Class that represents a Board Game - tabletop game that involves counters or pieces moved or placed on a
      * pre-marked surface or "board", according to a set of rules.
      */
-
     private static final Path GAMEREPO_PATH = Paths.get(".", "src", "main", "resources", "gamesRepository.csv");
     private static final String DELIMITER = ";";
-
+    private static List<Game> gamesArray = new ArrayList<>();
     private int gameId;
     private String gameName;
     private String gameDesigner;
@@ -34,7 +31,6 @@ public class Game {
     private double averageWeight;
     private String category;
     private String mechanic;
-    private static List<Game> gamesArray = new ArrayList<>();
 
     public Game() {
     }
@@ -60,23 +56,23 @@ public class Game {
         }
     }
 
-    public int getGameId() {
+    private int getGameId() {
         return gameId;
     }
 
-    public String getGameName() {
+    private String getGameName() {
         return gameName;
     }
 
-    public String getCategory() {
+    private String getCategory() {
         return category;
     }
 
-    public int getMinPlayers() {
+    private int getMinPlayers() {
         return minPlayers;
     }
 
-    public int getMaxPlayers() {
+    private int getMaxPlayers() {
         return maxPlayers;
     }
 
@@ -107,13 +103,12 @@ public class Game {
         return Objects.hash(gameId, gameName, gameDesigner, gamePublisher, gameArtist, yearPublished, minPlayers, maxPlayers, minPlayTime, maxPlayTime, minAge, bggRank, averageWeight, category, mechanic);
     }
 
-    public static List<Game> createArrayFromRepo() {
+    public static List<Game> createGamesArrayFromRepository() {
         List<String> gameList = null;
         try {
             gameList = Util.readFileContent(GAMEREPO_PATH);
         } catch (IOException e) {
             System.out.println("Zła ścieżka do pliku lub plik nie istnieje.");
-            ;
         }
         for (int i = 0; i < gameList.size(); i++) {
             gamesArray.add(new Game(gameList.get(i)));
@@ -121,42 +116,10 @@ public class Game {
         return gamesArray;
     }
 
-    private static void printHeading() {
-        System.out.println("ID Gry |" +
-                " Nazwa gry                                                                " +
-                "| Liczba graczy " +
-                "| Typ gry ");
-    }
-
-    private static void printGames(Game game) {
-        System.out.print(Util.addSpaces(8, String.valueOf(game.getGameId())));
-        System.out.print(Util.addSpaces(75, game.getGameName()));
-        System.out.print(Util.addSpaces(16, game.getMinPlayers() + " - " + game.getMaxPlayers()));
-        System.out.print(Util.addSpaces(30, game.getCategory()));
-        System.out.print("\n");
-    }
-
     public static void showAllGames() {
         printHeading();
         for (Game game : gamesArray) {
             printGames(game);
-        }
-    }
-
-    public static void showAllTypes() {
-        Set<String> gameTypes = new HashSet<>();
-        for (Game game : gamesArray) {
-            if (game.getCategory().contains(",")) {
-                String[] splitted = game.getCategory().split(", ");
-                for (String str : splitted) {
-                    gameTypes.add(str);
-                }
-            } else {
-                gameTypes.add(game.getCategory());
-            }
-        }
-        for (String type : gameTypes) {
-            System.out.println(type);
         }
     }
 
@@ -230,7 +193,38 @@ public class Game {
                 printGames(element);
             }
         }
+    }
 
+    private static void showAllTypes() {
+        Set<String> gameTypes = new HashSet<>();
+        for (Game game : gamesArray) {
+            if (game.getCategory().contains(",")) {
+                String[] splitted = game.getCategory().split(", ");
+                for (String str : splitted) {
+                    gameTypes.add(str);
+                }
+            } else {
+                gameTypes.add(game.getCategory());
+            }
+        }
+        for (String type : gameTypes) {
+            System.out.println(type);
+        }
+    }
+
+    private static void printHeading() {
+        System.out.println("ID Gry |" +
+                " Nazwa gry                                                                " +
+                "| Liczba graczy " +
+                "| Typ gry ");
+    }
+
+    private static void printGames(Game game) {
+        System.out.print(Util.addSpaces(8, String.valueOf(game.getGameId())));
+        System.out.print(Util.addSpaces(75, game.getGameName()));
+        System.out.print(Util.addSpaces(16, game.getMinPlayers() + " - " + game.getMaxPlayers()));
+        System.out.print(Util.addSpaces(30, game.getCategory()));
+        System.out.print("\n");
     }
 }
 

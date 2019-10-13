@@ -61,7 +61,7 @@ public class Menu {
     }
 
     private void decideGame(int gameChoice) throws IOException {
-        Game.createArrayFromRepo();
+        Game.createGamesArrayFromRepository();
         switch (gameChoice) {
             case 1: {
                 Game.showAllGames();
