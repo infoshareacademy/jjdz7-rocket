@@ -29,12 +29,10 @@ public class EventService {
             }
         }
         Integer maxId = Collections.max(ids);
-        Integer nextId = maxId + 1;
-
-        return nextId;
+        return maxId + 1;
     }
 
-    public Event createEventObject(String eventName, String eventDescription, String gameName, int playersNumber, LocalDate eventDate, LocalTime eventStartTime, LocalTime eventEndTime, String eventPlaceName, String eventAddress, String eventCity) {
+    private Event createEventObject(String eventName, String eventDescription, String gameName, int playersNumber, LocalDate eventDate, LocalTime eventStartTime, LocalTime eventEndTime, String eventPlaceName, String eventAddress, String eventCity) {
         return new Event(eventName, eventDescription, gameName, playersNumber, eventDate, eventStartTime, eventEndTime, eventPlaceName, eventAddress, eventCity);
     }
 
@@ -59,28 +57,6 @@ public class EventService {
         Util.writeToFile(EVENT_PATH, eventString.getBytes());
         System.out.println("Wydarzenie zostało dodane");
     }
-
-    /* TODO:
-        złapać wyjątki przy złym formacie wpisania daty i czasu (np. data nie może być starsza niż aktualna)
-        pętla while w wyjątkach (żeby np. można było pomylić się więcej niż 1 raz)
-        typ gry pobrać z enum'a
-        nazwę gry ma docelowo pobierać z listy (wyszukiwanie po tytułach) lub można wpisać własną
-        nazwa miejsca - docelowo ma wyświetlać się lista placówek gdzie można grać w gry (wtedy automatycznie ma się wstawić adres danego miejsca) lub można wpisać własną
-        if null - część pól będzie mogła być pusta (nie każdy chce wszystko uzupełniać), część jest obowiązkowa i musi być wpisana (nazwa wydarzenia, data i czas rozpoczęcia, adres, miasto)
-        data - wyskakuje kalendarz; godzina podobnie -licznik
-     */
-
-
-
-    //wyświetlanie listy
-//        public Event [] showEvent() throws IOException {
-//        List<String> eventList = Util.readFileContent(EVENT_PATH);
-//        Event[] eventsArray = new Event[eventList.size()];
-//        for(int i = 0 ; i < eventsArray.length ; i++){
-//            eventsArray[i] = new Event(eventList.get(i));
-//        } return eventsArray;
-//    }
-
 }
 
 
