@@ -7,9 +7,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import static teamrocket.model.Game.filterByGameType;
-import static teamrocket.model.Game.gamesArray;
-
 public class UserService {
 
     private static final Path USERS_PATH = Paths.get ( ".", "src", "main", "resources", "user" );
