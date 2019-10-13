@@ -1,5 +1,6 @@
-package teamrocket.model;
+package teamrocket.services;
 
+import teamrocket.model.Place;
 import teamrocket.util.Util;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -10,7 +11,7 @@ public class PlaceService {
 
     //Ta metoda może się nam przydać w dalszej pracy
 
-    private static final Path PLACES_PATH = Paths.get(".","src","main","resources","placeRepo.csv");
+    private static final Path PLACES_PATH = Paths.get(".","app", "src","main","resources","placeRepo.csv");
 
     //Ta meotda będzie służyć do tworzenia nowego obiektu miejsca np. przy tworzeniu nowego wydarzenia
 

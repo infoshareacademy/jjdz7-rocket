@@ -1,5 +1,7 @@
-package teamrocket.model;
+package teamrocket.services;
 
+import teamrocket.model.Game;
+import teamrocket.model.User;
 import teamrocket.util.Util;
 
 import java.io.IOException;
@@ -9,7 +11,7 @@ import java.util.List;
 
 public class UserService {
 
-    private static final Path USERS_PATH = Paths.get ( ".", "src", "main", "resources", "user" );
+    private static final Path USERS_PATH = Paths.get ( ".", "app", "src", "main", "resources", "user" );
     private static Iterable<? extends Game> getUsers;
 
     public static User createUserObject(String FavoriteGame, String TypeOfGame) {
