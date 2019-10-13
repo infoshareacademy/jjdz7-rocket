@@ -41,11 +41,9 @@ body
     padding: auto;
     background-color: #000000;
     text-align: center;
-    overflow: hidden;
     border-top: 1px solid #ff1f18;
     border-bottom: 1px solid #ff1f18;
-    margin-left: auto;
-    margin-right: auto;
+
 
 }
 
