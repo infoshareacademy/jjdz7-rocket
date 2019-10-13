@@ -1,9 +1,6 @@
 package teamrocket.menu;
 
-import teamrocket.model.Event;
-import teamrocket.model.EventService;
-import teamrocket.model.Game;
-import teamrocket.model.UserService;
+import teamrocket.model.*;
 import teamrocket.util.Util;
 
 import java.io.IOException;
@@ -151,6 +148,7 @@ public class Menu {
             }
         }
     }
+
 
     private void printMainMenuInfo() {
         System.out.println(" ##### Menu Aplikacji #####  ");

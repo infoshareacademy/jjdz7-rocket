@@ -22,6 +22,7 @@ public class User {
     }
 
 
+
     public String getFavoriteGame() {
         return favoriteGame;
     }

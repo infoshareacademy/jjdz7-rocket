@@ -7,40 +7,48 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static teamrocket.model.Game.filterByGameType;
+import static teamrocket.model.Game.gamesArray;
+
 public class UserService {
 
-    private static final Path USERS_PATH = Paths.get(".", "src", "main", "resources", "user");
+    private static final Path USERS_PATH = Paths.get ( ".", "src", "main", "resources", "user" );
+    private static Iterable<? extends Game> getUsers;
 
     public static User createUserObject(String FavoriteGame, String TypeOfGame) {
-        return new User (FavoriteGame, TypeOfGame);
+        return new User ( FavoriteGame, TypeOfGame );
     }
 
     public static User getUserFromConsole() {
-        String FavoriteGame = Util.readInputWithMessage("FavouriteGame: ");
-        String TypeOfGame = Util.readInputWithMessage("TypeOfGame: ");
-        return createUserObject( FavoriteGame, TypeOfGame);
+        String FavoriteGame = Util.readInputWithMessage ( "Ulubiona Gra: " );
+        String TypeOfGame = Util.readInputWithMessage ( "Typ Gry: " );
+        return createUserObject ( FavoriteGame, TypeOfGame );
     }
 
     public static void addUser(User game) throws IOException {
-        String userString = game.toString() + "\n";
-        Util.writeToFile(USERS_PATH, userString.getBytes());
+        String userString = game.toString () + "\n";
+        Util.writeToFile ( USERS_PATH, userString.getBytes () );
     }
 
     public static User[] getUsers() throws IOException {
-        List<String> linesFromFile = Util.readFileContent(USERS_PATH);
+        List<String> linesFromFile = Util.readFileContent ( USERS_PATH );
 
-        User[] usersArray = new User[linesFromFile.size()];
+        User[] usersArray = new User[linesFromFile.size ()];
 
-        for(int i = 0 ; i < usersArray.length ; i++){
-            usersArray[i] = new User (linesFromFile.get(i));
+        for (int i = 0; i < usersArray.length; i++) {
+            usersArray[i] = new User ( linesFromFile.get ( i ) );
         }
 
         return usersArray;
     }
 
-    public static void list(User[] users){
-        for(User user : users){
-            System.out.println(user);
-        }
+    public static void list(User[] users) {
+        System.out.println ( "Podaj ID gdy ktora chcesz dodac do ulubionych : " );
+        int userInput = Util.readUserInputInteger ();
+        for (Game game :UserService.getUsers)
+            if (game.getGameId () == userInput) {
+                // tu logika, ktora wezmie wszystkie parametry tej gry (getterami) i dopisze do repo
+                // w jednej linijcie z uzyciem delimitera (srednika). Podobnie jak na zajeciach z Lukaszem.
+            }
     }
 }

@@ -181,34 +181,6 @@ public class Game {
         }
     }
 
-    private static Set<String> createGameTypesSet(){
-        Set<String> gameTypes = new HashSet<>();
-        for (Game game : gamesArray) {
-            if (game.category.contains(",")) {
-                String[] splitted = game.category.split(", ");
-                for (String str : splitted) {
-                    gameTypes.add(str);
-                }
-            } else {
-                gameTypes.add(game.category);
-            }
-        }
-        return gameTypes;
-    }
-
-    private static void printHeading() {
-        System.out.println("ID Gry |" +
-                " Nazwa gry                                                                " +
-                "| Liczba graczy " +
-                "| Typ gry ");
-    }
-
-    private static void printGames(Game game) {
-        System.out.print(Util.addSpaces(8, String.valueOf(game.gameId)));
-        System.out.print(Util.addSpaces(75, game.gameName));
-        System.out.print(Util.addSpaces(16, game.minPlayers + " - " + game.maxPlayers));
-        System.out.print(Util.addSpaces(30, game.category));
-        System.out.print("\n");
     }
 }
 
