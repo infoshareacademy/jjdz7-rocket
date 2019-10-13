@@ -56,26 +56,6 @@ public class Game {
         }
     }
 
-    private int getGameId() {
-        return gameId;
-    }
-
-    private String getGameName() {
-        return gameName;
-    }
-
-    private String getCategory() {
-        return category;
-    }
-
-    private int getMinPlayers() {
-        return minPlayers;
-    }
-
-    private int getMaxPlayers() {
-        return maxPlayers;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -130,7 +110,7 @@ public class Game {
         String userInput = Util.readUserInput();
         List<Game> result = new ArrayList<>();
         for (Game game : gamesArray) {
-            if (game.getCategory().toLowerCase().contains(userInput.toLowerCase())) {
+            if (game.category.toLowerCase().contains(userInput.toLowerCase())) {
                 result.add(game);
             }
         }
@@ -160,7 +140,7 @@ public class Game {
         System.out.println("Wynikiem są wszystkie gry, których liczba graczy zawiera się w podanym przez Ciebie przedziale.");
         List<Game> result = new ArrayList<>();
         for (Game game : gamesArray) {
-            if (game.getMinPlayers() >= userInput1 && game.getMaxPlayers() <= userInput2) {
+            if (game.minPlayers >= userInput1 && game.maxPlayers <= userInput2) {
                 result.add(game);
             }
 
@@ -180,7 +160,7 @@ public class Game {
         String userInput = Util.readUserInput();
         List<Game> result = new ArrayList<>();
         for (Game game : gamesArray) {
-            if (game.getGameName().toLowerCase().contains(userInput.toLowerCase())) {
+            if (game.gameName.toLowerCase().contains(userInput.toLowerCase())) {
                 result.add(game);
             }
         }
@@ -196,20 +176,24 @@ public class Game {
     }
 
     private static void showAllTypes() {
+        for (String type : createGameTypesSet()) {
+            System.out.println(type);
+        }
+    }
+
+    private static Set<String> createGameTypesSet(){
         Set<String> gameTypes = new HashSet<>();
         for (Game game : gamesArray) {
-            if (game.getCategory().contains(",")) {
-                String[] splitted = game.getCategory().split(", ");
+            if (game.category.contains(",")) {
+                String[] splitted = game.category.split(", ");
                 for (String str : splitted) {
                     gameTypes.add(str);
                 }
             } else {
-                gameTypes.add(game.getCategory());
+                gameTypes.add(game.category);
             }
         }
-        for (String type : gameTypes) {
-            System.out.println(type);
-        }
+        return gameTypes;
     }
 
     private static void printHeading() {
@@ -220,10 +204,10 @@ public class Game {
     }
 
     private static void printGames(Game game) {
-        System.out.print(Util.addSpaces(8, String.valueOf(game.getGameId())));
-        System.out.print(Util.addSpaces(75, game.getGameName()));
-        System.out.print(Util.addSpaces(16, game.getMinPlayers() + " - " + game.getMaxPlayers()));
-        System.out.print(Util.addSpaces(30, game.getCategory()));
+        System.out.print(Util.addSpaces(8, String.valueOf(game.gameId)));
+        System.out.print(Util.addSpaces(75, game.gameName));
+        System.out.print(Util.addSpaces(16, game.minPlayers + " - " + game.maxPlayers));
+        System.out.print(Util.addSpaces(30, game.category));
         System.out.print("\n");
     }
 }
