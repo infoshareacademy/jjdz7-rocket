@@ -15,7 +15,7 @@ import java.util.Set;
 
 public class Event {
 
-    private static final Path EVENTREPO_PATH = Paths.get(".", "src", "main", "resources", "eventRepository.csv");
+    private static final Path EVENTREPO_PATH = Paths.get(".", "app", "src", "main", "resources", "eventRepository.csv");
     private static final String DELIMITER = ";";
     private int eventId;
     private String eventName;

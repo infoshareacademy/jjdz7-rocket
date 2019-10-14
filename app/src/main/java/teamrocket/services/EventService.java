@@ -1,5 +1,6 @@
-package teamrocket.model;
+package teamrocket.services;
 
+import teamrocket.model.Event;
 import teamrocket.util.Util;
 
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class EventService {
-    private static final Path EVENT_PATH = Paths.get(".","src","main","resources","eventRepository.csv");
+    private static final Path EVENT_PATH = Paths.get(".","app","src","main","resources","eventRepository.csv");
 
     public int getEventID() throws IOException {
         List<String> linesFromFile = Util.readFileContent(EVENT_PATH);

@@ -15,7 +15,7 @@ public class Game {
      * Class that represents a Board Game - tabletop game that involves counters or pieces moved or placed on a
      * pre-marked surface or "board", according to a set of rules.
      */
-    private static final Path GAMEREPO_PATH = Paths.get(".", "src", "main", "resources", "gamesRepository.csv");
+    private static final Path GAMEREPO_PATH = Paths.get(".", "app", "src", "main", "resources", "gamesRepository.csv");
     private static final String DELIMITER = ";";
     private static List<Game> gamesArray = new ArrayList<>();
     private int gameId;
