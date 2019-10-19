@@ -1,6 +1,7 @@
 package teamrocket;
 
 import teamrocket.menu.Menu;
+
 import java.io.IOException;
 
 public class App {
