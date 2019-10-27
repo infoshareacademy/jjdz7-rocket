@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Logger;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 @WebServlet("/addEvent")
 public class AddEventServlet extends HttpServlet {
@@ -36,5 +36,4 @@ public class AddEventServlet extends HttpServlet {
         writer.println("Here will be the form for adding new event!");
         writer.println("</body></html>");
     }
-
 }
