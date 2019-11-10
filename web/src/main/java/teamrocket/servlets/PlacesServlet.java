@@ -1,6 +1,7 @@
 package teamrocket.servlets;
 
 import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import teamrocket.freemarker.TemplateProvider;
 
 import javax.inject.Inject;
@@ -26,5 +27,11 @@ public class PlacesServlet extends HttpServlet {
 
         Map<String,Object> model = new HashMap<>();
         Template template = templateProvider.getTemplate(getServletContext(),".ftlh");
+
+        try {
+            template.process(model, writer);
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        }
     }
 }

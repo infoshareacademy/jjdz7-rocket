@@ -1,6 +1,7 @@
 package teamrocket.servlets;
 
 import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import teamrocket.freemarker.TemplateProvider;
 
 import javax.inject.Inject;
@@ -24,10 +25,14 @@ public class FavoriteGamesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter writer = resp.getWriter();
 
-        Map<String,Object> model = new HashMap<>();
-        Template template = templateProvider.getTemplate(getServletContext(),".ftlh");
+        Map<String, Object> model = new HashMap<>();
+        Template template = templateProvider.getTemplate(getServletContext(), ".ftlh");
 
-
+        try {
+            template.process(model, writer);
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        }
 
     }
 }
