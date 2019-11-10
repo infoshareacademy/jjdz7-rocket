@@ -4,6 +4,7 @@ target/
 idea/
 .idea/
 *.iml
+mysql/
 
 ### Java template
 # Compiled class file
