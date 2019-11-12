@@ -1,11 +1,10 @@
+
 body
-{
-    background-image: url("../../resources/wood-grain-texture.jpg");
+    {background-image: url("../../resources/wood-grain-texture.jpg");
     color: #fefff3;
     font-size: 20px;
-    margin: 0 !important;
+    margin: 0 !important}
 
-}
 .form-group
 {
     width: 450px;
@@ -46,4 +45,4 @@ h2
 button
 {
     font-size: 20px;
-}
+}>
