@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact Form</title>
-    <link rel="stylesheet" href="../fm-templates/macro/info.ftlh"/>
+    <link rel="style" href="../../css/info.css"/>
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Info</title>
-        <link rel="stylesheet" href="../fm-templates/macro/info.ftlh"/>
+        <link rel="stylesheet" href="../../css/info.css"/>
     </head>
 <body>
 <h1>About us!</h1>

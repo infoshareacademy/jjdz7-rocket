@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact Form</title>
-    <link rel="stylesheet" href="../css/info.css"/>
+    <link rel="style" href="../../css/info.css"/>
 </head>
 <body>
 <h2>Contact</h2>

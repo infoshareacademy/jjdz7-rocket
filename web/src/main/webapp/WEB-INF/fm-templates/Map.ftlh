@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../css/info.css"/>
+    <link rel="style" href="../../css/info.css"/>
 </head>
 <body>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4073364.676941549!2d17.643257508650205!3d52.384313128146154

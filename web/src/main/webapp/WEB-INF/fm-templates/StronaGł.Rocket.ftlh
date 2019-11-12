@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="css/CSS.Roket.css" />
-    <link rel="stylesheet" href="css/fontello.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="kubuś">
+    <link rel="stylesheet" href="../../css/CSS.Roket.css" />
+    <link rel="stylesheet" href="../../css/fontello.css" />
+    <link rel="stylesheet" href="../../https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="kubuś">
 </head>
 
 <body>
@@ -25,8 +26,8 @@
             <li><a href="#">Strona główna</a></li>
             <li><a href="#">O Nas</a>
                 <ul>
-                    <li><a href="html-style/contactForm.html">kontakt</a></li>
-                    <li><a href="html-style/Info.html">informacje</a></li>
+                    <li><a href="../../html-style/contactForm.html">kontakt</a></li>
+                    <li><a href="../../html-style/Info.html">informacje</a></li>
                 </ul>
             </li>
             <li><a href="#">Baza Gier</a>
@@ -44,7 +45,7 @@
                 </ul>
             </li>
 
-            <li><a href="html-style/mapsG.html">mapa</a></li>
+            <li><a href="../../html-style/mapsG.html">mapa</a></li>
         </ol>
 
     </div>
