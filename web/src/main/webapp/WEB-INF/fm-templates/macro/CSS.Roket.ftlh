@@ -1,0 +1,208 @@
+body
+{
+    background-image: url("../../resources/wood-grain-texture.jpg");
+    color: #68ff4c;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    margin: 0 !important;
+}
+
+.wrapper
+{
+
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header
+{
+    width:100%;
+    padding: 34px 0;
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+}
+
+.logo
+{
+
+    width: 450px;
+    font-size: 48px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.nav
+{
+    width: 100%;
+    position: relative;
+    padding: auto;
+    background-color: #000000;
+    text-align: center;
+    border-top: 1px solid #ff1f18;
+    border-bottom: 1px solid #ff1f18;
+
+
+}
+
+.content
+{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    padding-top: 10px;
+}
+
+.socials
+{
+    width:100%;
+    text-align: center;
+    background-color: #292929;
+}
+
+.socialdivs
+{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fb
+{
+    width: 250px;
+    height: 155px;
+    float:left;
+}
+
+.fb:hover
+{
+    background-color: #4668b3;
+}
+
+.yt
+{
+    width: 250px;
+    height: 155px;
+    float:left;
+}
+
+.yt:hover
+{
+    background-color: #ff1f18;
+}
+
+.tw
+{
+    width: 250px;
+    height: 155px;
+    float:left;
+}
+
+.tw:hover
+{
+    background-color: #3095d3;
+}
+
+.gplus
+{
+    width: 250px;
+    height: 155px;
+    float:left;
+}
+
+.gplus:hover
+{
+    background-color: #ff1f18;
+}
+
+.footer
+{
+    text-align: center;
+    background-color: #222222;
+    padding: 30px;
+}
+
+.sticky
+{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+ol
+{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-size: 18px;
+    height: 35px;
+    line-height: 200%;
+    display: inline-block;
+}
+
+ol a
+{
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+}
+
+ol > li
+{
+    float: left;
+    width: 150px;
+    height: 40px;
+    border-right: 1px dashed #751b1b;
+}
+
+ol > li:first-child
+{
+    border-left: 1px dashed #751b1b;
+}
+
+ol > li:hover
+{
+    background-color: #ff1f18;
+}
+
+ol > li:hover > a
+{
+    color: #451717;
+}
+
+ol > li > ul
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    display: none;
+}
+
+ol > li:hover > ul
+{
+    display: block;
+}
+
+ol > li > ul > li
+{
+    background-color: #ff1f18;
+    position: relative;
+    z-index: 100;
+    border-top: 1px dashed #ff1f18;
+}
+
+ol > li > ul > li:hover
+{
+    background-color: #c34f4f;
+}
+
+ol > li > ul > li:hover > a
+{
+    color: #451717;
+}
