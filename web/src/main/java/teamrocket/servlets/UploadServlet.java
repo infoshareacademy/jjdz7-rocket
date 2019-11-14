@@ -57,7 +57,7 @@ public class UploadServlet extends HttpServlet {
    } catch (Exception ex) {
     request.setAttribute("message", "There was an error: " + ex.getMessage());
    }
-   getServletContext().getRequestDispatcher("/result.jsp").forward(request, response);
+   getServletContext().getRequestDispatcher("/Result.jsp").forward(request, response);
   }
  }
 }
