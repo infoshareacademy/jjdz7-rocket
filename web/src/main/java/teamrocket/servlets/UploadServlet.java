@@ -17,7 +17,7 @@ import static teamrocket.servlets.Constants.*;
 
 @WebServlet(
         name = "UploadServlet",
-        urlPatterns = {"/uploadFile"}
+        urlPatterns = {"/Upload"}
 )
 public class UploadServlet extends HttpServlet {
 

@@ -4,12 +4,12 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>File Upload Demo</title>
+    <title>Upload</title>
 </head>
 
 <body>
 <div>FileUpload</div>
-<form method="post" action="uploadFile" enctype="multipart/form-data">
+<form method="post" action="Upload.jsp" enctype="multipart/form-data">
     Choose a file: <input type="file" name="uploadFile"/><input type="submit" value="Upload"/>
 </form>
 

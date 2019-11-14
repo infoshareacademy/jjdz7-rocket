@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "UploadWelcomeServlet", urlPatterns = "/Uloadwelcome")
+@WebServlet(name = "UploadWelcomeServlet", urlPatterns = "/Upload")
 public class UploadWelcomeServlet extends HttpServlet {
 
     @Override
