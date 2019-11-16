@@ -24,8 +24,6 @@ public class Event {
     private String gameName;
     private int playersNumber;
     private LocalDate eventDate;
-    private LocalTime eventTime;
-    private Place eventPlace;
     private LocalTime eventStartTime;
     private LocalTime eventEndTime;
     private String eventPlaceName;
@@ -33,7 +31,7 @@ public class Event {
     private String eventCity;
     private static List<Event> eventsArray = new ArrayList<>();
 
-    public Event(String eventName, String eventDescription, String gameName, int playersNumber, LocalDate eventDate, LocalTime eventStartTime, LocalTime eventEndTime, String eventPlaceName, String eventAddress, String eventCity) {
+    public Event(String eventName, String eventType, String eventDescription, String gameName, int playersNumber, LocalDate eventDate, LocalTime eventStartTime, LocalTime eventEndTime, String eventPlaceName, String eventAddress, String eventCity) {
         this.eventName = eventName;
         this.eventType = eventType;
         this.eventDescription = eventDescription;
@@ -119,22 +117,6 @@ public class Event {
 
     public void setEventDate(LocalDate eventDate) {
         this.eventDate = eventDate;
-    }
-
-    public LocalTime getEventTime() {
-        return eventTime;
-    }
-
-    public void setEventTime(LocalTime eventTime) {
-        this.eventTime = eventTime;
-    }
-
-    public Place getEventPlace() {
-        return eventPlace;
-    }
-
-    public void setEventPlace(Place eventPlace) {
-        this.eventPlace = eventPlace;
     }
 
     public LocalTime getEventStartTime() {
