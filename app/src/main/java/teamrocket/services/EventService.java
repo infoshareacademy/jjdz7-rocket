@@ -33,12 +33,13 @@ public class EventService {
         return maxId + 1;
     }
 
-    private Event createEventObject(String eventName, String eventDescription, String gameName, int playersNumber, LocalDate eventDate, LocalTime eventStartTime, LocalTime eventEndTime, String eventPlaceName, String eventAddress, String eventCity) {
-        return new Event(eventName, eventDescription, gameName, playersNumber, eventDate, eventStartTime, eventEndTime, eventPlaceName, eventAddress, eventCity);
+    private Event createEventObject(String eventName, String eventType, String eventDescription, String gameName, int playersNumber, LocalDate eventDate, LocalTime eventStartTime, LocalTime eventEndTime, String eventPlaceName, String eventAddress, String eventCity) {
+        return new Event(eventName, eventType, eventDescription, gameName, playersNumber, eventDate, eventStartTime, eventEndTime, eventPlaceName, eventAddress, eventCity);
     }
 
     public Event getEventFromConsole() {
         String eventName = Util.readInputWithMessage("Nazwa wydarzenia: ");
+        String eventType = Util.readInputWithMessage("Typ wydarzenia: ");
         String eventDescription = Util.readInputWithMessage("Opis wydarzenia: ");
         String gameName = Util.readInputWithMessage("Gra: ");
         int playersNumber = Util.readInputIntegerWithMessage("Liczba graczy: ");
@@ -49,7 +50,7 @@ public class EventService {
         String eventAddress = Util.readInputWithMessage("Adres: ");
         String eventCity = Util.readInputWithMessage("Miasto: ");
 
-        return createEventObject (eventName, eventDescription, gameName, playersNumber, eventDate, eventStartTime, eventEndTime, eventPlaceName, eventAddress, eventCity);
+        return createEventObject (eventName, eventType, eventDescription, gameName, playersNumber, eventDate, eventStartTime, eventEndTime, eventPlaceName, eventAddress, eventCity);
     }
 
     public void addEvent(Event event, int eventId) throws IOException {
