@@ -1,5 +1,7 @@
 package teamrocket.servlets;
 
+import teamrocket.Constants;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +13,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import static teamrocket.servlets.Constants.UPLOAD_DIRECTORY;
+import static teamrocket.Constants.UPLOAD_DIRECTORY;
 
 @WebServlet(
         name = "MultiPartServlet",
@@ -47,6 +49,6 @@ public class MultipartServlet extends HttpServlet {
         } catch (FileNotFoundException fne) {
             request.setAttribute("message", "There was an error: " + fne.getMessage());
         }
-        getServletContext().getRequestDispatcher("Result.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("").forward(request, response);
     }
 }

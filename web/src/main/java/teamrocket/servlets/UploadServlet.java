@@ -13,11 +13,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static teamrocket.servlets.Constants.*;
+import static teamrocket.Constants.*;
 
 @WebServlet(
         name = "UploadServlet",
-        urlPatterns = {"/Upload"}
+        urlPatterns = {"/uploadFile"}
 )
 public class UploadServlet extends HttpServlet {
 
