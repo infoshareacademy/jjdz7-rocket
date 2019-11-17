@@ -16,7 +16,7 @@
     <div class="header">
 
         <div class="logo" >
-            <img src="../resources/grajdolex10.png" style="float: left;"/>
+            <img src="../../resources/grajdolex10.png" style="float: left;"/>
             <div style="clear:both;"></div>
         </div>
     </div>
