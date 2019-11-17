@@ -15,8 +15,8 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet("/favoriteGames")
-public class FavoriteGamesServlet extends HttpServlet {
+@WebServlet("/main")
+public class MainServlet extends HttpServlet {
 
     @Inject
     private TemplateProvider templateProvider;
@@ -25,14 +25,13 @@ public class FavoriteGamesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter writer = resp.getWriter();
 
-        Map<String, Object> model = new HashMap<>();
-        Template template = templateProvider.getTemplate(getServletContext(), ".ftlh");
+        Map<String,Object> model = new HashMap<>();
+        Template template = templateProvider.getTemplate(getServletContext(),"StronaGł.Rocket.ftlh");
 
         try {
             template.process(model, writer);
         } catch (TemplateException e) {
             e.printStackTrace();
         }
-
     }
 }

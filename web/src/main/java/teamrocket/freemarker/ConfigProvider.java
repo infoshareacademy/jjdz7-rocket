@@ -1,6 +1,5 @@
 package teamrocket.freemarker;
 
-
 import freemarker.template.Configuration;
 import freemarker.template.TemplateExceptionHandler;
 
