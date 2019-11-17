@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="css/CSS.Roket.css" />
-    <link rel="stylesheet" href="css/fontello.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="kubuś">
+    <link rel="stylesheet" href="../../css/CSS.Roket.css" />
+    <link rel="stylesheet" href="../../css/fontello.css" />
+    <link rel="stylesheet" href="../../https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="kubuś">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
     <div class="header">
 
         <div class="logo" >
-            <img src="../resources/grajdolex10.png" style="float: left;"/>
+            <img src="../../resources/grajdolex10.png" style="float: left;"/>
             <div style="clear:both;"></div>
         </div>
     </div>
