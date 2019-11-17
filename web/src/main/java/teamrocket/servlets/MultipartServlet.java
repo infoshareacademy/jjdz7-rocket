@@ -47,6 +47,6 @@ public class MultipartServlet extends HttpServlet {
         } catch (FileNotFoundException fne) {
             request.setAttribute("message", "There was an error: " + fne.getMessage());
         }
-        getServletContext().getRequestDispatcher("/Result.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("Result.jsp").forward(request, response);
     }
 }
