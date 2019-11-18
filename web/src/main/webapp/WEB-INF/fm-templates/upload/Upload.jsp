@@ -10,7 +10,7 @@
 <body>
 <div>FileUpload</div>
 <form method="post" action="uploadFile" enctype="multipart/form-data">
-    Choose a file: <input type="file" name="Upload"/><input type="submit" value="Upload"/>
+    Choose a file: <input type="file" name="uploadFile"/><input type="submit" value="Upload"/>
 </form>
 
 </br>
