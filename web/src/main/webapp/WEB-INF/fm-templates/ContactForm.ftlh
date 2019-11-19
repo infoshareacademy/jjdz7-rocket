@@ -24,10 +24,12 @@
         <br>
         <label for="question">Your question</label>
         <textarea class="form-control" id="question" rows="2" placeholder="Type question..."></textarea>
+
+        <form method="post" action="multiPartServlet" enctype="multipart/form-data">
+            Choose a file: <input type="file" name="multiPartServlet" />
+            <input type="submit" value="Upload" />
+        </form>
     </div>
-    method="post" action="multiPartServlet" enctype="multipart/form-data">
-    Choose a file: <input type="file" name="multiPartServlet" />
-    <input type="submit" value="Upload" />
 
     <button type="button" class="btn btn-outline-success">Wylie</button>
 </form>
