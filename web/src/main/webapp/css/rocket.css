@@ -1,7 +1,8 @@
 body
 {
-    background-image: url("../../resources/wood-grain-texture.jpg");
-    color: #68ff4c;
+    background-image: url("../images/wood-grain-texture.jpg");
+
+    color: #fff4f3;
     font-family: 'Lato', sans-serif;
     font-size: 20px;
     margin: 0 !important;
@@ -137,12 +138,12 @@ body
 ol
 {
     padding: 0;
-    margin: 0;
     list-style-type: none;
     font-size: 18px;
     height: 35px;
     line-height: 200%;
-    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 ol a

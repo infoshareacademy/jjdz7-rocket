@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../../css/rocket.css" />
     <link rel="stylesheet" href="../../css/info.css"/>
 </head>
 <body>

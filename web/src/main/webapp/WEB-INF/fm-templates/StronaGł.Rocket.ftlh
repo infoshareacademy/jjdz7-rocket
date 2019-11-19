@@ -14,16 +14,14 @@
 
 <div class="wrapper">
     <div class="header">
-
         <div class="logo" >
-            <img src="../../resources/grajdolex10.png" style="float: left;"/>
+            <img src="../../images/grajdolex10.png" style="float: left;"/>
             <div style="clear:both;"></div>
         </div>
     </div>
     <div class="nav">
-        <div style="clear:both;"></div>
         <ol>
-            <li><a href="#">Strona główna</a></li>
+            <li><a href="#">Start</a></li>
             <li><a href="#">O Nas</a>
                 <ul>
                     <li><a href="../../html-style/contactForm.html">kontakt</a></li>

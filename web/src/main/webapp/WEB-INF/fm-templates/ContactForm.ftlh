@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact Form</title>
-    <link rel="style" href="../../css/info.css"/>
+    <link rel="stylesheet" href="../../css/rocket.css" />
+    <link rel="stylesheet" href="../../css/info.css"/>
 </head>
 <body>
 <h2>Contact</h2>
@@ -24,6 +25,10 @@
         <label for="question">Your question</label>
         <textarea class="form-control" id="question" rows="2" placeholder="Type question..."></textarea>
     </div>
+    method="post" action="multiPartServlet" enctype="multipart/form-data">
+    Choose a file: <input type="file" name="multiPartServlet" />
+    <input type="submit" value="Upload" />
+
     <button type="button" class="btn btn-outline-success">Wylie</button>
 </form>
 </body>

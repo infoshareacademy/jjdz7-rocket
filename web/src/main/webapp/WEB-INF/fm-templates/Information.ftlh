@@ -3,14 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact Form</title>
-    <link rel="style" href="../../css/info.css"/>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Info</title>
-        <link rel="stylesheet" href="../../css/info.css"/>
-    </head>
+    <link rel="stylesheet" href="../../css/rocket.css" />
+    <link rel="stylesheet" href="../../css/info.css"/>
 <body>
 <h1>About us!</h1>
 <div>
@@ -21,7 +15,7 @@
 
     <br>
     <div class="team">
-        <img src="../../resources/team.jpg" style="width: 1000px"/>
+        <img src="../../images/team.jpg" style="width: 1000px"/>
     </div>
     <h5>Enjoy!</h5>
 
