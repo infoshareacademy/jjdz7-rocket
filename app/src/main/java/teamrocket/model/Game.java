@@ -15,7 +15,7 @@ public class Game {
      * Class that represents a Board Game - tabletop game that involves counters or pieces moved or placed on a
      * pre-marked surface or "board", according to a set of rules.
      */
-    private static final Path GAMEREPO_PATH = Paths.get(".", "app", "src", "main", "resources", "gamesRepository.csv");
+    private static final Path GAMEREPO_PATH = Paths.get(".", "web", "src", "main", "resources", "gamesRepository.csv");
     private static final String DELIMITER = ";";
     private static List<Game> gamesArray = new ArrayList<>();
     private int gameId;
@@ -89,8 +89,14 @@ public class Game {
         return Objects.hash(gameId, gameName, gameDesigner, gamePublisher, gameArtist, yearPublished, minPlayers, maxPlayers, minPlayTime, maxPlayTime, minAge, bggRank, averageWeight, category, mechanic);
     }
 
+
+
+
+
+
+
     public static List<Game> createGamesArrayFromRepository() {
-        List<String> gameList = null;
+        List<String> gameList = new ArrayList<>();
         try {
             gameList = Util.readFileContent(GAMEREPO_PATH);
         } catch (IOException e) {
