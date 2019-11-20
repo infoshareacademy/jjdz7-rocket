@@ -6,6 +6,7 @@
     background-color:#FFF;
     border-radius:25%;
     box-shadow:0 0 4px 2px #000, 0 0 3px 1px #00F inset;
+    margin: auto;
 }
 
 #prawo > div:nth-child(1) {

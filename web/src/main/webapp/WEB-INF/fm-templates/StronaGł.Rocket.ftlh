@@ -35,11 +35,11 @@
                     <li><a href="#">lista gier</a></li>
                 </ul>
             </li>
-            <li><a href="#">Wydarzenia</a>
+            <li><a href="wydazenia.ftlh">Wydarzenia</a>
                 <ul>
-                    <li><a href="#">Dodaj Wydarzenie</a></li>
-                    <li><a href="#">wydarzenia</a></li>
-                    <li><a href="#">miejsca na gry</a></li>
+                    <li><a href="../../html-style/wydazenia.html">Dodaj Wydarzenie</a></li>
+                    <li><a href="../../html-style/wydazenia.html">wydarzenia</a></li>
+                    <li><a href="../../html-style/wydazenia.html">miejsca na gry</a></li>
                 </ul>
             </li>
 
