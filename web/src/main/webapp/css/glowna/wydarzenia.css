@@ -563,33 +563,6 @@ textarea	{border: 0;font-size: 16px;background-color: #ffffff;border: solid #d8d
     text-align: left;
     width: 34px;
 }
-#user-detailsbox .social-box a.link-fb {
-    background: url(../img/userbox-icon-fb.png) no-repeat center #1291c4;
-}
-#user-detailsbox .social-box a.link-gplus {
-    background: url(../img/userbox-icon-gplus.png) no-repeat center #1291c4;
-}
-#user-detailsbox .social-box a.link-linkedin {
-    background: url(../img/userbox-icon-linkedin.png) no-repeat center #1291c4;
-}
-#user-detailsbox .social-box a.link-twitter {
-    background: url(../img/userbox-icon-twitter.png) no-repeat center #1291c4;
-}
-#user-detailsbox .social-box a.link-youtube {
-    background: url(../img/userbox-icon-youtube.png) no-repeat center #1291c4;
-}
-#user-detailsbox .social-box a.link-goldenline {
-    background: url(../img/userbox-icon-goldenline.png) no-repeat center #1291c4;
-}
-.icon-loading {
-    display: block;
-    width: 33px;
-    height: 33px;
-    background: url(../img/icon-loading.gif) no-repeat;
-    opacity: 0;
-}
-
-
 .login-social-box .icon-loading {
     display: block;
     float: right;
@@ -784,7 +757,7 @@ textarea	{border: 0;font-size: 16px;background-color: #ffffff;border: solid #d8d
     margin-right: 15px;
 }
 #user-panelbox form .social-box:nth-child(4) .icon {
-    background: #1291c4;
+    background: #000000;
     color: #fff;
     padding-top: 10px;
     height: 28px;
@@ -854,7 +827,7 @@ textarea	{border: 0;font-size: 16px;background-color: #ffffff;border: solid #d8d
 #user-panelbox #submit {
     width: 120px;
     line-height: 33px;
-    background-color: #088bbf;
+    background-color: #000000;
     color: #fff;
     font-size: 16px;
     text-align: center;
@@ -862,7 +835,7 @@ textarea	{border: 0;font-size: 16px;background-color: #ffffff;border: solid #d8d
     margin-top: 15px;
 }
 #user-panelbox #submit:hover {
-    background-color: #0e628a;
+    background-color: #fff4f3;
 }
 #user-panelbox form .errors {
     margin: 0 0 10px 0;
@@ -881,7 +854,7 @@ textarea	{border: 0;font-size: 16px;background-color: #ffffff;border: solid #d8d
     font-family: 'lato';
     font-size: 18px;
     color: #fff;
-    background-color: #147aaa;
+    background-color: #fff4f3;
     line-height: 38px;
     padding: 0 10px;
     margin-bottom: 12px;
@@ -937,7 +910,7 @@ select.city {
     width: 133px;
     height: 33px;
     line-height: 28px;
-    background-color: #088bbf;
+    background-color: #edffef;
     color: #fff;
     text-align: center;
     margin-left: 8px;
@@ -980,7 +953,7 @@ select.city {
     padding-left: 20px;
     font-family: PT Sans Narrow;
     font-size: 16px;
-    color: #848484;
+    color: #000000;
     margin-left: 10px;
 }
 .serie-list-detal a.event-addcycletofav svg {
@@ -1027,7 +1000,7 @@ select.city {
 
 .trainingbrand-detail article a{
     font-size: 22px;
-    color: #848484;
+    color: #edffef;
 }
 
 .trainingbrand-detail .event-label {
@@ -1063,12 +1036,12 @@ select.city {
     font-size: 16px;
     color: #000;
     padding: 10px 0;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #fff4f3;
 }
 #brand-eventsbox>a {
     display: block;
     font-size: 16px;
-    color: #000;
+    color: #fff4f3;
     margin-top: 15px;
     text-transform: uppercase;
 }
@@ -1087,7 +1060,7 @@ select.city {
     margin: 0 2px;
 }
 .event-var .event-circlelevel span.active {
-    background-color: #147AAA;
+    background-color: #edffef;
 }
 
 #trainingbrand-gallerybox {
@@ -1119,7 +1092,7 @@ select.city {
 }
 #trainingbrand-gallerybox .rightbox a.btn-showall {
     display: block;
-    background-color: #147AAA;
+    background-color: #fff4f3;
     color: #fff;
     width: 255px;
     height: 78px;
@@ -1230,7 +1203,7 @@ select.city {
 #training_signupbox form fieldset.check-fieldset label {
     font-size: 12px;
     font-weight: 300;
-    color: #858585;
+    color: #fff4f3;
     margin: 0;
 }
 #training_signupbox input[type="submit"] {
