@@ -1,25 +1,30 @@
 package teamrocket.dao;
 
+
 import teamrocket.model.Game;
+import teamrocket.util.Util;
 
 import javax.ejb.Stateless;
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
 public class GamesDaoBean implements GamesDao {
 
-    Game game = new Game();
 
     @Override
     public List<Game> getGamesList() throws IOException {
-      //  List<String> gameList = Util.readFileContent(Paths.get(".","web", "src", "main", "resources", "gamesRepository.csv"));
-      //  List<Game> games = new ArrayList<>();
-//
-      //  for (int i = 0; i < gameList.size(); i++){
-      //      games.add( new Game(gameList.get(i)));
-      //  }
-      //  return games;
-        return game.createGamesArrayFromRepository();
+
+        List<String> stringList = new ArrayList<>();
+        stringList = Util.readFileContent(Paths.get("/home/adrian/IdeaProjects/jjdz7-rocket/web/src/main/resources/gamesRepository.csv"));
+
+        List<Game> gamesList = new ArrayList<>();
+        for (int i = 0; i< stringList.size(); i++){
+            gamesList.add(new Game(stringList.get(i)));
+
+        }
+        return gamesList;
     }
 }
