@@ -42,10 +42,28 @@ public class Game {
     public Game() {
     }
 
+    @Override
+    public String toString() {
+        return gameId + DELIMITER +
+                gameName + DELIMITER +
+                gameDesigner + DELIMITER +
+                gamePublisher + DELIMITER +
+                gameArtist + DELIMITER +
+                yearPublished + DELIMITER +
+                minPlayers + DELIMITER +
+                maxPlayers + DELIMITER +
+                minPlayTime + DELIMITER +
+                maxPlayTime + DELIMITER +
+                minAge + DELIMITER +
+                bggRank + DELIMITER +
+                averageWeight + DELIMITER +
+                category + DELIMITER +
+                mechanic + DELIMITER;
+    }
+
     public Game(String formattedGame) {
         if (formattedGame.contains(DELIMITER)) {
             String[] splitGameParameters = formattedGame.split(DELIMITER);
-            System.out.println(splitGameParameters);
             this.gameId = parseInt(splitGameParameters[0]);
             this.gameName = splitGameParameters[1];
             this.gameDesigner = splitGameParameters[2];
@@ -101,7 +119,7 @@ public class Game {
     }
 
     public static void showAllGames() {
-        printHeading();
+        Util.printHeading();
         for (Game game : gamesArray) {
             printGames(game);
         }
@@ -121,7 +139,7 @@ public class Game {
         if (result.isEmpty()) {
             System.out.println("Nie znaleziono gier o wyszukiwanym typie !");
         } else {
-            printHeading();
+            Util.printHeading();
             for (Game element : result) {
                 printGames(element);
             }
@@ -151,7 +169,7 @@ public class Game {
             if (result.isEmpty()) {
                 System.out.println("Nie znaleziono gier o podanym przedziale graczy !");
             } else {
-                printHeading();
+                Util.printHeading();
                 for (Game element : result) {
                     printGames(element);
                 }
@@ -172,7 +190,7 @@ public class Game {
         if (result.isEmpty()) {
             System.out.println("Nie znaleziono gier o wyszukiwanej nazwie !");
         } else {
-            printHeading();
+            Util.printHeading();
             for (Game element : result) {
                 printGames(element);
             }
@@ -200,14 +218,7 @@ public class Game {
         return gameTypes;
     }
 
-    private static void printHeading() {
-        System.out.println("ID Gry |" +
-                " Nazwa gry                                                                " +
-                "| Liczba graczy " +
-                "| Typ gry ");
-    }
-
-    private static void printGames(Game game) {
+    public static void printGames(Game game) {
         System.out.print(Util.addSpaces(8, String.valueOf(game.gameId)));
         System.out.print(Util.addSpaces(75, game.gameName));
         System.out.print(Util.addSpaces(16, game.minPlayers + " - " + game.maxPlayers));
