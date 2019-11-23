@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>kostka</title>
+    <link rel="stylesheet" href="../css/rocket.css" />
+    <link rel="stylesheet" href="../css/kostka.css"/>
+
+    <style>
+        #perspektywa {
+            width:100px;
+            height:100px;
+            margin:0 auto;
+            perspective:300px;
+            -webkit-perspective:300px;
+        }
+
+        #rodzic {
+            width:100%;
+            height:100%;
+            position:relative;
+            transform-style:preserve-3d;
+            -webkit-transform-style:preserve-3d;
+            animation:obrot 4s linear infinite;
+            -webkit-animation:obrot 4s linear infinite;
+        }
+
+        #rodzic > div {
+            width:100%;
+            height:100%;
+            position:absolute;
+            background-image:radial-gradient(ellipse at center,rgba(0,0,255,0.8),rgba(0,0,0,0.8));
+            box-shadow:0 0 4px #00F;
+        }
+
+        #przod {
+            transform:translateZ(50px);
+            -webkit-transform:translateZ(50px);
+        }
+
+        #tyl {
+            transform:translateZ(-50px);
+            -webkit-transform:translateZ(-50px);
+        }
+
+        #lewo {
+            transform:rotateY(-90deg) translateZ(50px);
+            -webkit-transform:rotateY(-90deg) translateZ(50px);
+        }
+
+        #prawo {
+            transform:rotateY(90deg) translateZ(50px);
+            -webkit-transform:rotateY(90deg) translateZ(50px);
+        }
+
+        #gora {
+            transform:rotateX(-90deg) translateZ(50px);
+            -webkit-transform:rotateX(-90deg) translateZ(50px);
+        }
+
+        #dol {
+            transform:rotateX(90deg) translateZ(50px);
+            -webkit-transform:rotateX(90deg) translateZ(50px);
+        }
+
+        #rodzic > div > div {
+            position:absolute;
+            width:20px;
+            height:20px;
+            background-color:#FFF;
+            border-radius:25%;
+            box-shadow:0 0 4px 2px #000, 0 0 3px 1px #00F inset;
+        }
+
+        #przod > div:nth-child(1) { left:40px; top:40px; }
+
+        #tyl > div:nth-child(1) { left:10px; top:10px; }
+        #tyl > div:nth-child(2) { left:70px; bottom:10px; }
+
+        #lewo > div:nth-child(1) { left:10px; top:10px; }
+        #lewo > div:nth-child(2) { left:40px; top:40px; }
+        #lewo > div:nth-child(3) { left:70px; bottom:10px; }
+
+        #prawo > div:nth-child(1) { left:10px; top:10px; }
+        #prawo > div:nth-child(2) { left:70px; top:10px; }
+        #prawo > div:nth-child(3) { left:70px; bottom:10px; }
+        #prawo > div:nth-child(4) { left:10px; bottom:10px; }
+
+        #gora > div:nth-child(1) { left:10px; top:10px; }
+        #gora > div:nth-child(2) { left:70px; top:10px; }
+        #gora > div:nth-child(3) { left:70px; bottom:10px; }
+        #gora > div:nth-child(4) { left:10px; bottom:10px; }
+        #gora > div:nth-child(5) { left:40px; top:40px; }
+
+        #dol > div:nth-child(1) { left:10px; top:10px; }
+        #dol > div:nth-child(2) { left:70px; top:10px; }
+        #dol > div:nth-child(3) { left:10px; top:40px; }
+        #dol > div:nth-child(4) { left:70px; top:40px; }
+        #dol > div:nth-child(5) { left:70px; bottom:10px; }
+        #dol > div:nth-child(6) { left:10px; bottom:10px; }
+
+        @keyframes obrot
+        {
+            0% { transform:rotateX(0) rotateZ(0); }
+            100% { transform:rotateX(360deg) rotateZ(360deg); }
+        }
+
+        @-webkit-keyframes obrot
+        {
+            0% { -webkit-transform:rotateX(0) rotateZ(0); }
+            100% { -webkit-transform:rotateX(360deg) rotateZ(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="perspektywa">
+    <div id="rodzic">
+
+        <div id="przod">
+            <div></div>
+        </div>
+
+        <div id="tyl">
+            <div></div>
+            <div></div>
+        </div>
+
+        <div id="lewo">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div id="prawo">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div id="gora">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div id="dol">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

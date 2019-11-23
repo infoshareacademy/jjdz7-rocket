@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="../../css/CSS.Roket.css" />
+    <link rel="stylesheet" href="../../css/rocket.css" />
     <link rel="stylesheet" href="../../css/fontello.css" />
     <link rel="stylesheet" href="../../https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="kubuś">
 </head>
@@ -13,20 +14,18 @@
 
 <div class="wrapper">
     <div class="header">
-
         <div class="logo" >
-            <img src="../../resources/grajdolex10.png" style="float: left;"/>
+            <img src="../../images/grajdolex10.png" style="float: left;"/>
             <div style="clear:both;"></div>
         </div>
     </div>
     <div class="nav">
-        <div style="clear:both;"></div>
         <ol>
-            <li><a href="#">Strona główna</a></li>
+            <li><a href="#">Start</a></li>
             <li><a href="#">O Nas</a>
                 <ul>
-                    <li><a href="html-style/contactForm.html">kontakt</a></li>
-                    <li><a href="html-style/Info.html">informacje</a></li>
+                    <li><a href="../../html-style/contactForm.html">kontakt</a></li>
+                    <li><a href="../../html-style/Info.html">informacje</a></li>
                 </ul>
             </li>
             <li><a href="#">Baza Gier</a>
@@ -36,15 +35,15 @@
                     <li><a href="#">lista gier</a></li>
                 </ul>
             </li>
-            <li><a href="#">Wydarzenia</a>
+            <li><a href="wydazenia.ftlh">Wydarzenia</a>
                 <ul>
-                    <li><a href="#">Dodaj Wydarzenie</a></li>
-                    <li><a href="#">wydarzenia</a></li>
-                    <li><a href="#">miejsca na gry</a></li>
+                    <li><a href="../../html-style/wydazenia.html">Dodaj Wydarzenie</a></li>
+                    <li><a href="../../html-style/wydazenia.html">wydarzenia</a></li>
+                    <li><a href="../../html-style/wydazenia.html">miejsca na gry</a></li>
                 </ul>
             </li>
 
-            <li><a href="html-style/mapsG.html">mapa</a></li>
+            <li><a href="../../html-style/mapsG.html">mapa</a></li>
         </ol>
 
     </div>

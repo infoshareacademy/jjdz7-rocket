@@ -1,7 +1,6 @@
 body
 {
-    background-image: url("../../resources/wood-grain-texture.jpg");
-    color: #fefff3;
+    background-image: url("../images/wood-grain-texture.jpg");
     font-size: 20px;
     margin: 0 !important;
 
