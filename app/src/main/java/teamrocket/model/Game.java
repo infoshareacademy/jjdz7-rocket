@@ -10,12 +10,13 @@ import java.util.*;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
+
 public class Game {
     /**
      * Class that represents a Board Game - tabletop game that involves counters or pieces moved or placed on a
      * pre-marked surface or "board", according to a set of rules.
      */
-    private static final Path GAMEREPO_PATH = Paths.get(".", "app", "src", "main", "resources", "gamesRepository.csv");
+    private static final Path GAMEREPO_PATH = Paths.get(".", "web", "src", "main", "resources", "gamesRepository.csv");
     private static final String DELIMITER = ";";
     private static List<Game> gamesArray = new ArrayList<>();
     private int gameId;
@@ -44,6 +45,7 @@ public class Game {
     public Game(String formattedGame) {
         if (formattedGame.contains(DELIMITER)) {
             String[] splitGameParameters = formattedGame.split(DELIMITER);
+            System.out.println(splitGameParameters);
             this.gameId = parseInt(splitGameParameters[0]);
             this.gameName = splitGameParameters[1];
             this.gameDesigner = splitGameParameters[2];
@@ -89,13 +91,9 @@ public class Game {
         return Objects.hash(gameId, gameName, gameDesigner, gamePublisher, gameArtist, yearPublished, minPlayers, maxPlayers, minPlayTime, maxPlayTime, minAge, bggRank, averageWeight, category, mechanic);
     }
 
-    public static List<Game> createGamesArrayFromRepository() {
-        List<String> gameList = null;
-        try {
-            gameList = Util.readFileContent(GAMEREPO_PATH);
-        } catch (IOException e) {
-            System.out.println("Zła ścieżka do pliku lub plik nie istnieje.");
-        }
+    public static List<Game> createGamesArrayFromRepository() throws IOException {
+        List<String> gameList = Util.readFileContent(GAMEREPO_PATH);
+
         for (int i = 0; i < gameList.size(); i++) {
             gamesArray.add(new Game(gameList.get(i)));
         }
@@ -215,6 +213,74 @@ public class Game {
         System.out.print(Util.addSpaces(16, game.minPlayers + " - " + game.maxPlayers));
         System.out.print(Util.addSpaces(30, game.category));
         System.out.print("\n");
+    }
+
+    public static Path getGamerepoPath() {
+        return GAMEREPO_PATH;
+    }
+
+    public static String getDELIMITER() {
+        return DELIMITER;
+    }
+
+    public static List<Game> getGamesArray() {
+        return gamesArray;
+    }
+
+    public String getGameName() {
+        return gameName;
+    }
+
+    public String getGameDesigner() {
+        return gameDesigner;
+    }
+
+    public String getGamePublisher() {
+        return gamePublisher;
+    }
+
+    public String getGameArtist() {
+        return gameArtist;
+    }
+
+    public int getYearPublished() {
+        return yearPublished;
+    }
+
+    public int getMinPlayers() {
+        return minPlayers;
+    }
+
+    public int getMaxPlayers() {
+        return maxPlayers;
+    }
+
+    public int getMinPlayTime() {
+        return minPlayTime;
+    }
+
+    public int getMaxPlayTime() {
+        return maxPlayTime;
+    }
+
+    public int getMinAge() {
+        return minAge;
+    }
+
+    public int getBggRank() {
+        return bggRank;
+    }
+
+    public double getAverageWeight() {
+        return averageWeight;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getMechanic() {
+        return mechanic;
     }
 }
 
