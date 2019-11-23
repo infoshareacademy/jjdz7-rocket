@@ -1,4 +1,4 @@
-package teamrocket.servlets;
+package teamrocket.servlets.upd;
 
 import teamrocket.Constants;
 

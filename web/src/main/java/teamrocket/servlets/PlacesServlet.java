@@ -26,7 +26,7 @@ public class PlacesServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
 
         Map<String,Object> model = new HashMap<>();
-        Template template = templateProvider.getTemplate(getServletContext(),".ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(),"Uploud.ftlh");
 
         try {
             template.process(model, writer);

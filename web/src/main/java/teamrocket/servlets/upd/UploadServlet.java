@@ -1,4 +1,4 @@
-package teamrocket.servlets;
+package teamrocket.servlets.upd;
 
 import javax.servlet.annotation.WebServlet;
 import org.apache.commons.fileupload.FileItem;

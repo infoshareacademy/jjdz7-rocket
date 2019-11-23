@@ -26,7 +26,7 @@
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        })(window,document,'script','ga');
 
         ga('create', 'UA-32718192-1', 'auto');
         ga('send', 'pageview');
@@ -39,7 +39,7 @@
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        '#'+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MCG4KR7');</script>
 
     <script type="text/javascript">
@@ -70,52 +70,9 @@
     js = d.createElement(s); js.id = id;
     js.src = "//connect.facebook";
     fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook'));</script>
 <header>
-    <div id="perspektywa">
-        <div id="rodzic">
 
-            <div id="przod">
-                <div></div>
-            </div>
-
-            <div id="tyl">
-                <div></div>
-                <div></div>
-            </div>
-
-            <div id="lewo">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-
-            <div id="prawo">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-
-            <div id="gora">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-
-            <div id="dol">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-
-        </div>
-    </div>
 
     <div id="header-wraper">
         <div class="user-menu fr clearfix">
@@ -173,163 +130,18 @@
         </div>
         <div class="ff"></div>
         <nav class="clearfix">
-            <div class="mobile-menu phoneOn">
-                <img class="mobile-menu-on" src="" alt="mobile menu">
-                <img class="mobile-menu-off" src="" alt="mobile menu close">
-            </div>
             <ul class="main-menu">
-                <li class="menu-item current"><a href="/wydarzenia/" onclick="ga('send', 'event', 'header', 'menu glowne', 'wydarzenia')">wydarzenia</a></li>
-                <li class="menu-item"><a href="/orgazizacja/" onclick="ga('send', 'event', 'header', 'menu glowne')">orgazizacja</a></li>
-                <li class="menu-item"><a href="/miejsca/" onclick="ga('send', 'event', 'header', 'menu glowne', 'cykle wydarzen')">miejsca</a></li>
-                <li class="menu-item last"><a href="/blog/" onclick="ga('send', 'event', 'header', 'menu glowne', 'blog')">blog</a></li>
+                <li class="menu-item current"><a href="../StronaGł.Rocket.html" onclick="ga('send', 'event', 'header', 'menu glowne', 'wydarzenia')">powrót</a></li>
                 <li class="menu-item desktopOff"><a href="/dodaj-wydarzenie/" onclick="ga('send', 'event', 'header', 'menu glowne', 'Dodaj wydarzenie')">Dodaj wydarzenie</a></li>
             </ul>
-            <div id="top-searchbox">
-                <a href="javascript:void(0)"></a>
-                <div class="formbox">
-                    <form action="/wyszukiwarka" method="get">
-                        <fieldset>
-                            <input type="text" name="fraza" placeholder="wpisz nazwę wydarzenia" autofocus />
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
+
             <div class="add-menu tabletOff">
                 Dodaj +                </div>
             <div class="add-menu-content">
                 <a href="/dodaj-wydarzenie/" onclick="ga('send', 'event', 'header', 'menu dodaj +', 'Dodaj wydarzenie')">Wydarzenie</a>
             </div>
-        </nav>
-    </div>
 </header>
 
-
-<div id="container-form">
-    <div class="content-form" id="cats-contentbox">
-        <div class="clearfix">
-            <div class="form-topicsbox form-box clearfix fl">
-                <h3 class="fl">rodzaj:</h3>
-                <div class="items fl">
-                    <a href="javascript:void(0)" data-paramtype="event_categories" data-paramslug="Gry zręcznościowe" class="event_param active">akcji</a>
-                    <a href="javascript:void(0)" data-paramtype="event_categories" data-paramslug="Gry logiczne" class="event_param ">logiczne</a>
-                    <a href="javascript:void(0)" data-paramtype="event_categories" data-paramslug="Gry strategiczne" class="event_param ">strategiczne</a>
-                </div>
-            </div>
-            <!--            <div>-->
-            <!--                <select id="topicsselect2">-->
-            <!--                    --><!--                        --><!--                        <option value=""></option>-->
-            <!--                        --><!--                            --><!--                            --><!--                                <option value="--><!--">--><!--</option>-->
-            <!--                            --><!--                        --><!--                    --><!--                </select>-->
-            <!--            </div>-->
-            <div class="form-city form-box clearfix fl">
-                <h3 class="fl">Gdzie:</h3>
-                <div class="items fl">
-                    <a href="javascript:void(0)" data-paramtype="event_cities" data-paramslug="Gdansk" class="event_param ">Gdansk</a>
-                    <a href="javascript:void(0)" data-paramtype="event_cities" data-paramslug="Sopot" class="event_param active">Sopot</a>
-                    <a href="javascript:void(0)" data-paramtype="event_cities" data-paramslug="Gdynia" class="event_param ">Gdynia</a>
-                    <a href="javascript:void(0)" data-paramtype="event_cities" data-paramslug="Poznan" class="event_param ">Poznań</a>
-                    <a href="javascript:void(0)" data-paramtype="event_cities" data-paramslug="katowice" class="event_param ">Katowice</a>
-                    <a href="javascript:void(0)" class="arrow-city">+</a>
-                    <div class="ff"></div>
-                    <div class="selectbox">
-                        <input type="text" name="city_select" id="city_select" value="" autofocus placeholder="Wybierz miasto" />
-                        <div class="items">
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="krakow">Kraków</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="warszawa">Warszawa</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="wroclaw">Wrocław</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="trojmiasto">Trójmiasto</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="poznan">Poznań</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="katowice">Katowice</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="lodz">Łódź</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="bialystok">Białystok</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="szczecin">Szczecin</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="torun">Toruń</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="lublin">Lublin</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="rzeszow">Rzeszów</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="gliwice">Gliwice</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="olsztyn">Olsztyn</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="bydgoszcz">Bydgoszcz</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="kielce">Kielce</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="online">On-line</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="czestochowa">Częstochowa</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="bielskobiala">Bielsko Biała</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="opole">Opole</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="zielonagora">Zielona Góra</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="radom">Radom</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="rawamazowiecka">Rawa Mazowiecka</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="szczyrk">Szczyrk</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="koszalin">Koszalin</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="tarnow">Tarnów</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="bialapodlaska">Biała Podlaska</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="plock">Płock</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="puck">Puck</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="bochnia">Bochnia</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="zabrze">Zabrze</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="przemysl">Przemyśl</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="siedlce">Siedlce</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="leszno">Leszno</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="suwalki">Suwałki</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="maslow">Masłów</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="wetlina">Wetlina</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="raclawice">Racławice</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="sosnowiec">Sosnowiec</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="krosno">Krosno</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="zakopane">Zakopane</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="swinoujscie">Świnoujście</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="trzebieszowice">Trzebieszowice</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="gorakalwaria">Góra Kalwaria</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="nowysacz">Nowy Sącz</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="hucisko">Hucisko</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="wisla">Wisła</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="plonsk">Płońsk</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="swidnica">Świdnica</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="jawor">Jawor</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="gorzowwielkopolski">Gorzów Wielkopolski</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="chelm">Chełm</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="karpacz">Karpacz</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="raciborz">Racibórz</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="dabrowagornicza">Dąbrowa Górnicza</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="wodzislawslaski">Wodzisław Śląski</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="piotrkowtrybunalski">Piotrków Trybunalski</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="kalisz">Kalisz</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="wloclawek">Włocławek</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="rybnik">Rybnik</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="ustron">Ustroń</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="tychy">Tychy</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="chorzow">Chorzów</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="radzymin">Radzymin</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="pulawy">Puławy</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="ostroda">Ostróda</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="zary">Żary</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="krynica-zdroj">Krynica Zdrój</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="zawiercie">Zawiercie</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="olkus">kusz</div>
-                            <div class="item event_param" data-paramtype="event_cities" data-paramslug="bukowina-tatrzanska">Bukowina Tatrzańska</div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <a href="javascript:void(0)" class="fr" id="btn-showtopics">Więcej</a>
-        </div>
-        <div class="topics-listbox form-box clearfix active">
-            <h3 class="fl">Tematy</h3>
-            <div class="topics-items fl clearfix">
-                <div class="selectbox fl">
-                    <input type="text" name="topics_select" id="topics_select" placeholder="Jakich tematów szukasz?" />
-                    <div class="items-special">
-                        <div class="item event_param" data-paramtype="event_topics" data-paramslug="gry">gry</div>
-                    </div>
-                    <div class="items">
-                        <div class="item event_param" data-paramtype="event_topics" data-paramslug="Gry">Gry</div>
-                    </div>
-                </div>
-                <a href="javascript:void(0)" data-paramtype="event_topics" data-paramslug="Szukaj" class="event_param active">Szukaj</a>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 <div id="container" class="event-list">
     <div class="fr" id="btn-favlist">
@@ -358,15 +170,57 @@
 
     <div class="ff"></div>
     <div class="event-list clearfix ">
-        <div class="empty-list">Lista Wydarzen <br />
-            Wiesz o jakimś wydarzeniu? <a href="/dodaj-wydarzenie/">Dodaj Wydarzeie</a></div>
+        <div id="perspektywa">
+            <div id="rodzic">
+
+                <div id="przod">
+                    <div></div>
+                </div>
+
+                <div id="tyl">
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div id="lewo">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div id="prawo">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div id="gora">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div id="dol">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+            </div>
+        </div>
     </div>
     <div class="ff"></div>
     <div class="event-list clearfix old">
         <h2 class="clearfix"><div class="fl">Minione wydarzenia:</div> <span class="number ">
-            <div class="fl cat-item">Gdansk</div>
+            <div class="fl cat-item">Trojmiasto</div>
             <i class="fa fa-circle fl" aria-hidden="true"></i>
-            <div class="fl cat-item">Gry</div>
+            <div class="fl cat-item"></div>
         <div class="ff"></div>
         <div class="monthsbox clearfix">
             <div class="month-leftbox fl">
@@ -487,6 +341,7 @@
                             <div>
                                 <div class="first clearfix"><div class="num fl">26.03</div><div class="name fl">Wt</div></div>
                             </div>
+
 
 
                         </div>
