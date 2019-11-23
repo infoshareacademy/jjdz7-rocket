@@ -1,7 +1,5 @@
 package teamrocket.servlets.upd;
 
-import teamrocket.Constants;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +11,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import static teamrocket.Constants.UPLOAD_DIRECTORY;
+import static teamrocket.servlets.upd.Constants.UPLOAD_DIRECTORY;
 
 @WebServlet(
         name = "MultiPartServlet",

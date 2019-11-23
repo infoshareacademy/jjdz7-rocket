@@ -1,4 +1,4 @@
-package teamrocket;
+package teamrocket.servlets.upd;
 
 public class Constants {
 

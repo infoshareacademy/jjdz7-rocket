@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static teamrocket.Constants.*;
+import static teamrocket.servlets.upd.Constants.*;
 
 @WebServlet(
         name = "UploadServlet",
