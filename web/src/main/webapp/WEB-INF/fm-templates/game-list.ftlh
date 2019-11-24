@@ -1,11 +1,13 @@
 <html>
 <head>
     <title>Lista gier</title>
-    <style> td, th { border: 1px solid #f8fffd; }</style>
-
+    <style> td, th { border: 1px solid #fcff6a; }
+      body {background-image: url("../images/wood-grain-texture.jpg")}
+        td{background-color: #7a4113}
+        </style>
 </head>
-<body>
-<table>
+<body text="#f5f5dc">
+<table align="center" style="width: 100%" cellspacing="10" >
     <thead>
     <tr>
         <th>ID GRY</th>
