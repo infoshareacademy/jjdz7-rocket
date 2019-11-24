@@ -24,7 +24,7 @@ public class Util {
         Files.write(path, content, writeOption);
     }
 
-    public static void writeToFileWtihTruncate(Path path, byte[] content) throws IOException {
+    public static void writeToFileWithTruncate(Path path, byte[] content) throws IOException {
         StandardOpenOption writeOption =
                 Files.exists(path) ?
                         StandardOpenOption.TRUNCATE_EXISTING :
