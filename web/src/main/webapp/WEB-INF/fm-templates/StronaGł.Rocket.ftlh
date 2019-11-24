@@ -28,11 +28,11 @@
                     <li><a href="../../html-style/Info.html">informacje</a></li>
                 </ul>
             </li>
-            <li><a href="#">Baza Gier</a>
+            <li><a href="../../html-style/game-list.html">Baza Gier</a>
                 <ul>
-                    <li><a href="#">Dodaj Gre</a></li>
+                    <li><a href="/addGame">Dodaj Gre</a></li>
                     <li><a href="#">Ulubione</a></li>
-                    <li><a href="#">lista gier</a></li>
+                    <li><a href="gameList">lista gier</a></li>
                 </ul>
             </li>
             <li><a href="wydazenia.ftlh">Wydarzenia</a>
