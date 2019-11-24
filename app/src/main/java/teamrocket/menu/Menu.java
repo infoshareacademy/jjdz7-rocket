@@ -11,9 +11,6 @@ public class Menu {
     private boolean exit;
 
     public void menuStart() throws IOException {
-        Game.createGamesArrayFromRepository();
-        Event.createArrayFromRepo();
-        FavouritesService.resetRepo();
         printMainMenuInfo();
         do {
             int choice = Util.readUserInputInteger();
@@ -154,12 +151,12 @@ public class Menu {
         System.out.println(" ##### Menu Aplikacji #####  ");
         System.out.println("1: ##### Gry Planszowe  #####");
         System.out.println("2: ##### Wydarzenia     #####");
-        System.out.println("3: ##### Ulubione       #####");
+        System.out.println("3: ##### Ulubione Gry    #####");
         System.out.println("0: ##### Wyjście        #####");
     }
 
     private void printGameMenuInfo() {
-        System.out.println("### Menu Gier Planszowych ###");
+        System.out.println("\n### Menu Gier Planszowych ###");
         System.out.println("1: Pokaż wszystkie gry");
         System.out.println("2: Szukaj gry po jej nazwie ");
         System.out.println("3: Filtruj gry po typie ");
@@ -169,6 +166,7 @@ public class Menu {
     }
 
     private void printEventMenuInfo() {
+        System.out.println("\n### Menu Wydarzeń ###");
         System.out.println("1: Pokaż wszystkie wydarzenia ");
         System.out.println("2: Filtruj wydarzenia po typie");
         System.out.println("3: Filtruj wydarzenia po dacie");
@@ -178,6 +176,7 @@ public class Menu {
     }
 
     private void printFavouritesMenuInfo() {
+        System.out.println("\n### Menu Ulubionych Gier ###");
         System.out.println("1: Dodaj grę do ulubionych ");
         System.out.println("2: Pokaż ulubione gry");
         System.out.println("9: Wróć do głównego menu");

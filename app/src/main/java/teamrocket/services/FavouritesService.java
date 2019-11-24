@@ -52,8 +52,8 @@ public class FavouritesService {
         Files.createFile(FAVOURITES_PATH);
     }
 
-    private static void printInformationIfNoSuchGame(Set<Game> result) {
-        if (result.isEmpty()) {
+    private static void printInformationIfNoSuchGame(Set<Game> gameSet) {
+        if (gameSet.isEmpty()) {
             System.out.println("Gra o podanym ID nie istnieje !");
         }
     }
