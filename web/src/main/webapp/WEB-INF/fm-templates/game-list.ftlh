@@ -1,5 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="pl" >
+<#setting number_format="computer">
 <head>
+    <meta charset="UTF-8">
     <title>Lista gier</title>
     <style> td, th { border: 1px solid #fcff6a; }
       body {background-image: url("../images/wood-grain-texture.jpg")}
