@@ -3,7 +3,8 @@
     <title>Lista gier</title>
     <style> td, th { border: 1px solid #fcff6a; }
       body {background-image: url("../images/wood-grain-texture.jpg")}
-        td{background-color: #7a4113}
+        td{background-color: #000000
+        }
         </style>
 </head>
 <body text="#f5f5dc">
