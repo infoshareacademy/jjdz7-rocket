@@ -27,7 +27,7 @@ public class FavouritesService {
         for (Game game : Game.getGamesArray())
             if (game.getGameId() == userInput) {
                 String gameString = game.toString() + "\n";
-                Util.writeToFileWtihTruncate(FAVOURITES_PATH, gameString.getBytes());
+                Util.writeToFileWithTruncate(FAVOURITES_PATH, gameString.getBytes());
                 favouriteGamesSet.add(game);
                 printInformationForUser(favouriteGamesSet, setSize);
             }
