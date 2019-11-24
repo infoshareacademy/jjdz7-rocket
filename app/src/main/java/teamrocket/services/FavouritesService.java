@@ -24,23 +24,26 @@ public class FavouritesService {
         System.out.println("Podaj ID gry, którą chcesz dodać do ulubionych : ");
         int userInput = Util.readUserInputInteger();
         int setSize = favouriteGamesSet.size();
-        System.out.println("set size before + " + setSize);
         for (Game game : Game.getGamesArray())
             if (game.getGameId() == userInput) {
                 String gameString = game.toString() + "\n";
                 Util.writeToFileWtihTruncate(FAVOURITES_PATH, gameString.getBytes());
                 favouriteGamesSet.add(game);
-                System.out.println("result size after + " + favouriteGamesSet.size());
                 printInformationForUser(favouriteGamesSet, setSize);
             }
         printInformationIfNoSuchGame(favouriteGamesSet);
     }
 
     public static void showFavouriteGames() throws IOException {
+        favouriteGamesSet = createFavouriteGamesSetFromRepository();
+        if (checkIfSetisEmpty(favouriteGamesSet)) {
+            System.out.println("Nie dodałeś jeszcze żadnej gry do ulubionych.");
+        }
+        else {
         Util.printHeading();
-        Set<Game> favouriteGamesArray = createFavouriteGamesSetFromRepository();
-        for (Game game : favouriteGamesArray) {
+        for (Game game : favouriteGamesSet) {
             Game.printGames(game);
+        }
         }
     }
 
@@ -69,6 +72,10 @@ public class FavouritesService {
             favouriteGamesSet.add(new Game(gameList.get(i)));
         }
         return favouriteGamesSet;
+    }
+
+    private static boolean checkIfSetisEmpty(Set<Game> gameSet){
+        return gameSet.isEmpty();
     }
 }
 

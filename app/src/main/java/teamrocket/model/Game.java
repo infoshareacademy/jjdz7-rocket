@@ -82,6 +82,74 @@ public class Game {
         }
     }
 
+    public static Path getGamerepoPath() {
+        return GAMEREPO_PATH;
+    }
+
+    public static String getDELIMITER() {
+        return DELIMITER;
+    }
+
+    public static List<Game> getGamesArray() {
+        return gamesArray;
+    }
+
+    public String getGameName() {
+        return gameName;
+    }
+
+    public String getGameDesigner() {
+        return gameDesigner;
+    }
+
+    public String getGamePublisher() {
+        return gamePublisher;
+    }
+
+    public String getGameArtist() {
+        return gameArtist;
+    }
+
+    public int getYearPublished() {
+        return yearPublished;
+    }
+
+    public int getMinPlayers() {
+        return minPlayers;
+    }
+
+    public int getMaxPlayers() {
+        return maxPlayers;
+    }
+
+    public int getMinPlayTime() {
+        return minPlayTime;
+    }
+
+    public int getMaxPlayTime() {
+        return maxPlayTime;
+    }
+
+    public int getMinAge() {
+        return minAge;
+    }
+
+    public int getBggRank() {
+        return bggRank;
+    }
+
+    public double getAverageWeight() {
+        return averageWeight;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getMechanic() {
+        return mechanic;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -203,6 +271,14 @@ public class Game {
         }
     }
 
+    public static void printGames(Game game) {
+        System.out.print(Util.addSpaces(8, String.valueOf(game.gameId)));
+        System.out.print(Util.addSpaces(75, game.gameName));
+        System.out.print(Util.addSpaces(16, game.minPlayers + " - " + game.maxPlayers));
+        System.out.print(Util.addSpaces(30, game.category));
+        System.out.print("\n");
+    }
+
     private static Set<String> createGameTypesSet() {
         Set<String> gameTypes = new HashSet<>();
         for (Game game : gamesArray) {
@@ -216,82 +292,6 @@ public class Game {
             }
         }
         return gameTypes;
-    }
-
-    public static void printGames(Game game) {
-        System.out.print(Util.addSpaces(8, String.valueOf(game.gameId)));
-        System.out.print(Util.addSpaces(75, game.gameName));
-        System.out.print(Util.addSpaces(16, game.minPlayers + " - " + game.maxPlayers));
-        System.out.print(Util.addSpaces(30, game.category));
-        System.out.print("\n");
-    }
-
-    public static Path getGamerepoPath() {
-        return GAMEREPO_PATH;
-    }
-
-    public static String getDELIMITER() {
-        return DELIMITER;
-    }
-
-    public static List<Game> getGamesArray() {
-        return gamesArray;
-    }
-
-    public String getGameName() {
-        return gameName;
-    }
-
-    public String getGameDesigner() {
-        return gameDesigner;
-    }
-
-    public String getGamePublisher() {
-        return gamePublisher;
-    }
-
-    public String getGameArtist() {
-        return gameArtist;
-    }
-
-    public int getYearPublished() {
-        return yearPublished;
-    }
-
-    public int getMinPlayers() {
-        return minPlayers;
-    }
-
-    public int getMaxPlayers() {
-        return maxPlayers;
-    }
-
-    public int getMinPlayTime() {
-        return minPlayTime;
-    }
-
-    public int getMaxPlayTime() {
-        return maxPlayTime;
-    }
-
-    public int getMinAge() {
-        return minAge;
-    }
-
-    public int getBggRank() {
-        return bggRank;
-    }
-
-    public double getAverageWeight() {
-        return averageWeight;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public String getMechanic() {
-        return mechanic;
     }
 }
 

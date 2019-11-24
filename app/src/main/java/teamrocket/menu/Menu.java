@@ -3,13 +3,8 @@ package teamrocket.menu;
 import teamrocket.model.*;
 import teamrocket.services.EventService;
 import teamrocket.services.FavouritesService;
-import teamrocket.services.UserService;
 import teamrocket.util.Util;
-
-import java.io.File;
 import java.io.IOException;
-
-import static teamrocket.services.UserService.list;
 
 public class Menu {
 
