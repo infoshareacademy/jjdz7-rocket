@@ -90,7 +90,7 @@ public class Util {
     }
 
     public static void printHeading() {
-        System.out.println("ID Gry |" +
+        System.out.println("\nID Gry |" +
                 " Nazwa gry                                                                " +
                 "| Liczba graczy " +
                 "| Typ gry ");
