@@ -278,7 +278,6 @@ public class Event {
 
     }
 
-
     @Override
     public String toString() {
         final String delimiter = ";";
