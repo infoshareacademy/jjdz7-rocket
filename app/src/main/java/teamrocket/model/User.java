@@ -21,8 +21,6 @@ public class User {
         }
     }
 
-
-
     public String getFavoriteGame() {
         return favoriteGame;
     }
@@ -30,7 +28,6 @@ public class User {
     public String getTypeofgame() {
         return typeofgame;
     }
-
 
     public String toString() {
         return favoriteGame + DELIMITER + typeofgame + DELIMITER ;

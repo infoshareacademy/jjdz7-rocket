@@ -2,9 +2,11 @@ package teamrocket.menu;
 
 import teamrocket.model.*;
 import teamrocket.services.EventService;
+import teamrocket.services.FavouritesService;
 import teamrocket.services.UserService;
 import teamrocket.util.Util;
 
+import java.io.File;
 import java.io.IOException;
 
 import static teamrocket.services.UserService.list;
@@ -14,6 +16,9 @@ public class Menu {
     private boolean exit;
 
     public void menuStart() throws IOException {
+        Game.createGamesArrayFromRepository();
+        Event.createArrayFromRepo();
+        FavouritesService.resetRepo();
         printMainMenuInfo();
         do {
             int choice = Util.readUserInputInteger();
@@ -60,7 +65,6 @@ public class Menu {
     }
 
     private void decideGame(int gameChoice) throws IOException {
-        Game.createGamesArrayFromRepository();
         switch (gameChoice) {
             case 1: {
                 Game.showAllGames();
@@ -93,7 +97,6 @@ public class Menu {
     }
 
     private void decideEvent(int eventChoice) throws IOException {
-        Event.createArrayFromRepo();
         switch (eventChoice) {
             case 1: {
                 Event.showAllEvents();
@@ -130,11 +133,11 @@ public class Menu {
     private void decideFavourites(int favouritesChoice) throws IOException {
         switch (favouritesChoice) {
             case 1: {
-                UserService.addUser(UserService.getUserFromConsole());
+                FavouritesService.addGameToFavourites();
                 break;
             }
             case 2: {
-                list(UserService.getUsers());
+                FavouritesService.showFavouriteGames();
                 break;
             }
             case 9: {

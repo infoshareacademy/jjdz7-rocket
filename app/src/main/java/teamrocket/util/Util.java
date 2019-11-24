@@ -24,6 +24,15 @@ public class Util {
         Files.write(path, content, writeOption);
     }
 
+    public static void writeToFileWtihTruncate(Path path, byte[] content) throws IOException {
+        StandardOpenOption writeOption =
+                Files.exists(path) ?
+                        StandardOpenOption.TRUNCATE_EXISTING :
+                        StandardOpenOption.CREATE_NEW;
+        Files.write(path, content, writeOption);
+    }
+
+
     public static List<String> readFileContent(Path path) throws IOException {
         return Files.readAllLines(path);
     }
@@ -50,8 +59,8 @@ public class Util {
 
     public static LocalTime readInputTimeWithMessage(String message) {
         try {
-        System.out.println(message);
-        return LocalTime.parse(readUserInput());
+            System.out.println(message);
+            return LocalTime.parse(readUserInput());
         } catch (DateTimeParseException e) {
             System.out.println("Zły format czasu. Proszę wpisz poprawny GG:MM ");
             return LocalTime.parse(readUserInput());
@@ -78,5 +87,12 @@ public class Util {
         }
         str = str + str1;
         return str;
+    }
+
+    public static void printHeading() {
+        System.out.println("ID Gry |" +
+                " Nazwa gry                                                                " +
+                "| Liczba graczy " +
+                "| Typ gry ");
     }
 }
