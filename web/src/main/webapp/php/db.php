@@ -1,7 +1,7 @@
 <?php
 $DB_HOST='localhost';
 $DB_USER='root';
-$DB_PASSWORD='root';
+$DB_PASSWORD='grajdolex';
 $DB_NAME='form';
 
 $mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASSWORD, $DB_NAME) or die('Nie można połączyć się z serwerem!');

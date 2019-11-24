@@ -9,5 +9,4 @@ $date = $_POST['date'];
 $sql = "INSERT INTO wydarzenia (nazwa, miejsce, ilosc_graczy, data) VALUES ('$name', '$place', $players, '$date')";
 $mysqli->query($sql) or die('Error');
 
-header('location: index.php');
 ?>

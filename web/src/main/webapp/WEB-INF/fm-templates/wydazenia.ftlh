@@ -131,8 +131,8 @@
         <div class="ff"></div>
         <nav class="clearfix">
             <ul class="main-menu">
-                <li class="menu-item current"><a href="../StronaGł.Rocket.html" onclick="ga('send', 'event', 'header', 'menu glowne', 'wydarzenia')">powrót</a></li>
-                <li class="menu-item desktopOff"><a href="/dodaj-wydarzenie/" onclick="ga('send', 'event', 'header', 'menu glowne', 'Dodaj wydarzenie')">Dodaj wydarzenie</a></li>
+                <li class="menu-item current"><a href="../../StronaGł.Rocket.html" onclick="ga('send', 'event', 'header', 'menu glowne', 'wydarzenia')">powrót</a></li>
+                <li class="menu-item desktopOff"><a href="../../php/show_events.php" onclick="ga('send', 'event', 'header', 'menu glowne', 'Dodaj wydarzenie')">Dodaj wydarzenie</a></li>
             </ul>
 
             <div class="add-menu tabletOff">
@@ -226,7 +226,7 @@
             <div class="month-leftbox fl">
                 <div class="col-monthbox">
                     <div>Listopad</div>
-                    2020 </div>
+                    2019 </div>
             </div>
             <div class="list fl">
                 <div class="tab-row">
@@ -264,7 +264,7 @@
             </div>
             <div class="list fl">
                 <div class="tab-row">
-                    <a class="clearfix" href="/wydarzenia/dev-js-warszawa-11-wrzesien-2019">
+                    <a class="clearfix" href="#">
                         <div class="colTab date">
                             <div>
                                 <div class="first clearfix"><div class="num fl">25.09</div><div class="name fl">Śr</div></div>
@@ -300,7 +300,7 @@
             </div>
             <div class="list fl">
                 <div class="tab-row">
-                    <a class="clearfix" href="/wydarzenia/gamedev-js-warszawa-11-z-meet-js">
+                    <a class="clearfix" href="#">
                         <div class="colTab date">
                             <div>
                                 <div class="first clearfix"><div class="num fl">25.04</div><div class="name fl">Czw</div></div>
@@ -336,7 +336,7 @@
             </div>
             <div class="list fl">
                 <div class="tab-row">
-                    <a class="clearfix" href="/wydarzenia/gamedev-js-warszawa-10-podczas-wdi-2019">
+                    <a class="clearfix" href="#">
                         <div class="colTab date">
                             <div>
                                 <div class="first clearfix"><div class="num fl">26.03</div><div class="name fl">Wt</div></div>
@@ -374,7 +374,7 @@
             </div>
             <div class="list fl">
                 <div class="tab-row">
-                    <a class="clearfix" href="/wydarzenia/gamejam-js-2019">
+                    <a class="clearfix" href="#">
                         <div class="colTab date">
                             <div>
                                 <div class="first clearfix"><div class="num fl">25.01</div><div class="name fl">Pt</div></div>
