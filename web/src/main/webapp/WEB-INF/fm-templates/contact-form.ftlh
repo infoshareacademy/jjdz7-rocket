@@ -21,10 +21,10 @@
         <label for="exampleFormControlTextarea1">Wpisz swoje pytanie</label>
         <textarea class="form-control" id="exampleText" rows="3"></textarea>
     </div>
-    <div class="row">
+    <div class="row" align="center">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <button type="submit" class="btn btn-primary center-block">Wyślij</button>
+            <button type="submit" class="btn btn-primary center-block" >Wyślij</button>
         </div>
         <div class="col-md-4"></div>
     </div>
