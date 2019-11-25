@@ -30,12 +30,17 @@
     <div class="col-md-2"></div>
 </div>
 <br>
-<div class="row">
-<div class="team" align="center">
-    <img src="../images/team.jpg" style="width: 1000px"/>
-</div>
-<h5>Dobrej zabawy!</h5>
+<div class="row" align="center">
+    <div class="col-md-2"></div>
+
+    <div class="team" align="center">
+        <img src="../images/team.jpg" style="width: 1000px" align="center"/>
+    </div>
+    <div class="col-md-2"></div>
 
 </div>
+
+<h5>Dobrej zabawy!</h5>
+
 </body>
 </html>
