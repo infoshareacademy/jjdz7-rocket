@@ -65,9 +65,9 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-core</artifactId>
-        <version>5.4.8.Final</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.8.Final</version>
         </dependency>
     </dependencies>
 

@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Local
-public interface GamesDao {
+public interface GamesDao extends Dao{
 
     List<Game> getGamesList() throws IOException;
 

@@ -7,8 +7,10 @@ import javax.persistence.*;
 public class Games {
 
     @Id
-    @GeneratedValue
     private int gameId;
+
+    @Column(name = "extra_look")
+    private boolean extraLook;
 
     @Column(name = "game_name")
     private String gameName;
@@ -54,6 +56,134 @@ public class Games {
 
     @Column(name = "mechanic")
     private String mechanic;
+
+    public int getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
+    }
+
+    public String getGameName() {
+        return gameName;
+    }
+
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
+    }
+
+    public String getGameDesinger() {
+        return gameDesinger;
+    }
+
+    public void setGameDesinger(String gameDesinger) {
+        this.gameDesinger = gameDesinger;
+    }
+
+    public String getGamePublisher() {
+        return gamePublisher;
+    }
+
+    public void setGamePublisher(String gamePublisher) {
+        this.gamePublisher = gamePublisher;
+    }
+
+    public String getGameArtist() {
+        return gameArtist;
+    }
+
+    public void setGameArtist(String gameArtist) {
+        this.gameArtist = gameArtist;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getYearPublished() {
+        return yearPublished;
+    }
+
+    public void setYearPublished(int yearPublished) {
+        this.yearPublished = yearPublished;
+    }
+
+    public int getMinPlayers() {
+        return minPlayers;
+    }
+
+    public void setMinPlayers(int minPlayers) {
+        this.minPlayers = minPlayers;
+    }
+
+    public int getMaxPlayers() {
+        return maxPlayers;
+    }
+
+    public void setMaxPlayers(int maxPlayers) {
+        this.maxPlayers = maxPlayers;
+    }
+
+    public int getMinPlayTime() {
+        return minPlayTime;
+    }
+
+    public void setMinPlayTime(int minPlayTime) {
+        this.minPlayTime = minPlayTime;
+    }
+
+    public int getMaxPlayTime() {
+        return maxPlayTime;
+    }
+
+    public void setMaxPlayTime(int maxPlayTime) {
+        this.maxPlayTime = maxPlayTime;
+    }
+
+    public int getMinAge() {
+        return minAge;
+    }
+
+    public void setMinAge(int minAge) {
+        this.minAge = minAge;
+    }
+
+    public int getBggRank() {
+        return bggRank;
+    }
+
+    public void setBggRank(int bggRank) {
+        this.bggRank = bggRank;
+    }
+
+    public double getAverageWeight() {
+        return averageWeight;
+    }
+
+    public void setAverageWeight(double averageWeight) {
+        this.averageWeight = averageWeight;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getMechanic() {
+        return mechanic;
+    }
+
+    public void setMechanic(String mechanic) {
+        this.mechanic = mechanic;
+    }
 }
 
 
