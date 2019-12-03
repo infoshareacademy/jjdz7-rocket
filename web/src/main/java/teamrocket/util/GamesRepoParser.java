@@ -17,8 +17,8 @@ public class GamesRepoParser {
     private GamesDaoHelper gamesDaoHelper;
 
     GamesRepoParser(EntityManager em) {
-       this.gamesDaoHelper = new GamesDaoHelper();
-       gamesDaoHelper.setEntityManager(em);
+        this.gamesDaoHelper = new GamesDaoHelper();
+        gamesDaoHelper.setEntityManager(em);
     }
 
     @Transactional

@@ -27,7 +27,7 @@ public class GamesDaoBean implements GamesDao {
         stringList = Util.readFileContent(Paths.get("/home/adrian/IdeaProjects/jjdz7-rocket/web/src/main/resources/gamesRepository.csv"));
 
         List<Game> gamesList = new ArrayList<>();
-        for (int i = 0; i< stringList.size(); i++){
+        for (int i = 0; i < stringList.size(); i++) {
             gamesList.add(new Game(stringList.get(i)));
 
         }
@@ -46,13 +46,13 @@ public class GamesDaoBean implements GamesDao {
 
     @Override
     public Game findById(int id) {
-        return entityManager.find(Game.class,id);
+        return entityManager.find(Game.class, id);
     }
 
     @Override
     public void deleteById(int id) {
         Game entity = findById(id);
-        if (entity != null){
+        if (entity != null) {
             entityManager.remove(entity);
         }
     }
