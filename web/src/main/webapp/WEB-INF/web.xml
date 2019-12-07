@@ -6,11 +6,11 @@
          version="3.0">
   <context-param>
     <param-name>province</param-name>
-    <param-value>Mendoza</param-value>
+    <param-value>Warsaw</param-value>
   </context-param>
   <context-param>
     <param-name>country</param-name>
-    <param-value>Argentina</param-value>
+    <param-value>Poland</param-value>
   </context-param>
   <error-page>
     <error-code>404</error-code>
