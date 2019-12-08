@@ -1,8 +1,7 @@
 package teamrocket.util;
 
 import teamrocket.dao.GamesDaoBean;
-import teamrocket.domain.Games;
-import teamrocket.model.Game;
+import teamrocket.domain.Game;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
@@ -12,7 +11,7 @@ import java.util.List;
 
 public class GamesRepoParser {
 
-    private List<Games> gamesEntityList = new ArrayList<>();
+    private List<Game> gamesEntityList = new ArrayList<>();
 
     private GamesDaoHelper gamesDaoHelper;
 
@@ -23,9 +22,9 @@ public class GamesRepoParser {
 
     @Transactional
     public void parseFileRepoFromAppModuleToDb() throws IOException {
-        List<Game> gameList = getGamesListFromFileInAppModule();
+        List<teamrocket.model.Game> gameList = getGamesListFromFileInAppModule();
         convertGameListToGamesEntityDto(gameList, gamesEntityList);
-        for (Games games : gamesEntityList) {
+        for (Game games : gamesEntityList) {
             gamesDaoHelper.add(games);
         }
     }
@@ -34,13 +33,13 @@ public class GamesRepoParser {
         //TODO: get file from web page and reuse convert method, then use add method
        /* List<Game> gameList = getGamesListFromFileInAppModule();
         convertGameListToGamesEntityDto(gameList, gamesEntityList);*/
-        for (Games games : gamesEntityList) {
+        for (Game games : gamesEntityList) {
             gamesDaoHelper.add(games);
         }
     }
 
-    public Games convertDtoToEntity(Game game) {
-        Games gamesEntity = new Games();
+    public Game convertDtoToEntity(teamrocket.model.Game game) {
+        Game gamesEntity = new Game();
         gamesEntity.setAverageWeight(game.getAverageWeight());
         gamesEntity.setBggRank(game.getBggRank());
         gamesEntity.setCategory(game.getCategory());
@@ -60,12 +59,12 @@ public class GamesRepoParser {
         return gamesEntity;
     }
 
-    private List<Game> getGamesListFromFileInAppModule() throws IOException {
-        return Game.createGamesArrayFromRepository();
+    private List<teamrocket.model.Game> getGamesListFromFileInAppModule() throws IOException {
+        return teamrocket.model.Game.createGamesArrayFromRepository();
     }
 
-    private void convertGameListToGamesEntityDto(List<Game> gameList, List<Games> gamesEntityList) {
-        for (Game game : gameList) {
+    private void convertGameListToGamesEntityDto(List<teamrocket.model.Game> gameList, List<Game> gamesEntityList) {
+        for (teamrocket.model.Game game : gameList) {
             gamesEntityList.add(convertDtoToEntity(game));
         }
     }
