@@ -2,8 +2,8 @@ package teamrocket.servlets;
 
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import teamrocket.domain.Game;
 import teamrocket.freemarker.TemplateProvider;
-import teamrocket.model.Game;
 import teamrocket.services.GameService;
 
 import javax.inject.Inject;

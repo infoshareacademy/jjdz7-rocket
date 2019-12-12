@@ -14,5 +14,7 @@ public class Main {
                 .createEntityManagerFactory("grajdolex-hibernate");
 
         entityManager = entityManagerFactory.createEntityManager();
+
+
     }
 }

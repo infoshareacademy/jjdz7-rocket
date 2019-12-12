@@ -6,6 +6,7 @@
 
     <persistence-unit name ="grajdolex-hibernate">
         <description>Team Rocket Hibernate</description>
+        <jta-data-source>java:ds/evc</jta-data-source>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>

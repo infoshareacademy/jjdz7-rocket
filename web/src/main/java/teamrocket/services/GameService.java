@@ -1,7 +1,7 @@
 package teamrocket.services;
 
 import teamrocket.dao.GamesDao;
-import teamrocket.model.Game;
+import teamrocket.domain.Game;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -15,6 +15,6 @@ public class GameService {
     GamesDao gamesDao;
 
     public List<Game> takeGameList () throws IOException {
-        return gamesDao.getGamesList();
+        return gamesDao.findAll();
     }
 }
