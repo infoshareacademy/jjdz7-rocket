@@ -27,7 +27,7 @@
   <data-source>
     <name>java:ds/evc</name>
     <class-name>com.mysql.cj.jdbc.MysqlDataSource</class-name>
-    <url>jdbc:mysql://localhost:5555/mysql</url>
+    <url>jdbc:mysql://localhost:5555/tables</url>
     <user>root</user>
     <password>grajdolex</password>
   </data-source>

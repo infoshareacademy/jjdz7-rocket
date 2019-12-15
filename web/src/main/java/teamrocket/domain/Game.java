@@ -2,6 +2,13 @@ package teamrocket.domain;
 
 import javax.persistence.*;
 
+@NamedQueries(
+        @NamedQuery(
+                name = "Game.findAll",
+                query = "SELECT g FROM Game g")
+)
+
+
 @Entity
 @Table(name = "games")
 public class Game {

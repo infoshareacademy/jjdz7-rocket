@@ -21,7 +21,6 @@
 <table class="table table-dark">
     <thead>
     <tr>
-        <th scope="col">ID</th>
         <th scope="col">NAZWA GRY</th>
         <th scope="col">LICZBA GRACZY</th>
         <th scope="col">TYP GRY</th>
@@ -31,8 +30,7 @@
     <#list games>
         <#items as game>
     <tr>
-        <th scope="row">${game.gameId}</th>
-        <td>${game.gameName}</td>
+        <td scope="row">${game.gameName}</td>
         <td align="center">${game.minPlayers} - ${game.maxPlayers}</td>
         <td>${game.category}</td>
     </tr>

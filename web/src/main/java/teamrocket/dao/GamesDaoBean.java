@@ -1,6 +1,8 @@
 package teamrocket.dao;
 
 
+import teamrocket.domain.Game;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -8,25 +10,11 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Stateless
-public class GamesDaoBean implements GamesDao {
+public class GamesDaoBean implements Dao {
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "grajdolex-hibernate")
     protected EntityManager entityManager;
 
-
-//    @Override
-//    public List<Game> getGamesList() throws IOException {
-//
-//        List<String> stringList = new ArrayList<>();
-//        stringList = Util.readFileContent(Paths.get("/home/adrian/IdeaProjects/jjdz7-rocket/web/src/main/resources/gamesRepository.csv"));
-//
-//        List<Game> gamesList = new ArrayList<>();
-//        for (int i = 0; i < stringList.size(); i++) {
-//            gamesList.add(new Game(stringList.get(i)));
-//
-//        }
-//        return gamesList;
-//    }
 
     @Override
     public void add(Object o) {
@@ -52,8 +40,9 @@ public class GamesDaoBean implements GamesDao {
     }
 
     @Override
-    public List<teamrocket.domain.Game> findAll() {
-        Query query = entityManager.createQuery("SELECT g FROM Games g");
-        return (List<teamrocket.domain.Game>) query.getResultList();
+    public List<Game> findAll() {
+
+        Query query = entityManager.createNamedQuery("Game.findAll");
+        return  query.getResultList();
     }
 }

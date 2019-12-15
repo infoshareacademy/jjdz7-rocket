@@ -1,6 +1,6 @@
 package teamrocket.services;
 
-import teamrocket.dao.GamesDao;
+import teamrocket.dao.Dao;
 import teamrocket.domain.Game;
 
 import javax.ejb.EJB;
@@ -12,9 +12,9 @@ import java.util.List;
 public class GameService {
 
     @EJB
-    GamesDao gamesDao;
+    Dao dao;
 
     public List<Game> takeGameList () throws IOException {
-        return gamesDao.findAll();
+        return dao.findAll();
     }
 }
