@@ -23,7 +23,7 @@ public class Game {
     private String gameName;
 
     @Column(name = "game_designer")
-    private String gameDesinger;
+    private String gameDesigner;
 
     @Column(name = "game_publisher")
     private String gamePublisher;
@@ -80,12 +80,12 @@ public class Game {
         this.gameName = gameName;
     }
 
-    public String getGameDesinger() {
-        return gameDesinger;
+    public String getGameDesigner() {
+        return gameDesigner;
     }
 
-    public void setGameDesinger(String gameDesinger) {
-        this.gameDesinger = gameDesinger;
+    public void setGameDesigner(String gameDesigner) {
+        this.gameDesigner = gameDesigner;
     }
 
     public String getGamePublisher() {

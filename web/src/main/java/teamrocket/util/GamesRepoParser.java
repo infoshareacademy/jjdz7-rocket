@@ -44,7 +44,7 @@ public class GamesRepoParser {
         gamesEntity.setBggRank(game.getBggRank());
         gamesEntity.setCategory(game.getCategory());
         gamesEntity.setGameArtist(game.getGameArtist());
-        gamesEntity.setGameDesinger(game.getGameDesigner());
+        gamesEntity.setGameDesigner(game.getGameDesigner());
         gamesEntity.setGameId(game.getGameId());
         gamesEntity.setGameName(game.getGameName());
         gamesEntity.setGamePublisher(game.getGamePublisher());

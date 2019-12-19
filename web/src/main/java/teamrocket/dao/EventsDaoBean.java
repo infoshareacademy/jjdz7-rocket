@@ -1,7 +1,6 @@
 package teamrocket.dao;
 
-
-import teamrocket.domain.Game;
+import teamrocket.domain.Event;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -9,12 +8,11 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
-@Stateless(name = "games")
-public class GamesDaoBean implements Dao {
+@Stateless(name = "events")
+public class EventsDaoBean implements Dao {
 
     @PersistenceContext(unitName = "grajdolex-hibernate")
     protected EntityManager entityManager;
-
 
     @Override
     public void add(Object o) {
@@ -27,22 +25,21 @@ public class GamesDaoBean implements Dao {
     }
 
     @Override
-    public Game findById(int id) {
-        return entityManager.find(Game.class, id);
+    public Event findById(int id) {
+        return entityManager.find(Event.class, id);
     }
 
     @Override
     public void deleteById(int id) {
-        Game entity = findById(id);
+        Event entity = findById(id);
         if (entity != null) {
             entityManager.remove(entity);
         }
     }
 
     @Override
-    public List<Game> findAll() {
-
-        Query query = entityManager.createNamedQuery("Game.findAll");
-        return  query.getResultList();
+    public List<Event> findAll() {
+        Query query = entityManager.createNamedQuery("Event.findAll");
+        return query.getResultList();
     }
 }

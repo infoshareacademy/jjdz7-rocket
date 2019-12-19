@@ -11,7 +11,7 @@ import java.util.List;
 @RequestScoped
 public class GameService {
 
-    @EJB
+    @EJB(beanName = "games")
     Dao dao;
 
     public List<Game> takeGameList () throws IOException {

@@ -1,11 +1,16 @@
 package teamrocket.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+
+@NamedQueries(
+        @NamedQuery(
+                name = "Event.findAll",
+                query = "SELECT e FROM Event e"
+        )
+)
+
 
 @Entity
 @Table(name = "events")
