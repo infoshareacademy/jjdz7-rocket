@@ -18,6 +18,9 @@ public class MainParseService {
         GamesRepoParser gamesRepoParser = new GamesRepoParser(entityManager);
         gamesRepoParser.parseFileRepoFromAppModuleToDb();
 
+        EventsRepoParser eventsRepoParser = new EventsRepoParser(entityManager);
+        eventsRepoParser.parseFileRepoFromAppModuleToDb();
+
         entityManager.getTransaction().commit();
     }
 

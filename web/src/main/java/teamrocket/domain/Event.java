@@ -17,6 +17,7 @@ import java.time.LocalTime;
 public class Event {
 
     @Id
+    @GeneratedValue
     private int eventId;
 
     @Column(name = "event_name", nullable = false)
@@ -54,10 +55,6 @@ public class Event {
 
     public int getEventId() {
         return eventId;
-    }
-
-    public void setEventId(int eventId) {
-        this.eventId = eventId;
     }
 
     public String getEventName() {
