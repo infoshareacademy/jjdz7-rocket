@@ -6,14 +6,15 @@
 
     <persistence-unit name ="grajdolex-hibernate">
         <description>Team Rocket Hibernate</description>
+        <jta-data-source>java:ds/evc</jta-data-source>
         <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="false"/>
             <property name="hibernate.format_sql" value="true"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:5555/tables"/>
-            <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="grajdolex"/>
+<!--            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:5555/tables"/>-->
+<!--            <property name="javax.persistence.jdbc.user" value="root"/>-->
+<!--            <property name="javax.persistence.jdbc.password" value="grajdolex"/>-->
         </properties>
     </persistence-unit>
 
