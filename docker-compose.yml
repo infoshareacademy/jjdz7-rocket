@@ -1,16 +1,25 @@
 version: '3'
 
 services:
-  mysql:
-    image: mysql:8.0.18
-    environment:
-      MYSQL_ROOT_PASSWORD: grajdolex
-    ports:
-      - 5555:3306
-    volumes:
+ mysql:
+  image: mysql:8.0.18
+  environment:
+      - MYSQL_ROOT_PASSWORD=grajdolex
+      - MYSQL_DATABASE=tables
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=grajdolex
+  ports:
+      - "5555:3306"
+  volumes:
       - ./mysql:/var/lib/mysql
-  wildfly:
-    build: .
-    ports:
-      - 8080:8080
-      - 9990:9990
+ app:
+  build:
+   context: ./
+  ports:
+        - 4380:8080
+        - 4381:9990
+  depends_on:
+       - mysql
+  links:
+       - mysql
+  dns: 8.8.8.8

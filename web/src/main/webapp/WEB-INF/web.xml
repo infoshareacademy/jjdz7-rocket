@@ -24,4 +24,12 @@
     <param-name>tiles.dir</param-name>
     <param-value>tiles</param-value>
   </context-param>
+  <data-source>
+    <name>java:ds/evc</name>
+    <class-name>com.mysql.cj.jdbc.MysqlDataSource</class-name>
+    <url>jdbc:mysql://0.0.0.0:6603/MYSQL_DATABASE?useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Warsaw</url>
+    <user>root</user>
+    <password>grajdolex</password>
+  </data-source>
+
 </web-app>
