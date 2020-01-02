@@ -9,9 +9,7 @@ services:
       - MYSQL_USER=root
       - MYSQL_PASSWORD=grajdolex
   ports:
-      - "5555:3306"
-  volumes:
-      - ./mysql:/var/lib/mysql
+      - "6603:3306"
  app:
   build:
    context: ./
