@@ -5,18 +5,17 @@ services:
     image: mysql:8.0.18
     environment:
       - MYSQL_ROOT_PASSWORD=grajdolex
-      - MYSQL_DATABASE=mysql
+      - MYSQL_DATABASE=tables
       - MYSQL_USER=root
       - MYSQL_PASSWORD=grajdolex
     ports:
-      - "6603:3306"
+      - 6603:3306
   app:
     build:
-      context: ./
+      context: .
     ports:
       - 4380:8080
       - 4381:9990
-      - 4382:3306
     depends_on:
       - mysql
     links:
