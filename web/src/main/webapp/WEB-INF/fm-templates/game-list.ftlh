@@ -47,40 +47,7 @@
                 <td scope="row">${game.gameName}</td>
                 <td align="center">${game.minPlayers} - ${game.maxPlayers}</td>
                 <td>${game.category}</td>
-                <td>
-                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target=".bd-example-modal-lg">Informacje
-                    </button>
 
-                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-                         aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-body">
-                                <table class="table table-striped table-dark">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">Twórca gry</th>
-                                        <th scope="col">Rok wydania</th>
-                                        <th scope="col">Minimalny wiek</th>
-                                        <th scope="col">Ranking BGG</th>
-                                        <th scope="col">Mechanika</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td scope="row" align="center">${game.gameDesigner}</td>
-                                        <td align="center">${game.yearPublished}</td>
-                                        <td align="center">${game.minAge}</td>
-                                        <td align="center">${game.bggRank}</td>
-                                        <td align="center">${game.mechanic}</td>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </td>
             </tr>
         </#items>
     </#list>
