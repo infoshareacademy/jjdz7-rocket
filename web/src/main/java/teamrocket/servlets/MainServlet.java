@@ -26,7 +26,7 @@ public class MainServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
 
         Map<String,Object> model = new HashMap<>();
-        Template template = templateProvider.getTemplate(getServletContext(),"StronaGł.Rocket.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(),"StronaRocket.ftlh");
 
         try {
             template.process(model, writer);
