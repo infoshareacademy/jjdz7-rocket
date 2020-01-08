@@ -2,6 +2,7 @@ package teamrocket.servlets.upd;
 import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -21,7 +22,7 @@ public class ImagesServlet extends HttpServlet {
       throws ServletException, IOException {
 
     String filename = URLDecoder.decode(
-        req.getPathInfo().substring(1), "UTF-8");
+        req.getPathInfo().substring(1), StandardCharsets.UTF_8 );
     File file = new File(fileUploadProcessor
         .getUploadImageFilesPath(), filename);
     resp.setHeader("Content-Type",
