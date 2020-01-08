@@ -118,6 +118,11 @@ body
 {
     background-color: #ff1f18;
 }
+.clearfix{
+    background-color: #c6c6c6;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .footer
 {
