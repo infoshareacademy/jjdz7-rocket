@@ -21,7 +21,6 @@
     </div>
     <div class="nav">
         <ol>
-            <li><a href="#">Start</a></li>
             <li><a href="#">O Nas</a>
                 <ul>
                     <li><a href="../../html-style/contactForm.html">kontakt</a></li>
@@ -31,15 +30,11 @@
             <li><a href="../../html-style/game-list.html">Baza Gier</a>
                 <ul>
                     <li><a href="/addGame">Dodaj Gre</a></li>
-                    <li><a href="#">Ulubione</a></li>
                     <li><a href="gameList">lista gier</a></li>
                 </ul>
             </li>
             <li><a href="wydazenia.ftlh">Wydarzenia</a>
                 <ul>
-                    <li><a href="../../html-style/wydazenia.html">Dodaj Wydarzenie</a></li>
-                    <li><a href="../../html-style/wydazenia.html">wydarzenia</a></li>
-                    <li><a href="../../html-style/wydazenia.html">miejsca na gry</a></li>
                 </ul>
             </li>
             <li><a href="../../html-style/add-user.html">upload file</a> </li>
