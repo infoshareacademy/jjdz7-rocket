@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+w <!DOCTYPE html>
 <html lang="pl-PL">
 <#setting number_format="computer">
 <head>

@@ -15,26 +15,6 @@ public class FileUploadProcessor {
 
   private static final String SETTINGS_FILE = "settings.properties";
 
-  public File uploadImageFile(Part filePart) throws IOException, UserImageNotFound {
-
-    String fileName = Paths.get(filePart.getSubmittedFileName())
-        .getFileName().toString();
-
-    if (fileName == null || fileName.isEmpty()) {
-      throw new UserImageNotFound("No user image has been uploaded");
-    }
-
-    File file = new File(getUploadImageFilesPath()
-        + fileName);
-    Files.deleteIfExists(file.toPath());
-
-    InputStream fileContent = filePart.getInputStream();
-    Files.copy(fileContent, file.toPath());
-
-    fileContent.close();
-    return file;
-  }
-
   public String getUploadImageFilesPath() throws IOException {
     Properties settings = new Properties();
     settings.load( Objects.requireNonNull ( Thread.currentThread ()

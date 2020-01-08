@@ -42,6 +42,7 @@
                     <li><a href="../../html-style/wydazenia.html">miejsca na gry</a></li>
                 </ul>
             </li>
+            <li><a href="../../html-style/add-user.html">upload file</a> </li>
 
             <li><a href="../../html-style/mapsG.html">mapa</a></li>
         </ol>
