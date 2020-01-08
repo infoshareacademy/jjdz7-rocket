@@ -1,5 +1,7 @@
 package teamrocket.services;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import teamrocket.dao.Dao;
 import teamrocket.domain.Game;
 
@@ -11,10 +13,16 @@ import java.util.List;
 @RequestScoped
 public class GameService {
 
+    private Logger logger = LogManager.getLogger(GameService.class.getName());
+
     @EJB(beanName = "games")
     Dao dao;
 
-    public List<Game> takeGameList () throws IOException {
-        return dao.findAll();
+    public List<Game> takeGameList() throws IOException {
+        logger.info("Try to take list of games from bean.");
+        List list = dao.findAll();
+
+        logger.error("Getting list of games from bean done.");
+        return list;
     }
 }
