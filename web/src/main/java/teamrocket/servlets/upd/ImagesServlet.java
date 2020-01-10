@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/images/*")
+@WebServlet("/images")
 public class ImagesServlet extends HttpServlet {
 
   @Inject
