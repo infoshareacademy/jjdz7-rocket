@@ -207,3 +207,9 @@ ol > li > ul > li:hover > a
 {
     color: #451717;
 }
+
+.form-group
+{
+    color: #eaeaea;
+    text-align: left;
+}
