@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl-PL">
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Grajdołex &copy;</title>
 
-    <link rel="stylesheet" href="../../css/rocket.css" />
-    <link rel="stylesheet" href="../../css/fontello.css" />
-    <link rel="stylesheet" href="../../https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="kubuś">
+    <link rel="stylesheet" href="../../css/rocket.css"/>
+    <link rel="stylesheet" href="../../css/fontello.css"/>
+    <link rel="stylesheet" href="../../https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="kubuś">
 </head>
 
 <body>
 
 <div class="wrapper">
     <div class="header">
-        <div class="logo" >
+        <div class="logo">
             <img src="../../images/grajdolex10.png" style="float: left;"/>
             <div style="clear:both;"></div>
         </div>
@@ -23,28 +24,28 @@
         <ol>
             <li><a href="#">O Nas</a>
                 <ul>
-                    <li><a href="../../html-style/contactForm.html">kontakt</a></li>
-                    <li><a href="../../html-style/Info.html">informacje</a></li>
+                    <li><a href="/contact">Kontakt</a></li>
+                    <li><a href="/information">Informacje</a></li>
                 </ul>
             </li>
-            <li><a href="../../html-style/game-list.html">Baza Gier</a>
+            <li><a href="#">Baza Gier</a>
                 <ul>
-                    <li><a href="/addGame">Dodaj Gre</a></li>
-                    <li><a href="gameList">lista gier</a></li>
+                    <li><a href="#">Dodaj Gre</a></li>
+                    <li><a href="/gameList">Lista gier</a></li>
                 </ul>
             </li>
-            <li><a href="wydazenia.ftlh">Wydarzenia</a>
-                <ul>
-                </ul>
-            </li>
-            <li><a href="../../html-style/add-user.html">upload file</a> </li>
+            <li><a href="#">Wydarzenia</a>
 
-            <li><a href="../../html-style/mapsG.html">mapa</a></li>
+            </li>
+            <li><a href="/images">upload file</a> </li>
+
+            <li><a href="../../html-style/mapsG.html">Mapa</a></li>
         </ol>
 
     </div>
+</div>
 
-    <div class="content">
+<div class="content">
 
 
     <div class="socials">
@@ -65,17 +66,17 @@
         </div>
     </div>
 
-    <div class="footer">Retrogranie.com &copy; </div>
+    <div class="footer">GrajDolex</div>
 </div>
 
 <script src="jquery-1.11.3.min.js"></script>
 
 <script>
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         var NavY = $('.nav').offset().top;
 
-        var stickyNav = function(){
+        var stickyNav = function () {
             var ScrollY = $(window).scrollTop();
 
             if (ScrollY > NavY) {
@@ -87,7 +88,7 @@
 
         stickyNav();
 
-        $(window).scroll(function() {
+        $(window).scroll(function () {
             stickyNav();
         });
     });
