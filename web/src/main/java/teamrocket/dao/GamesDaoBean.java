@@ -18,7 +18,7 @@ public class GamesDaoBean implements GamesDao {
     public List<Game> getGamesList() throws IOException {
 
         List<String> stringList = new ArrayList<>();
-        stringList = Util.readFileContent(Paths.get("/home/jumps/IdeaProjects/jjdz7-rocket/web/src/main/resources/gamesRepository.csv"));
+        stringList = Util.readFileContent(Paths.get("/home/adrian/IdeaProjects/jjdz7-rocket/web/src/main/resources/gamesRepository.csv"));
 
         List<Game> gamesList = new ArrayList<>();
         for (int i = 0; i< stringList.size(); i++){
