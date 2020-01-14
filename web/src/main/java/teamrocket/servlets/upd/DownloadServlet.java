@@ -17,7 +17,7 @@ public class DownloadServlet extends HttpServlet {
         resp.setContentType("text/plain");
         resp.setHeader("Content-disposition", "attachment; filename=sample.txt");
 
-        try (InputStream in = req.getServletContext().getResourceAsStream("/WEB-INF/fm-templates/upload.ftlh");
+        try (InputStream in = req.getServletContext().getResourceAsStream("/WEB-INF/fm-templates");
              OutputStream out = resp.getOutputStream()) {
 
             int ARBITARY_SIZE = 1048;

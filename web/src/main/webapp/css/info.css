@@ -46,3 +46,14 @@ button
 {
     font-size: 20px;
 }
+.navo
+{
+    width: 100%;
+    position: relative;
+    background-color: #000000;
+    text-align: center;
+    border-top: 1px solid #ff1f18;
+    border-bottom: 1px solid #ff1f18;
+
+
+}
