@@ -4,8 +4,6 @@ echo "<<<========= RUN MAVEN ==========>>>"
 mvn clean install
 echo "<<<========= KILL CONTAINERS ==========>>>"
 docker-compose down
-echo "<<<========= BUILD CONTAINERS ==========>>>"
-docker-compose build
-echo "<<<========= RUN CONTAINERS ==========>>>"
-docker-compose up -d
+echo "<<<========= BUILD & RUN CONTAINERS ==========>>>"
+docker-compose up -d --build
 echo "<<<========= READY ==========>>>"
