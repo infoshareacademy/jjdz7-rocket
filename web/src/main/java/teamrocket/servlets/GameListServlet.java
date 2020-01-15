@@ -2,8 +2,10 @@ package teamrocket.servlets;
 
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import teamrocket.domain.Game;
 import teamrocket.freemarker.TemplateProvider;
-import teamrocket.model.Game;
 import teamrocket.services.GameService;
 
 import javax.inject.Inject;
@@ -27,19 +29,35 @@ public class GameListServlet extends HttpServlet {
     @Inject
     GameService gameService;
 
+    private Logger logger = LogManager.getLogger(GameListServlet.class.getName());
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        logger.info("Try to get PrintWriter.");
         PrintWriter writer = resp.getWriter();
+        logger.info("PrintWriter done.");
 
-        Map<String,Object> model = new HashMap<>();
-        Template template = templateProvider.getTemplate(getServletContext(),"game-list.ftlh");
 
+        Map<String, Object> model = new HashMap<>();
+
+        logger.info("Try to get template from freemarker.");
+        Template template = templateProvider.getTemplate(getServletContext(), "game-list.ftlh");
+        logger.info("Getting template done.");
+
+        logger.info("Try to make list of games from service.");
         List<Game> games = gameService.takeGameList();
-        model.put("games",games);
+        logger.info("Making list of games from service done.");
+        logger.info("Try to put list of games into model map.");
+        model.put("games", games);
+        logger.info("List of games added into model map.");
+
 
         try {
             template.process(model, writer);
+            logger.info("Template process done.");
         } catch (TemplateException e) {
+            logger.error("Template process not done.");
             e.printStackTrace();
         }
     }

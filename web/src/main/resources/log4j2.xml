@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Loggers>
+        <Logger name="com.infoshareacademy.loggers.GameListServlet" level="info">
+        </Logger>
+        <Logger name="com.infoshareacademy.loggers.GameService" level="info">
+        </Logger>
+    </Loggers>
+</Configuration>

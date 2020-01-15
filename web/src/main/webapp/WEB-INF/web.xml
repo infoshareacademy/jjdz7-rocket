@@ -18,7 +18,7 @@
   </error-page>
   <display-name>ServletFileUploadDownloadExample</display-name>
   <welcome-file-list>
-    <welcome-file>StronaGł.Rocket.html</welcome-file>
+    <welcome-file>StronaRocket.html</welcome-file>
   </welcome-file-list>
   <context-param>
     <param-name>tiles.dir</param-name>
