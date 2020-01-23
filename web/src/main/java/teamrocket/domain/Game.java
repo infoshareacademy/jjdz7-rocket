@@ -16,7 +16,7 @@ public class Game {
     @Id
     private int gameId;
 
-    @Column(name = "extra_look")
+    @Column(name = "extra_look", columnDefinition = "TINYINT(1)")
     private boolean extraLook;
 
     @Column(name = "game_name")
@@ -70,6 +70,14 @@ public class Game {
 
     public void setGameId(int gameId) {
         this.gameId = gameId;
+    }
+
+    public boolean isExtraLook() {
+        return extraLook;
+    }
+
+    public void setExtraLook(boolean extraLook) {
+        this.extraLook = extraLook;
     }
 
     public String getGameName() {

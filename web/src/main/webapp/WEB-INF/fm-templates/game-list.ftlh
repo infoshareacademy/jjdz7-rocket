@@ -42,13 +42,26 @@
     <tbody>
     <#list games>
         <#items as game>
-            <tr class="game">
+            <#if game.extraLook>
+                <tr class="game">
 
-                <td scope="row">${game.gameName}</td>
-                <td align="center">${game.minPlayers} - ${game.maxPlayers}</td>
-                <td>${game.category}</td>
+                    <td scope="row" style="color: #7a6e0e" >${game.gameName}</td>
+                    <td align="center" style="color: #7a6e0e">${game.minPlayers} - ${game.maxPlayers}</td>
+                    <td style="color: #7a6e0e">${game.category}</td>
 
-            </tr>
+                </tr>
+
+
+            <#else >
+
+                <tr class="game">
+
+                    <td scope="row">${game.gameName}</td>
+                    <td align="center">${game.minPlayers} - ${game.maxPlayers}</td>
+                    <td>${game.category}</td>
+
+                </tr>
+            </#if>
         </#items>
     </#list>
     </tbody>
