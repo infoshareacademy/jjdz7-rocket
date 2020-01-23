@@ -47,7 +47,7 @@
 
                     <td scope="row">${event.eventName}</td>
                     <td align="center">${event.eventCity} - ${event.eventAddress}</td>
-                    <td>${event.eventDate} - ${event.eventStartTime}</td>
+                    <td align="center">${event.eventDate} - ${event.eventStartTime}</td>
 
                 </tr>
         </#items>
