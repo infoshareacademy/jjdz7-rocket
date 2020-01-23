@@ -45,7 +45,7 @@
             <#if game.extraLook>
                 <tr class="game">
 
-                    <td scope="row" style="color: #fff305"  >${game.gameName}</td>
+                    <td scope="row" style="color: #fff305"  >*${game.gameName}*</td>
                     <td align="center" style="color: #fff305">${game.minPlayers} - ${game.maxPlayers}</td>
                     <td style="color: #fff305">${game.category}</td>
 
