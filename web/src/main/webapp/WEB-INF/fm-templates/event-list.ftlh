@@ -34,34 +34,22 @@
 <table class="table table-dark">
     <thead>
     <tr>
-        <th scope="col">NAZWA GRY</th>
-        <th scope="col">LICZBA GRACZY</th>
-        <th scope="col">TYP GRY</th>
+        <th scope="col">NAZWA WYDARZENIA</th>
+        <th scope="col">ADRES WYDARZENIA</th>
+        <th scope="col">DATA I GODZINA</th>
     </tr>
     </thead>
     <tbody>
-    <#list games>
-        <#items as game>
-            <#if game.extraLook>
-                <tr class="game">
+    <#list events>
+        <#items as event>
 
-                    <td scope="row" style="color: #fff305"  >${game.gameName}</td>
-                    <td align="center" style="color: #fff305">${game.minPlayers} - ${game.maxPlayers}</td>
-                    <td style="color: #fff305">${game.category}</td>
+               <tr class="event">
 
-                </tr>
-
-
-            <#else >
-
-                <tr class="game">
-
-                    <td scope="row">${game.gameName}</td>
-                    <td align="center">${game.minPlayers} - ${game.maxPlayers}</td>
-                    <td>${game.category}</td>
+                    <td scope="row">${event.eventName}</td>
+                    <td align="center">${event.eventCity} - ${event.eventAddress}</td>
+                    <td>${event.eventDate} - ${event.eventStartTime}</td>
 
                 </tr>
-            </#if>
         </#items>
     </#list>
     </tbody>
