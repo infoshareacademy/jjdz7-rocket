@@ -25,21 +25,16 @@
         crossorigin="anonymous"></script>
 
 
-<form method="post" action="/upload" enctype="multipart/form-data">
+<form method="post" action="/admin" enctype="multipart/form-data">
     <div class="form-group">
         <label for="exampleFormControlFile1">Wgraj plik z grami</label>
         <input type="file" class="form-control-file" id="games">
+        <br>
+        <button type="submit" class="btn btn-primary">Załaduj</button>
     </div>
 </form>
 
-<form method="post" action="/upload" enctype="multipart/form-data">
-    <div class="form-group">
-        <label for="exampleFormControlFile1">Wgraj plik z wydarzeniami</label>
-        <input type="file" class="form-control-file" id="events">
-    </div>
-</form>
-<br>
-<input type="submit" name="save" value="save"/>
+
 
 
 </body>

@@ -6,6 +6,8 @@ import teamrocket.domain.Game;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class GamesRepoParser {
 
     private GamesDaoHelper gamesDaoHelper;
 
-    GamesRepoParser(EntityManager em) {
+    public GamesRepoParser(EntityManager em) {
         this.gamesDaoHelper = new GamesDaoHelper();
         gamesDaoHelper.setEntityManager(em);
     }
@@ -29,10 +31,9 @@ public class GamesRepoParser {
         }
     }
 
-    public void parseFileRepoToDb() {
-        //TODO: get file from web page and reuse convert method, then use add method
-       /* List<Game> gameList = getGamesListFromFileInAppModule();
-        convertGameListToGamesEntityDto(gameList, gamesEntityList);*/
+    @Transactional
+    public void parseFileRepoToDb(InputStream fileContent) {
+        gamesEntityList = (List<Game>) new InputStreamReader(fileContent);
         for (Game games : gamesEntityList) {
             gamesDaoHelper.add(games);
         }

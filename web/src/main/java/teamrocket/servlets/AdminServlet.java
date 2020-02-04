@@ -5,6 +5,7 @@ import freemarker.template.TemplateException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import teamrocket.freemarker.TemplateProvider;
+import teamrocket.services.UploadFileService;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -13,7 +14,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,13 +28,19 @@ public class AdminServlet extends HttpServlet {
     @Inject
     private TemplateProvider templateProvider;
 
+    @Inject
+    private UploadFileService uploadFileService;
+
     private Logger logger = LogManager.getLogger(AdminServlet.class.getName());
 
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        Part filePart = req.getPart("games");
+        InputStream fileContent = filePart.getInputStream();
 
+        uploadFileService.readFileInput(fileContent);
 
 
     }
