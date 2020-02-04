@@ -4,9 +4,9 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import teamrocket.domain.Game;
+import teamrocket.domain.Event;
 import teamrocket.freemarker.TemplateProvider;
-import teamrocket.services.GameService;
+import teamrocket.services.EventService;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -20,16 +20,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/gameList")
-public class GameListServlet extends HttpServlet {
+@WebServlet("/eventList")
+public class EventListServlet extends HttpServlet {
 
     @Inject
     private TemplateProvider templateProvider;
 
     @Inject
-    private GameService gameService;
+    private EventService eventService;
 
-    private Logger logger = LogManager.getLogger(GameListServlet.class.getName());
+    private Logger logger = LogManager.getLogger(EventListServlet.class.getName());
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -42,16 +43,15 @@ public class GameListServlet extends HttpServlet {
         Map<String, Object> model = new HashMap<>();
 
         logger.info("Try to get template from freemarker.");
-        Template template = templateProvider.getTemplate(getServletContext(), "game-list.ftlh");
+        Template template = templateProvider.getTemplate(getServletContext(), "event-list.ftlh");
         logger.info("Getting template done.");
 
-        logger.info("Try to make list of games from service.");
-        List<Game> games = gameService.takeGameList();
-        logger.info("Making list of games from service done.");
-        logger.info("Try to put list of games into model map.");
-        model.put("games", games);
-        logger.info("List of games added into model map.");
-
+        logger.info("Try to make list of events from service.");
+        List<Event> events = eventService.takeEventList();
+        logger.info("Making list of events from service done.");
+        logger.info("Try to put list of events into model map.");
+        model.put("events", events);
+        logger.info("List of events added into model map.");
 
         try {
             template.process(model, writer);
