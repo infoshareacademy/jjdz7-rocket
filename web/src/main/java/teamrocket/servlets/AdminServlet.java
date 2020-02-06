@@ -37,7 +37,7 @@ public class AdminServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Part filePart = req.getPart("games");
+        Part filePart = req.getPart("loader");
         InputStream fileContent = filePart.getInputStream();
 
         uploadFileService.readFileInput(fileContent);

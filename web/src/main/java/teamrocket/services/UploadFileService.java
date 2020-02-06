@@ -4,18 +4,18 @@ import teamrocket.util.GamesRepoParser;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.io.InputStream;
 
 @ApplicationScoped
 public class UploadFileService {
 
-    public void readFileInput(InputStream fileContent){
-        EntityManagerFactory entityManagerFactory = Persistence
-                .createEntityManagerFactory("grajdolex-hibernate");
+    @PersistenceContext
+    private EntityManager entityManager;
 
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+    @Transactional
+    public void readFileInput(InputStream fileContent) {
 
         GamesRepoParser gamesRepoParser = new GamesRepoParser(entityManager);
         gamesRepoParser.parseFileRepoToDb(fileContent);

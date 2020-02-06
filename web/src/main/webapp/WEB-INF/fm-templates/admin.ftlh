@@ -28,9 +28,10 @@
 <form method="post" action="/admin" enctype="multipart/form-data">
     <div class="form-group">
         <label for="exampleFormControlFile1">Wgraj plik z grami</label>
-        <input type="file" class="form-control-file" id="games">
         <br>
-        <button type="submit" class="btn btn-primary">Załaduj</button>
+        <input type="file" name="loader"/>
+        <br>
+        <input type="submit" name="save" value="Load file"/>
     </div>
 </form>
 

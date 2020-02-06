@@ -31,7 +31,7 @@ public class GamesRepoParser {
         }
     }
 
-    @Transactional
+
     public void parseFileRepoToDb(InputStream fileContent) {
         gamesEntityList = (List<Game>) new InputStreamReader(fileContent);
         for (Game games : gamesEntityList) {
