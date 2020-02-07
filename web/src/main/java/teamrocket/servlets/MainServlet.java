@@ -28,6 +28,8 @@ public class MainServlet extends HttpServlet {
         Map<String,Object> model = new HashMap<>();
         Template template = templateProvider.getTemplate(getServletContext(),"StronaRocket.ftlh");
 
+//        model.put("isLoggedIn", req.getSession().getAttribute("userLogged"));
+
         try {
             template.process(model, writer);
         } catch (TemplateException e) {

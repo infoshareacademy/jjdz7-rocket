@@ -2,7 +2,7 @@ package teamrocket.domain;
 
 import javax.persistence.*;
 
-@NamedQueries(
+@NamedQueries({
         @NamedQuery(
                 name = "User.findAll",
                 query = "SELECT u FROM User u"
@@ -11,7 +11,7 @@ import javax.persistence.*;
                 name = "User.checkIfEmailExistl",
                 query = "SELECT u.email FROM User u WHERE u.email = :param"
         )
-)
+})
 
 
 @Entity
