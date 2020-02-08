@@ -3,8 +3,8 @@ package teamrocket.services;
 import teamrocket.dao.GamesDaoInterface;
 import teamrocket.domain.Game;
 
-import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 @ApplicationScoped
 public class UploadFileService {
 
-    @EJB
+    @Inject
     GamesDaoInterface dao;
 
 
