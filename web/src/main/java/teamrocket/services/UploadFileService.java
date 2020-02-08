@@ -1,24 +1,27 @@
 package teamrocket.services;
 
-import teamrocket.util.GamesRepoParser;
+import teamrocket.dao.Dao;
+import teamrocket.domain.Game;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 @ApplicationScoped
 public class UploadFileService {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    @EJB(beanName = "games")
+    Dao dao;
 
-    @Transactional
+
     public void readFileInput(InputStream fileContent) {
-
-        GamesRepoParser gamesRepoParser = new GamesRepoParser(entityManager);
-        gamesRepoParser.parseFileRepoToDb(fileContent);
-
+        List<Game> gamesEntityList = new ArrayList<>();
+        gamesEntityList = (List<Game>) new InputStreamReader(fileContent);
+        for (Game game: gamesEntityList){
+            dao.add(game);
+        }
     }
 }
