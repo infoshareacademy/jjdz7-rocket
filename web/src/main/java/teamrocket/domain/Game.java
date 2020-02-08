@@ -1,6 +1,7 @@
 package teamrocket.domain;
 
 import javax.persistence.*;
+import java.util.StringJoiner;
 
 @NamedQueries(
         @NamedQuery(
@@ -13,7 +14,10 @@ import javax.persistence.*;
 @Table(name = "games")
 public class Game {
 
+    private static final String DELIMITER = ";";
+
     @Id
+    @GeneratedValue
     private int gameId;
 
     @Column(name = "extra_look", columnDefinition = "TINYINT(1)")
@@ -53,7 +57,7 @@ public class Game {
     private int minAge;
 
     @Column(name = "bgg_rank")
-    private int bggRank;
+    private double bggRank;
 
     @Column(name = "average_weight")
     private double averageWeight;
@@ -63,6 +67,44 @@ public class Game {
 
     @Column(name = "mechanic")
     private String mechanic;
+
+    public Game() {
+    }
+
+    public Game(String bufferedString) {
+        if (bufferedString.contains(DELIMITER)) {
+            String[] splitGameParameters = bufferedString.split(DELIMITER);
+
+            this.gameName = splitGameParameters[1];
+
+            this.gameDesigner = splitGameParameters[2];
+
+            this.gamePublisher = splitGameParameters[3];
+
+            this.lastName = splitGameParameters[4];
+
+            this.yearPublished = Integer.parseInt(splitGameParameters[5]);
+
+            this.minPlayers = Integer.parseInt(splitGameParameters[6]);
+
+            this.maxPlayers = Integer.parseInt(splitGameParameters[7]);
+
+            this.minPlayTime = Integer.parseInt(splitGameParameters[8]);
+
+            this.maxPlayTime = Integer.parseInt(splitGameParameters[9]);
+
+            this.minAge = Integer.parseInt(splitGameParameters[10]);
+
+            this.bggRank = Double.parseDouble(splitGameParameters[11]);
+
+            this.averageWeight = Double.parseDouble(splitGameParameters[12]);
+
+            this.category = splitGameParameters[13];
+
+            this.mechanic = splitGameParameters[14];
+
+        }
+    }
 
     public int getGameId() {
         return gameId;
@@ -168,7 +210,7 @@ public class Game {
         this.minAge = minAge;
     }
 
-    public int getBggRank() {
+    public double getBggRank() {
         return bggRank;
     }
 
@@ -198,6 +240,29 @@ public class Game {
 
     public void setMechanic(String mechanic) {
         this.mechanic = mechanic;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Game.class.getSimpleName() + "[", "]")
+                .add("gameId=" + gameId)
+                .add("extraLook=" + extraLook)
+                .add("gameName='" + gameName + "'")
+                .add("gameDesigner='" + gameDesigner + "'")
+                .add("gamePublisher='" + gamePublisher + "'")
+                .add("gameArtist='" + gameArtist + "'")
+                .add("lastName='" + lastName + "'")
+                .add("yearPublished=" + yearPublished)
+                .add("minPlayers=" + minPlayers)
+                .add("maxPlayers=" + maxPlayers)
+                .add("minPlayTime=" + minPlayTime)
+                .add("maxPlayTime=" + maxPlayTime)
+                .add("minAge=" + minAge)
+                .add("bggRank=" + bggRank)
+                .add("averageWeight=" + averageWeight)
+                .add("category='" + category + "'")
+                .add("mechanic='" + mechanic + "'")
+                .toString();
     }
 }
 

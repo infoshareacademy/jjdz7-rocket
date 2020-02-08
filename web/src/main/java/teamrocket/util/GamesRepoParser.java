@@ -6,8 +6,6 @@ import teamrocket.domain.Game;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,12 +30,6 @@ public class GamesRepoParser {
     }
 
 
-    public void parseFileRepoToDb(InputStream fileContent) {
-        gamesEntityList = (List<Game>) new InputStreamReader(fileContent);
-        for (Game games : gamesEntityList) {
-            gamesDaoHelper.add(games);
-        }
-    }
 
     public Game convertDtoToEntity(teamrocket.model.Game game) {
         Game gamesEntity = new Game();

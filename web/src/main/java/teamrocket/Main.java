@@ -1,20 +1,36 @@
 package teamrocket;
 
+import teamrocket.domain.Game;
+
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 
 public class Main {
 
-    private static EntityManager entityManager;
+
 
     public static void main(String[] args) {
 
-        EntityManagerFactory entityManagerFactory = Persistence
-                .createEntityManagerFactory("grajdolex-hibernate");
 
-        entityManager = entityManagerFactory.createEntityManager();
+        String example = "174430;Gloomhaven;Isaac Childres;Cephalofair Games;Alexandr Elichev;2017;1;4;60;120;12;1;3.80;Adventure; Exploration; Fantasy; Fighting; Miniatures;Campaign  Battle Card Driven; Cooperative Play; Grid Movement; Hand Management; Modular Board; Role Playing; Simultaneous Action Selection; Storytelling; Variable Player Powers";
+        Game game = new Game(example);
+
+        Tak tak = new Tak();
+
+        tak.add(game);
+
+//
+//        System.out.println(game.toString());
 
 
+    }
+
+    public static class Tak{
+        @PersistenceContext(unitName = "grajdolex-hibernate")
+        protected EntityManager entityManager;
+
+        public void add(Game game){
+            entityManager.persist(game);
+        }
     }
 }
