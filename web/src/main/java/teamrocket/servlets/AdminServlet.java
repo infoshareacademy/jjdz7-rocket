@@ -22,7 +22,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @WebServlet("/admin")
-@MultipartConfig
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 *1024,
+        maxFileSize = 1024 * 1024 * 1024,
+        maxRequestSize = 1024 * 1024 * 1024)
 public class AdminServlet extends HttpServlet {
 
     @Inject
