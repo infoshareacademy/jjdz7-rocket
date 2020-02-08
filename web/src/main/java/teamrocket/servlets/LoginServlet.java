@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 
             checkAndAddIfNotExistUser(req, email, name);
 
-            resp.sendRedirect("/main");
+            resp.sendRedirect("/login.html");
 
         } catch (Exception e) {
             throw new RuntimeException(e);
