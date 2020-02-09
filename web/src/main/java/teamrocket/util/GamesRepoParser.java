@@ -15,7 +15,7 @@ public class GamesRepoParser {
 
     private GamesDaoHelper gamesDaoHelper;
 
-    GamesRepoParser(EntityManager em) {
+    public GamesRepoParser(EntityManager em) {
         this.gamesDaoHelper = new GamesDaoHelper();
         gamesDaoHelper.setEntityManager(em);
     }
@@ -29,14 +29,7 @@ public class GamesRepoParser {
         }
     }
 
-    public void parseFileRepoToDb() {
-        //TODO: get file from web page and reuse convert method, then use add method
-       /* List<Game> gameList = getGamesListFromFileInAppModule();
-        convertGameListToGamesEntityDto(gameList, gamesEntityList);*/
-        for (Game games : gamesEntityList) {
-            gamesDaoHelper.add(games);
-        }
-    }
+
 
     public Game convertDtoToEntity(teamrocket.model.Game game) {
         Game gamesEntity = new Game();
