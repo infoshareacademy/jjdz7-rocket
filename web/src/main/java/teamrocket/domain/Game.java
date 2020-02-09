@@ -14,7 +14,7 @@ import java.util.StringJoiner;
 @Table(name = "games")
 public class Game {
 
-    private static final String DELIMITER = ";";
+    private static final String DELIMITER = ",";
 
     @Id
     @GeneratedValue
